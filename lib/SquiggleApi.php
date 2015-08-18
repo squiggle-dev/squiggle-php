@@ -1,6 +1,6 @@
 <?php
 /**
- * Squiggle
+ * SquiggleApi
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \Squiggle\ApiException;
 use \Squiggle\ObjectSerializer;
 
 /**
- * Squiggle Class Doc Comment
+ * SquiggleApi Class Doc Comment
  *
  * @category Class
  * @package  Squiggle
@@ -47,7 +47,7 @@ use \Squiggle\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Squiggle
+class SquiggleApi
 {
 
     /**
@@ -82,7 +82,7 @@ class Squiggle
     /**
      * Set the API client
      * @param \Squiggle\ApiClient $apiClient set the API client
-     * @return Squiggle
+     * @return SquiggleApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
