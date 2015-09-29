@@ -64,7 +64,7 @@ class SquiggleApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('http://localhost:8081/v1');
+            $apiClient->getConfig()->setHost('http://localhost:8081/');
         }
   
         $this->apiClient = $apiClient;
@@ -92,6 +92,81 @@ class SquiggleApi
   
     
     /**
+     * requestAddressToken
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @return object
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function requestAddressToken($data)
+    {
+        
+        // verify the required parameter 'data' is set
+        if ($data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $data when calling requestAddressToken');
+        }
+  
+        // parse inputs
+        $resourcePath = "/authentication/address";
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+        $method = "POST";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array());
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        
+        
+        // body params
+        $_tempBody = null;
+        if (isset($data)) {
+            $_tempBody = $data;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } else if (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try
+        {
+            list($response, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, $method,
+                $queryParams, $httpBody,
+                $headerParams, 'object'
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+        
+        if (!$response) {
+            return null;
+        }
+  
+        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        
+    }
+    
+    /**
      * findAddresses
      *
      * 
@@ -106,7 +181,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/addresses";
+        $resourcePath = "/v1/addresses";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -137,13 +212,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -190,7 +258,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/addresses";
+        $resourcePath = "/v1/addresses";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "POST";
         $httpBody = '';
@@ -219,13 +287,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -272,7 +333,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/addresses/{id}";
+        $resourcePath = "/v1/addresses/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -350,7 +411,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/addresses/{id}";
+        $resourcePath = "/v1/addresses/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "DELETE";
         $httpBody = '';
@@ -382,13 +443,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -430,7 +484,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/addresses/{id}";
+        $resourcePath = "/v1/addresses/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "PATCH";
         $httpBody = '';
@@ -466,13 +520,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -516,7 +563,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/global-templates";
+        $resourcePath = "/v1/global-templates";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -547,13 +594,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -600,7 +640,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/global-templates";
+        $resourcePath = "/v1/global-templates";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "POST";
         $httpBody = '';
@@ -629,13 +669,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -682,7 +715,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/global-templates/{id}";
+        $resourcePath = "/v1/global-templates/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -714,13 +747,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -767,7 +793,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/global-templates/{id}";
+        $resourcePath = "/v1/global-templates/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "DELETE";
         $httpBody = '';
@@ -799,13 +825,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -847,7 +866,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/global-templates/{id}";
+        $resourcePath = "/v1/global-templates/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "PATCH";
         $httpBody = '';
@@ -883,13 +902,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -933,7 +945,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/snippets";
+        $resourcePath = "/v1/snippets";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -964,13 +976,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1017,7 +1022,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/snippets";
+        $resourcePath = "/v1/snippets";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "POST";
         $httpBody = '';
@@ -1046,13 +1051,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1099,7 +1097,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/snippets/{id}";
+        $resourcePath = "/v1/snippets/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -1131,13 +1129,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1184,7 +1175,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/snippets/{id}";
+        $resourcePath = "/v1/snippets/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "DELETE";
         $httpBody = '';
@@ -1216,13 +1207,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1264,7 +1248,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/snippets/{id}";
+        $resourcePath = "/v1/snippets/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "PATCH";
         $httpBody = '';
@@ -1300,13 +1284,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1350,7 +1327,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/templates";
+        $resourcePath = "/v1/templates";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -1381,13 +1358,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1434,7 +1404,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/templates";
+        $resourcePath = "/v1/templates";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "POST";
         $httpBody = '';
@@ -1463,13 +1433,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1516,7 +1479,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/templates/{id}";
+        $resourcePath = "/v1/templates/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -1548,13 +1511,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1601,7 +1557,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/templates/{id}";
+        $resourcePath = "/v1/templates/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "DELETE";
         $httpBody = '';
@@ -1633,13 +1589,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1681,7 +1630,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/templates/{id}";
+        $resourcePath = "/v1/templates/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "PATCH";
         $httpBody = '';
@@ -1717,13 +1666,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1767,7 +1709,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/users";
+        $resourcePath = "/v1/users";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -1798,13 +1740,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1851,7 +1786,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/users";
+        $resourcePath = "/v1/users";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "POST";
         $httpBody = '';
@@ -1880,13 +1815,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -1933,7 +1861,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/users/{id}";
+        $resourcePath = "/v1/users/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "GET";
         $httpBody = '';
@@ -1965,13 +1893,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -2018,7 +1939,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/users/{id}";
+        $resourcePath = "/v1/users/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "DELETE";
         $httpBody = '';
@@ -2050,13 +1971,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try
@@ -2098,7 +2012,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/users/{id}";
+        $resourcePath = "/v1/users/{id}";
         $resourcePath = str_replace("{format}", "json", $resourcePath);
         $method = "PATCH";
         $httpBody = '';
@@ -2134,13 +2048,6 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
-        
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
-            $headerParams['Authorization'] = $apiKey;
-        }
-        
-        
         
         // make the API Call
         try

@@ -53,6 +53,7 @@ class Address implements ArrayAccess
     static $swaggerTypes = array(
         'id' => 'int',
         'email' => 'string',
+        'password' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'job_title' => 'string',
@@ -73,6 +74,7 @@ class Address implements ArrayAccess
     static $attributeMap = array(
         'id' => 'id',
         'email' => 'email',
+        'password' => 'password',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
         'job_title' => 'job_title',
@@ -93,6 +95,7 @@ class Address implements ArrayAccess
     static $setters = array(
         'id' => 'setId',
         'email' => 'setEmail',
+        'password' => 'setPassword',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'job_title' => 'setJobTitle',
@@ -113,6 +116,7 @@ class Address implements ArrayAccess
     static $getters = array(
         'id' => 'getId',
         'email' => 'getEmail',
+        'password' => 'getPassword',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'job_title' => 'getJobTitle',
@@ -138,6 +142,12 @@ class Address implements ArrayAccess
       * @var string
       */
     protected $email;
+    
+    /**
+      * $password 
+      * @var string
+      */
+    protected $password;
     
     /**
       * $first_name 
@@ -260,6 +270,27 @@ class Address implements ArrayAccess
     {
         
         $this->email = $email;
+        return $this;
+    }
+    
+    /**
+     * Gets password
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+  
+    /**
+     * Sets password
+     * @param string $password 
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        
+        $this->password = $password;
         return $this;
     }
     
