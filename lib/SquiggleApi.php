@@ -213,6 +213,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -287,6 +294,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -366,6 +380,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -444,6 +465,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -521,6 +549,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -594,6 +629,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -669,6 +711,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -748,6 +797,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -826,6 +882,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -903,6 +966,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -976,6 +1046,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -1051,6 +1128,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -1130,6 +1214,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -1208,6 +1299,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -1285,6 +1383,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -1358,6 +1463,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -1433,6 +1545,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -1512,6 +1631,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -1590,6 +1716,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -1667,6 +1800,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -1740,6 +1880,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -1815,6 +1962,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
@@ -1894,6 +2048,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -1972,6 +2133,13 @@ class SquiggleApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        
         // make the API Call
         try
         {
@@ -2048,6 +2216,13 @@ class SquiggleApi
         } else if (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
+        if (isset($apiKey)) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
         
         // make the API Call
         try
