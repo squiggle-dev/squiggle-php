@@ -1,6 +1,6 @@
 <?php
 /**
- * AddressResp
+ * Response
  *
  * PHP version 5
  *
@@ -35,7 +35,7 @@ namespace Squiggle\Model;
 
 use \ArrayAccess;
 /**
- * AddressResp Class Doc Comment
+ * Response Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -44,15 +44,14 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class AddressResp implements ArrayAccess
+class Response implements ArrayAccess
 {
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'address' => '\Squiggle\Model\Address',
-        'signatures' => '\Squiggle\Model\Signature'
+        'links' => '\Squiggle\Model\ResponseLinks'
     );
   
     /** 
@@ -60,8 +59,7 @@ class AddressResp implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'address' => 'address',
-        'signatures' => 'signatures'
+        'links' => 'links'
     );
   
     /**
@@ -69,8 +67,7 @@ class AddressResp implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'address' => 'setAddress',
-        'signatures' => 'setSignatures'
+        'links' => 'setLinks'
     );
   
     /**
@@ -78,22 +75,15 @@ class AddressResp implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'address' => 'getAddress',
-        'signatures' => 'getSignatures'
+        'links' => 'getLinks'
     );
   
     
     /**
-      * $address 
-      * @var \Squiggle\Model\Address
+      * $links 
+      * @var \Squiggle\Model\ResponseLinks
       */
-    protected $address;
-    
-    /**
-      * $signatures 
-      * @var \Squiggle\Model\Signature
-      */
-    protected $signatures;
+    protected $links;
     
 
     /**
@@ -112,44 +102,23 @@ class AddressResp implements ArrayAccess
     }
     
     /**
-     * Gets address
-     * @return \Squiggle\Model\Address
+     * Gets links
+     * @return \Squiggle\Model\ResponseLinks
      */
-    public function getAddress()
+    public function getLinks()
     {
-        return $this->address;
+        return $this->links;
     }
   
     /**
-     * Sets address
-     * @param \Squiggle\Model\Address $address 
+     * Sets links
+     * @param \Squiggle\Model\ResponseLinks $links 
      * @return $this
      */
-    public function setAddress($address)
+    public function setLinks($links)
     {
         
-        $this->address = $address;
-        return $this;
-    }
-    
-    /**
-     * Gets signatures
-     * @return \Squiggle\Model\Signature
-     */
-    public function getSignatures()
-    {
-        return $this->signatures;
-    }
-  
-    /**
-     * Sets signatures
-     * @param \Squiggle\Model\Signature $signatures 
-     * @return $this
-     */
-    public function setSignatures($signatures)
-    {
-        
-        $this->signatures = $signatures;
+        $this->links = $links;
         return $this;
     }
     

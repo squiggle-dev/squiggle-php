@@ -1,6 +1,6 @@
 <?php
 /**
- * Links
+ * UserResponseSingle
  *
  * PHP version 5
  *
@@ -35,7 +35,7 @@ namespace Squiggle\Model;
 
 use \ArrayAccess;
 /**
- * Links Class Doc Comment
+ * UserResponseSingle Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -44,17 +44,15 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Links implements ArrayAccess
+class UserResponseSingle implements ArrayAccess
 {
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'self' => 'string',
-        'related' => 'string',
-        'next' => 'string',
-        'last' => 'string'
+        'data' => '\Squiggle\Model\User',
+        'links' => '\Squiggle\Model\ResponseLinks'
     );
   
     /** 
@@ -62,10 +60,8 @@ class Links implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'self' => 'self',
-        'related' => 'related',
-        'next' => 'next',
-        'last' => 'last'
+        'data' => 'data',
+        'links' => 'links'
     );
   
     /**
@@ -73,10 +69,8 @@ class Links implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'self' => 'setSelf',
-        'related' => 'setRelated',
-        'next' => 'setNext',
-        'last' => 'setLast'
+        'data' => 'setData',
+        'links' => 'setLinks'
     );
   
     /**
@@ -84,36 +78,22 @@ class Links implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'self' => 'getSelf',
-        'related' => 'getRelated',
-        'next' => 'getNext',
-        'last' => 'getLast'
+        'data' => 'getData',
+        'links' => 'getLinks'
     );
   
     
     /**
-      * $self 
-      * @var string
+      * $data 
+      * @var \Squiggle\Model\User
       */
-    protected $self;
+    protected $data;
     
     /**
-      * $related 
-      * @var string
+      * $links 
+      * @var \Squiggle\Model\ResponseLinks
       */
-    protected $related;
-    
-    /**
-      * $next 
-      * @var string
-      */
-    protected $next;
-    
-    /**
-      * $last 
-      * @var string
-      */
-    protected $last;
+    protected $links;
     
 
     /**
@@ -132,86 +112,44 @@ class Links implements ArrayAccess
     }
     
     /**
-     * Gets self
-     * @return string
+     * Gets data
+     * @return \Squiggle\Model\User
      */
-    public function getSelf()
+    public function getData()
     {
-        return $this->self;
+        return $this->data;
     }
   
     /**
-     * Sets self
-     * @param string $self 
+     * Sets data
+     * @param \Squiggle\Model\User $data 
      * @return $this
      */
-    public function setSelf($self)
+    public function setData($data)
     {
         
-        $this->self = $self;
+        $this->data = $data;
         return $this;
     }
     
     /**
-     * Gets related
-     * @return string
+     * Gets links
+     * @return \Squiggle\Model\ResponseLinks
      */
-    public function getRelated()
+    public function getLinks()
     {
-        return $this->related;
+        return $this->links;
     }
   
     /**
-     * Sets related
-     * @param string $related 
+     * Sets links
+     * @param \Squiggle\Model\ResponseLinks $links 
      * @return $this
      */
-    public function setRelated($related)
+    public function setLinks($links)
     {
         
-        $this->related = $related;
-        return $this;
-    }
-    
-    /**
-     * Gets next
-     * @return string
-     */
-    public function getNext()
-    {
-        return $this->next;
-    }
-  
-    /**
-     * Sets next
-     * @param string $next 
-     * @return $this
-     */
-    public function setNext($next)
-    {
-        
-        $this->next = $next;
-        return $this;
-    }
-    
-    /**
-     * Gets last
-     * @return string
-     */
-    public function getLast()
-    {
-        return $this->last;
-    }
-  
-    /**
-     * Sets last
-     * @param string $last 
-     * @return $this
-     */
-    public function setLast($last)
-    {
-        
-        $this->last = $last;
+        $this->links = $links;
         return $this;
     }
     

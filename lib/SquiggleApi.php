@@ -64,7 +64,7 @@ class SquiggleApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('http://localhost:8081/');
+            $apiClient->getConfig()->setHost('http://squiggle-api.sitlabs.co.uk/');
         }
   
         $this->apiClient = $apiClient;
@@ -97,7 +97,7 @@ class SquiggleApi
      * 
      *
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\JSONWebTokenResponse
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function requestAddressToken($data)
@@ -116,7 +116,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -145,12 +145,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\JSONWebTokenResponse'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -162,7 +162,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\JSONWebTokenResponse');
         
     }
     
@@ -173,7 +173,7 @@ class SquiggleApi
      *
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
-     * @return object
+     * @return \Squiggle\Model\AddressResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function findAddresses($offset=null, $limit=null)
@@ -188,7 +188,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -226,12 +226,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\AddressResponseMultiple'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseMultiple', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -243,7 +243,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseMultiple');
         
     }
     
@@ -253,7 +253,7 @@ class SquiggleApi
      * 
      *
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\AddressResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function addAddress($data)
@@ -272,7 +272,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -308,12 +308,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\AddressResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -325,7 +325,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle');
         
     }
     
@@ -335,7 +335,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of address to get (required)
-     * @return object
+     * @return \Squiggle\Model\AddressResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function getAddress($id)
@@ -354,7 +354,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -393,12 +393,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\AddressResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -410,7 +410,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle');
         
     }
     
@@ -439,7 +439,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -496,7 +496,7 @@ class SquiggleApi
      *
      * @param int $id ID of address to update (required)
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\AddressResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function editAddress($id, $data)
@@ -519,7 +519,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -562,12 +562,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\AddressResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -579,7 +579,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle');
         
     }
     
@@ -590,7 +590,7 @@ class SquiggleApi
      *
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
-     * @return object
+     * @return \Squiggle\Model\GlobalTemplateResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function findGlobalTemplates($offset=null, $limit=null)
@@ -605,7 +605,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -643,12 +643,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\GlobalTemplateResponseMultiple'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseMultiple', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -660,7 +660,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseMultiple');
         
     }
     
@@ -670,7 +670,7 @@ class SquiggleApi
      * 
      *
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\GlobalTemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function addGlobalTemplate($data)
@@ -689,7 +689,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -725,12 +725,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\GlobalTemplateResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -742,7 +742,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle');
         
     }
     
@@ -752,7 +752,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of global template to get (required)
-     * @return object
+     * @return \Squiggle\Model\GlobalTemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function getGlobalTemplate($id)
@@ -771,7 +771,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -810,12 +810,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\GlobalTemplateResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -827,7 +827,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle');
         
     }
     
@@ -856,7 +856,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -913,7 +913,7 @@ class SquiggleApi
      *
      * @param int $id ID of global template to update (required)
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\GlobalTemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function editGlobalTemplate($id, $data)
@@ -936,7 +936,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -979,12 +979,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\GlobalTemplateResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -996,7 +996,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle');
         
     }
     
@@ -1007,7 +1007,7 @@ class SquiggleApi
      *
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
-     * @return object
+     * @return \Squiggle\Model\SnippetResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function findSnippets($offset=null, $limit=null)
@@ -1022,7 +1022,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1060,12 +1060,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\SnippetResponseMultiple'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseMultiple', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1077,7 +1077,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseMultiple');
         
     }
     
@@ -1087,7 +1087,7 @@ class SquiggleApi
      * 
      *
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\SnippetResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function addSnippet($data)
@@ -1106,7 +1106,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1142,12 +1142,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\SnippetResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1159,7 +1159,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle');
         
     }
     
@@ -1169,7 +1169,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of snippet to get (required)
-     * @return object
+     * @return \Squiggle\Model\SnippetResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function getSnippet($id)
@@ -1188,7 +1188,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1227,12 +1227,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\SnippetResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1244,7 +1244,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle');
         
     }
     
@@ -1273,7 +1273,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1330,7 +1330,7 @@ class SquiggleApi
      *
      * @param int $id ID of snippet to update (required)
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\SnippetResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function editSnippet($id, $data)
@@ -1353,7 +1353,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1396,12 +1396,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\SnippetResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1413,7 +1413,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle');
         
     }
     
@@ -1424,7 +1424,7 @@ class SquiggleApi
      *
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
-     * @return object
+     * @return \Squiggle\Model\TemplateResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function findTemplates($offset=null, $limit=null)
@@ -1439,7 +1439,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1477,12 +1477,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\TemplateResponseMultiple'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseMultiple', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1494,7 +1494,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseMultiple');
         
     }
     
@@ -1504,7 +1504,7 @@ class SquiggleApi
      * 
      *
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\TemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function addTemplate($data)
@@ -1523,7 +1523,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1559,12 +1559,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\TemplateResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1576,7 +1576,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle');
         
     }
     
@@ -1586,7 +1586,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of template to get (required)
-     * @return object
+     * @return \Squiggle\Model\TemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function getTemplate($id)
@@ -1605,7 +1605,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1644,12 +1644,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\TemplateResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1661,7 +1661,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle');
         
     }
     
@@ -1690,7 +1690,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1747,7 +1747,7 @@ class SquiggleApi
      *
      * @param int $id ID of template to update (required)
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\TemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function editTemplate($id, $data)
@@ -1770,7 +1770,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1813,12 +1813,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\TemplateResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1830,7 +1830,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle');
         
     }
     
@@ -1841,7 +1841,7 @@ class SquiggleApi
      *
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
-     * @return object
+     * @return \Squiggle\Model\UserResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function findUsers($offset=null, $limit=null)
@@ -1856,7 +1856,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1894,12 +1894,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\UserResponseMultiple'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseMultiple', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1911,7 +1911,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseMultiple');
         
     }
     
@@ -1921,7 +1921,7 @@ class SquiggleApi
      * 
      *
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\UserResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function addUser($data)
@@ -1940,7 +1940,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -1976,12 +1976,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\UserResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -1993,7 +1993,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle');
         
     }
     
@@ -2003,7 +2003,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of user to get (required)
-     * @return object
+     * @return \Squiggle\Model\UserResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function getUser($id)
@@ -2022,7 +2022,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -2061,12 +2061,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\UserResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -2078,7 +2078,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle');
         
     }
     
@@ -2107,7 +2107,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -2164,7 +2164,7 @@ class SquiggleApi
      *
      * @param int $id ID of user to update (required)
      * @param object $data  (required)
-     * @return object
+     * @return \Squiggle\Model\UserResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
     public function editUser($id, $data)
@@ -2187,7 +2187,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array());
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -2230,12 +2230,12 @@ class SquiggleApi
             list($response, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, $method,
                 $queryParams, $httpBody,
-                $headerParams, 'object'
+                $headerParams, '\Squiggle\Model\UserResponseSingle'
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $httpHeader);
+                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $httpHeader);
                 $e->setResponseObject($data);
                 break;
             }
@@ -2247,7 +2247,7 @@ class SquiggleApi
             return null;
         }
   
-        return $this->apiClient->getSerializer()->deserialize($response, 'object');
+        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle');
         
     }
     

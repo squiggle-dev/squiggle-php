@@ -64,6 +64,7 @@ class Address implements ArrayAccess
         'twitter' => 'string',
         'instagram' => 'string',
         'googleplus' => 'string',
+        'signatures' => '\Squiggle\Model\Signature[]',
         'user' => 'int'
     );
   
@@ -85,6 +86,7 @@ class Address implements ArrayAccess
         'twitter' => 'twitter',
         'instagram' => 'instagram',
         'googleplus' => 'googleplus',
+        'signatures' => 'signatures',
         'user' => 'user'
     );
   
@@ -106,6 +108,7 @@ class Address implements ArrayAccess
         'twitter' => 'setTwitter',
         'instagram' => 'setInstagram',
         'googleplus' => 'setGoogleplus',
+        'signatures' => 'setSignatures',
         'user' => 'setUser'
     );
   
@@ -127,6 +130,7 @@ class Address implements ArrayAccess
         'twitter' => 'getTwitter',
         'instagram' => 'getInstagram',
         'googleplus' => 'getGoogleplus',
+        'signatures' => 'getSignatures',
         'user' => 'getUser'
     );
   
@@ -208,6 +212,12 @@ class Address implements ArrayAccess
       * @var string
       */
     protected $googleplus;
+    
+    /**
+      * $signatures 
+      * @var \Squiggle\Model\Signature[]
+      */
+    protected $signatures;
     
     /**
       * $user 
@@ -501,6 +511,27 @@ class Address implements ArrayAccess
     {
         
         $this->googleplus = $googleplus;
+        return $this;
+    }
+    
+    /**
+     * Gets signatures
+     * @return \Squiggle\Model\Signature[]
+     */
+    public function getSignatures()
+    {
+        return $this->signatures;
+    }
+  
+    /**
+     * Sets signatures
+     * @param \Squiggle\Model\Signature[] $signatures 
+     * @return $this
+     */
+    public function setSignatures($signatures)
+    {
+        
+        $this->signatures = $signatures;
         return $this;
     }
     
