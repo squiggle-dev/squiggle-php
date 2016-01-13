@@ -103,7 +103,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = "PHP-Swagger/0.0.3";
+    protected $userAgent = "PHP-Swagger/0.0.4";
   
     /**
      * Debug switch (default set to false)
@@ -455,7 +455,7 @@ class Configuration
         $report .= "    OS: ".php_uname()."\n";
         $report .= "    PHP Version: ".phpversion()."\n";
         $report .= "    Swagger Spec Version: 0.0.1\n";
-        $report .= "    SDK Package Version: 0.0.3\n";
+        $report .= "    SDK Package Version: 0.0.4\n";
         $report .= "    Temp Folder Path: ".self::getDefaultConfiguration()->getTempFolderPath()."\n";
   
         return $report;
