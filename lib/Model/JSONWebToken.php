@@ -83,7 +83,7 @@ class JSONWebToken implements ArrayAccess
       * $token 
       * @var string
       */
-    protected $token = null;
+    protected $token;
     
 
     /**

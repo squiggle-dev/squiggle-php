@@ -91,19 +91,19 @@ class Signature implements ArrayAccess
       * $plain 
       * @var string
       */
-    protected $plain = null;
+    protected $plain;
     
     /**
       * $rich 
       * @var string
       */
-    protected $rich = null;
+    protected $rich;
     
     /**
       * $html 
       * @var string
       */
-    protected $html = null;
+    protected $html;
     
 
     /**

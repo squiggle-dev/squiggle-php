@@ -51,7 +51,7 @@ class UnexpectedErrorResponse implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'errors' => 'object[]'
+        'errors' => '\Squiggle\Model\Error[]'
     );
   
     /** 
@@ -81,9 +81,9 @@ class UnexpectedErrorResponse implements ArrayAccess
     
     /**
       * $errors 
-      * @var object[]
+      * @var \Squiggle\Model\Error[]
       */
-    protected $errors = null;
+    protected $errors;
     
 
     /**
@@ -103,7 +103,7 @@ class UnexpectedErrorResponse implements ArrayAccess
     
     /**
      * Gets errors
-     * @return object[]
+     * @return \Squiggle\Model\Error[]
      */
     public function getErrors()
     {
@@ -112,7 +112,7 @@ class UnexpectedErrorResponse implements ArrayAccess
   
     /**
      * Sets errors
-     * @param object[] $errors 
+     * @param \Squiggle\Model\Error[] $errors 
      * @return $this
      */
     public function setErrors($errors)

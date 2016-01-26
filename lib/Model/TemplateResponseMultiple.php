@@ -87,13 +87,13 @@ class TemplateResponseMultiple implements ArrayAccess
       * $data 
       * @var \Squiggle\Model\Template[]
       */
-    protected $data = null;
+    protected $data;
     
     /**
       * $links 
       * @var \Squiggle\Model\ResponseLinks
       */
-    protected $links = null;
+    protected $links;
     
 
     /**

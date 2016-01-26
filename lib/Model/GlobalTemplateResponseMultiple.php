@@ -87,13 +87,13 @@ class GlobalTemplateResponseMultiple implements ArrayAccess
       * $data 
       * @var \Squiggle\Model\GlobalTemplate[]
       */
-    protected $data = null;
+    protected $data;
     
     /**
       * $links 
       * @var \Squiggle\Model\ResponseLinks
       */
-    protected $links = null;
+    protected $links;
     
 
     /**

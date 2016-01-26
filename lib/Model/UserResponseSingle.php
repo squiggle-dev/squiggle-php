@@ -87,13 +87,13 @@ class UserResponseSingle implements ArrayAccess
       * $data 
       * @var \Squiggle\Model\User
       */
-    protected $data = null;
+    protected $data;
     
     /**
       * $links 
       * @var \Squiggle\Model\ResponseLinks
       */
-    protected $links = null;
+    protected $links;
     
 
     /**

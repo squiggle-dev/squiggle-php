@@ -87,13 +87,13 @@ class SignatureResponseSingle implements ArrayAccess
       * $data 
       * @var \Squiggle\Model\Signature
       */
-    protected $data = null;
+    protected $data;
     
     /**
       * $links 
       * @var \Squiggle\Model\ResponseLinks
       */
-    protected $links = null;
+    protected $links;
     
 
     /**

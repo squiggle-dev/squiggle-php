@@ -119,61 +119,61 @@ class Template implements ArrayAccess
       * $id 
       * @var int
       */
-    protected $id = null;
+    protected $id;
     
     /**
       * $name 
       * @var string
       */
-    protected $name = null;
+    protected $name;
     
     /**
       * $description 
       * @var string
       */
-    protected $description = null;
+    protected $description;
     
     /**
       * $thumbnail 
       * @var string
       */
-    protected $thumbnail = null;
+    protected $thumbnail;
     
     /**
       * $content_html 
       * @var string
       */
-    protected $content_html = null;
+    protected $content_html;
     
     /**
       * $content_plaintext 
       * @var string
       */
-    protected $content_plaintext = null;
+    protected $content_plaintext;
     
     /**
       * $content_richtext 
       * @var string
       */
-    protected $content_richtext = null;
+    protected $content_richtext;
     
     /**
       * $settings 
       * @var string
       */
-    protected $settings = null;
+    protected $settings;
     
     /**
       * $user 
       * @var int
       */
-    protected $user = null;
+    protected $user;
     
     /**
       * $template 
       * @var int
       */
-    protected $template = null;
+    protected $template;
     
 
     /**

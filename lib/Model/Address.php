@@ -139,91 +139,91 @@ class Address implements ArrayAccess
       * $id 
       * @var int
       */
-    protected $id = null;
+    protected $id;
     
     /**
       * $email 
       * @var string
       */
-    protected $email = null;
+    protected $email;
     
     /**
       * $password 
       * @var string
       */
-    protected $password = null;
+    protected $password;
     
     /**
       * $first_name 
       * @var string
       */
-    protected $first_name = null;
+    protected $first_name;
     
     /**
       * $last_name 
       * @var string
       */
-    protected $last_name = null;
+    protected $last_name;
     
     /**
       * $job_title 
       * @var string
       */
-    protected $job_title = null;
+    protected $job_title;
     
     /**
       * $tel_mobile 
       * @var string
       */
-    protected $tel_mobile = null;
+    protected $tel_mobile;
     
     /**
       * $tel_direct 
       * @var string
       */
-    protected $tel_direct = null;
+    protected $tel_direct;
     
     /**
       * $linkedin 
       * @var string
       */
-    protected $linkedin = null;
+    protected $linkedin;
     
     /**
       * $facebook 
       * @var string
       */
-    protected $facebook = null;
+    protected $facebook;
     
     /**
       * $twitter 
       * @var string
       */
-    protected $twitter = null;
+    protected $twitter;
     
     /**
       * $instagram 
       * @var string
       */
-    protected $instagram = null;
+    protected $instagram;
     
     /**
       * $googleplus 
       * @var string
       */
-    protected $googleplus = null;
+    protected $googleplus;
     
     /**
       * $signatures 
       * @var \Squiggle\Model\Signature[]
       */
-    protected $signatures = null;
+    protected $signatures;
     
     /**
       * $user 
       * @var int
       */
-    protected $user = null;
+    protected $user;
     
 
     /**

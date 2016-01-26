@@ -95,25 +95,25 @@ class ResponseLinks implements ArrayAccess
       * $self 
       * @var string
       */
-    protected $self = null;
+    protected $self;
     
     /**
       * $related 
       * @var string
       */
-    protected $related = null;
+    protected $related;
     
     /**
       * $next 
       * @var string
       */
-    protected $next = null;
+    protected $next;
     
     /**
       * $last 
       * @var string
       */
-    protected $last = null;
+    protected $last;
     
 
     /**

@@ -96,7 +96,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\LoginDetails $data  (required)
      * @return \Squiggle\Model\JSONWebTokenResponse
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -112,7 +112,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\LoginDetails $data  (required)
      * @return Array of \Squiggle\Model\JSONWebTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -134,7 +134,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -174,6 +174,10 @@ class SquiggleApi
             switch ($e->getCode()) { 
             case 200:
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -223,7 +227,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         // query params
         
@@ -276,6 +280,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -287,7 +295,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Address $data  (required)
      * @return \Squiggle\Model\AddressResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -303,7 +311,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Address $data  (required)
      * @return Array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -325,7 +333,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -372,6 +380,10 @@ class SquiggleApi
             switch ($e->getCode()) { 
             case 201:
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -423,7 +435,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -476,6 +488,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -525,7 +541,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -570,6 +586,10 @@ class SquiggleApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -582,7 +602,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of address to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Address $data  (required)
      * @return \Squiggle\Model\AddressResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -599,7 +619,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of address to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Address $data  (required)
      * @return Array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -625,7 +645,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -682,6 +702,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -729,7 +753,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         // query params
         
@@ -782,6 +806,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -793,7 +821,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @return \Squiggle\Model\GlobalTemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -809,7 +837,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @return Array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -831,7 +859,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -878,6 +906,10 @@ class SquiggleApi
             switch ($e->getCode()) { 
             case 201:
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -929,7 +961,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -982,6 +1014,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1031,7 +1067,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1076,6 +1112,10 @@ class SquiggleApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1088,7 +1128,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of global template to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @return \Squiggle\Model\GlobalTemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1105,7 +1145,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of global template to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @return Array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1131,7 +1171,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1188,6 +1228,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1235,7 +1279,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         // query params
         
@@ -1288,6 +1332,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1299,7 +1347,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Snippet $data  (required)
      * @return \Squiggle\Model\SnippetResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1315,7 +1363,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Snippet $data  (required)
      * @return Array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1337,7 +1385,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1384,6 +1432,10 @@ class SquiggleApi
             switch ($e->getCode()) { 
             case 201:
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -1435,7 +1487,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1488,6 +1540,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1537,7 +1593,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1582,6 +1638,10 @@ class SquiggleApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1594,7 +1654,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of snippet to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Snippet $data  (required)
      * @return \Squiggle\Model\SnippetResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1611,7 +1671,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of snippet to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Snippet $data  (required)
      * @return Array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1637,7 +1697,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1694,6 +1754,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1741,7 +1805,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         // query params
         
@@ -1794,6 +1858,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -1805,7 +1873,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Template $data  (required)
      * @return \Squiggle\Model\TemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1821,7 +1889,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Template $data  (required)
      * @return Array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -1843,7 +1911,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1890,6 +1958,10 @@ class SquiggleApi
             switch ($e->getCode()) { 
             case 201:
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -1941,7 +2013,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -1994,6 +2066,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -2043,7 +2119,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -2088,6 +2164,10 @@ class SquiggleApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -2100,7 +2180,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of template to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Template $data  (required)
      * @return \Squiggle\Model\TemplateResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -2117,7 +2197,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of template to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Template $data  (required)
      * @return Array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -2143,7 +2223,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -2200,6 +2280,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -2247,7 +2331,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         // query params
         
@@ -2300,6 +2384,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -2311,7 +2399,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\User $data  (required)
      * @return \Squiggle\Model\UserResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -2327,7 +2415,7 @@ class SquiggleApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\User $data  (required)
      * @return Array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -2349,7 +2437,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -2396,6 +2484,10 @@ class SquiggleApi
             switch ($e->getCode()) { 
             case 201:
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -2447,7 +2539,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -2500,6 +2592,10 @@ class SquiggleApi
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -2549,7 +2645,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -2594,6 +2690,10 @@ class SquiggleApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -2606,7 +2706,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of user to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\User $data  (required)
      * @return \Squiggle\Model\UserResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -2623,7 +2723,7 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of user to update (required)
-     * @param object $data  (required)
+     * @param \Squiggle\Model\User $data  (required)
      * @return Array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
@@ -2649,7 +2749,7 @@ class SquiggleApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
   
         
         
@@ -2704,6 +2804,10 @@ class SquiggleApi
             switch ($e->getCode()) { 
             case 200:
                 $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }

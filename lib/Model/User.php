@@ -151,109 +151,109 @@ class User implements ArrayAccess
       * $id 
       * @var int
       */
-    protected $id = null;
+    protected $id;
     
     /**
       * $email 
       * @var string
       */
-    protected $email = null;
+    protected $email;
     
     /**
       * $company_name 
       * @var string
       */
-    protected $company_name = null;
+    protected $company_name;
     
     /**
       * $first_name 
       * @var string
       */
-    protected $first_name = null;
+    protected $first_name;
     
     /**
       * $last_name 
       * @var string
       */
-    protected $last_name = null;
+    protected $last_name;
     
     /**
       * $domain 
       * @var string
       */
-    protected $domain = null;
+    protected $domain;
     
     /**
       * $address1 
       * @var string
       */
-    protected $address1 = null;
+    protected $address1;
     
     /**
       * $address2 
       * @var string
       */
-    protected $address2 = null;
+    protected $address2;
     
     /**
       * $address3 
       * @var string
       */
-    protected $address3 = null;
+    protected $address3;
     
     /**
       * $address_city 
       * @var string
       */
-    protected $address_city = null;
+    protected $address_city;
     
     /**
       * $address_postcode 
       * @var string
       */
-    protected $address_postcode = null;
+    protected $address_postcode;
     
     /**
       * $address_country 
       * @var string
       */
-    protected $address_country = null;
+    protected $address_country;
     
     /**
       * $linkedin 
       * @var string
       */
-    protected $linkedin = null;
+    protected $linkedin;
     
     /**
       * $facebook 
       * @var string
       */
-    protected $facebook = null;
+    protected $facebook;
     
     /**
       * $twitter 
       * @var string
       */
-    protected $twitter = null;
+    protected $twitter;
     
     /**
       * $instagram 
       * @var string
       */
-    protected $instagram = null;
+    protected $instagram;
     
     /**
       * $googleplus 
       * @var string
       */
-    protected $googleplus = null;
+    protected $googleplus;
     
     /**
       * $snippet 
       * @var int
       */
-    protected $snippet = null;
+    protected $snippet;
     
 
     /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * SignatureResponseMultiple
+ * LoginDetails
  *
  * PHP version 5
  *
@@ -35,7 +35,7 @@ namespace Squiggle\Model;
 
 use \ArrayAccess;
 /**
- * SignatureResponseMultiple Class Doc Comment
+ * LoginDetails Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -44,15 +44,15 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class SignatureResponseMultiple implements ArrayAccess
+class LoginDetails implements ArrayAccess
 {
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'data' => '\Squiggle\Model\Signature[]',
-        'links' => '\Squiggle\Model\ResponseLinks'
+        'username' => 'string',
+        'password' => 'string'
     );
   
     /** 
@@ -60,8 +60,8 @@ class SignatureResponseMultiple implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'data' => 'data',
-        'links' => 'links'
+        'username' => 'username',
+        'password' => 'password'
     );
   
     /**
@@ -69,8 +69,8 @@ class SignatureResponseMultiple implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'data' => 'setData',
-        'links' => 'setLinks'
+        'username' => 'setUsername',
+        'password' => 'setPassword'
     );
   
     /**
@@ -78,22 +78,22 @@ class SignatureResponseMultiple implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'data' => 'getData',
-        'links' => 'getLinks'
+        'username' => 'getUsername',
+        'password' => 'getPassword'
     );
   
     
     /**
-      * $data 
-      * @var \Squiggle\Model\Signature[]
+      * $username 
+      * @var string
       */
-    protected $data;
+    protected $username;
     
     /**
-      * $links 
-      * @var \Squiggle\Model\ResponseLinks
+      * $password 
+      * @var string
       */
-    protected $links;
+    protected $password;
     
 
     /**
@@ -112,44 +112,44 @@ class SignatureResponseMultiple implements ArrayAccess
     }
     
     /**
-     * Gets data
-     * @return \Squiggle\Model\Signature[]
+     * Gets username
+     * @return string
      */
-    public function getData()
+    public function getUsername()
     {
-        return $this->data;
+        return $this->username;
     }
   
     /**
-     * Sets data
-     * @param \Squiggle\Model\Signature[] $data 
+     * Sets username
+     * @param string $username 
      * @return $this
      */
-    public function setData($data)
+    public function setUsername($username)
     {
         
-        $this->data = $data;
+        $this->username = $username;
         return $this;
     }
     
     /**
-     * Gets links
-     * @return \Squiggle\Model\ResponseLinks
+     * Gets password
+     * @return string
      */
-    public function getLinks()
+    public function getPassword()
     {
-        return $this->links;
+        return $this->password;
     }
   
     /**
-     * Sets links
-     * @param \Squiggle\Model\ResponseLinks $links 
+     * Sets password
+     * @param string $password 
      * @return $this
      */
-    public function setLinks($links)
+    public function setPassword($password)
     {
         
-        $this->links = $links;
+        $this->password = $password;
         return $this;
     }
     

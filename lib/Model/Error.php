@@ -1,6 +1,6 @@
 <?php
 /**
- * SignatureResponseMultiple
+ * Error
  *
  * PHP version 5
  *
@@ -35,7 +35,7 @@ namespace Squiggle\Model;
 
 use \ArrayAccess;
 /**
- * SignatureResponseMultiple Class Doc Comment
+ * Error Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -44,15 +44,15 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class SignatureResponseMultiple implements ArrayAccess
+class Error implements ArrayAccess
 {
     /**
       * Array of property to type mappings. Used for (de)serialization 
       * @var string[]
       */
     static $swaggerTypes = array(
-        'data' => '\Squiggle\Model\Signature[]',
-        'links' => '\Squiggle\Model\ResponseLinks'
+        'code' => 'int',
+        'detail' => 'string'
     );
   
     /** 
@@ -60,8 +60,8 @@ class SignatureResponseMultiple implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'data' => 'data',
-        'links' => 'links'
+        'code' => 'code',
+        'detail' => 'detail'
     );
   
     /**
@@ -69,8 +69,8 @@ class SignatureResponseMultiple implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'data' => 'setData',
-        'links' => 'setLinks'
+        'code' => 'setCode',
+        'detail' => 'setDetail'
     );
   
     /**
@@ -78,22 +78,22 @@ class SignatureResponseMultiple implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'data' => 'getData',
-        'links' => 'getLinks'
+        'code' => 'getCode',
+        'detail' => 'getDetail'
     );
   
     
     /**
-      * $data 
-      * @var \Squiggle\Model\Signature[]
+      * $code 
+      * @var int
       */
-    protected $data;
+    protected $code;
     
     /**
-      * $links 
-      * @var \Squiggle\Model\ResponseLinks
+      * $detail 
+      * @var string
       */
-    protected $links;
+    protected $detail;
     
 
     /**
@@ -112,44 +112,44 @@ class SignatureResponseMultiple implements ArrayAccess
     }
     
     /**
-     * Gets data
-     * @return \Squiggle\Model\Signature[]
+     * Gets code
+     * @return int
      */
-    public function getData()
+    public function getCode()
     {
-        return $this->data;
+        return $this->code;
     }
   
     /**
-     * Sets data
-     * @param \Squiggle\Model\Signature[] $data 
+     * Sets code
+     * @param int $code 
      * @return $this
      */
-    public function setData($data)
+    public function setCode($code)
     {
         
-        $this->data = $data;
+        $this->code = $code;
         return $this;
     }
     
     /**
-     * Gets links
-     * @return \Squiggle\Model\ResponseLinks
+     * Gets detail
+     * @return string
      */
-    public function getLinks()
+    public function getDetail()
     {
-        return $this->links;
+        return $this->detail;
     }
   
     /**
-     * Sets links
-     * @param \Squiggle\Model\ResponseLinks $links 
+     * Sets detail
+     * @param string $detail 
      * @return $this
      */
-    public function setLinks($links)
+    public function setDetail($detail)
     {
         
-        $this->links = $links;
+        $this->detail = $detail;
         return $this;
     }
     

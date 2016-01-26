@@ -87,13 +87,13 @@ class AddressResponseSingle implements ArrayAccess
       * $data 
       * @var \Squiggle\Model\Address
       */
-    protected $data = null;
+    protected $data;
     
     /**
       * $links 
       * @var \Squiggle\Model\ResponseLinks
       */
-    protected $links = null;
+    protected $links;
     
 
     /**

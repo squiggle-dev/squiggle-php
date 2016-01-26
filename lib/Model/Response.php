@@ -83,7 +83,7 @@ class Response implements ArrayAccess
       * $links 
       * @var \Squiggle\Model\ResponseLinks
       */
-    protected $links = null;
+    protected $links;
     
 
     /**

@@ -103,37 +103,37 @@ class Snippet implements ArrayAccess
       * $id 
       * @var int
       */
-    protected $id = null;
+    protected $id;
     
     /**
       * $content_html 
       * @var string
       */
-    protected $content_html = null;
+    protected $content_html;
     
     /**
       * $content_plaintext 
       * @var string
       */
-    protected $content_plaintext = null;
+    protected $content_plaintext;
     
     /**
       * $content_richtext 
       * @var string
       */
-    protected $content_richtext = null;
+    protected $content_richtext;
     
     /**
       * $thumbnail 
       * @var string
       */
-    protected $thumbnail = null;
+    protected $thumbnail;
     
     /**
       * $user 
       * @var int
       */
-    protected $user = null;
+    protected $user;
     
 
     /**
