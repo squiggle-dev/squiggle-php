@@ -11,7 +11,7 @@
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 /**
- *  Copyright 2015 SmartBear Software
+ *  Copyright 2016 SmartBear Software
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -95,25 +95,25 @@ class ResponseLinks implements ArrayAccess
       * $self 
       * @var string
       */
-    protected $self;
+    protected $self = null;
     
     /**
       * $related 
       * @var string
       */
-    protected $related;
+    protected $related = null;
     
     /**
       * $next 
       * @var string
       */
-    protected $next;
+    protected $next = null;
     
     /**
       * $last 
       * @var string
       */
-    protected $last;
+    protected $last = null;
     
 
     /**
@@ -263,9 +263,9 @@ class ResponseLinks implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) {
-            return json_encode(get_object_vars($this), JSON_PRETTY_PRINT);
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         } else {
-            return json_encode(get_object_vars($this));
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this));
         }
     }
 }

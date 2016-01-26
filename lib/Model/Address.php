@@ -11,7 +11,7 @@
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 /**
- *  Copyright 2015 SmartBear Software
+ *  Copyright 2016 SmartBear Software
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -139,91 +139,91 @@ class Address implements ArrayAccess
       * $id 
       * @var int
       */
-    protected $id;
+    protected $id = null;
     
     /**
       * $email 
       * @var string
       */
-    protected $email;
+    protected $email = null;
     
     /**
       * $password 
       * @var string
       */
-    protected $password;
+    protected $password = null;
     
     /**
       * $first_name 
       * @var string
       */
-    protected $first_name;
+    protected $first_name = null;
     
     /**
       * $last_name 
       * @var string
       */
-    protected $last_name;
+    protected $last_name = null;
     
     /**
       * $job_title 
       * @var string
       */
-    protected $job_title;
+    protected $job_title = null;
     
     /**
       * $tel_mobile 
       * @var string
       */
-    protected $tel_mobile;
+    protected $tel_mobile = null;
     
     /**
       * $tel_direct 
       * @var string
       */
-    protected $tel_direct;
+    protected $tel_direct = null;
     
     /**
       * $linkedin 
       * @var string
       */
-    protected $linkedin;
+    protected $linkedin = null;
     
     /**
       * $facebook 
       * @var string
       */
-    protected $facebook;
+    protected $facebook = null;
     
     /**
       * $twitter 
       * @var string
       */
-    protected $twitter;
+    protected $twitter = null;
     
     /**
       * $instagram 
       * @var string
       */
-    protected $instagram;
+    protected $instagram = null;
     
     /**
       * $googleplus 
       * @var string
       */
-    protected $googleplus;
+    protected $googleplus = null;
     
     /**
       * $signatures 
       * @var \Squiggle\Model\Signature[]
       */
-    protected $signatures;
+    protected $signatures = null;
     
     /**
       * $user 
       * @var int
       */
-    protected $user;
+    protected $user = null;
     
 
     /**
@@ -604,9 +604,9 @@ class Address implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) {
-            return json_encode(get_object_vars($this), JSON_PRETTY_PRINT);
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         } else {
-            return json_encode(get_object_vars($this));
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this));
         }
     }
 }

@@ -11,7 +11,7 @@
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 /**
- *  Copyright 2015 SmartBear Software
+ *  Copyright 2016 SmartBear Software
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -51,9 +51,6 @@ class Signature implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'id' => 'int',
-        'address' => 'int',
-        'template' => 'int',
         'plain' => 'string',
         'rich' => 'string',
         'html' => 'string'
@@ -64,9 +61,6 @@ class Signature implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'id' => 'id',
-        'address' => 'address',
-        'template' => 'template',
         'plain' => 'plain',
         'rich' => 'rich',
         'html' => 'html'
@@ -77,9 +71,6 @@ class Signature implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'id' => 'setId',
-        'address' => 'setAddress',
-        'template' => 'setTemplate',
         'plain' => 'setPlain',
         'rich' => 'setRich',
         'html' => 'setHtml'
@@ -90,9 +81,6 @@ class Signature implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'id' => 'getId',
-        'address' => 'getAddress',
-        'template' => 'getTemplate',
         'plain' => 'getPlain',
         'rich' => 'getRich',
         'html' => 'getHtml'
@@ -100,40 +88,22 @@ class Signature implements ArrayAccess
   
     
     /**
-      * $id 
-      * @var int
-      */
-    protected $id;
-    
-    /**
-      * $address 
-      * @var int
-      */
-    protected $address;
-    
-    /**
-      * $template 
-      * @var int
-      */
-    protected $template;
-    
-    /**
       * $plain 
       * @var string
       */
-    protected $plain;
+    protected $plain = null;
     
     /**
       * $rich 
       * @var string
       */
-    protected $rich;
+    protected $rich = null;
     
     /**
       * $html 
       * @var string
       */
-    protected $html;
+    protected $html = null;
     
 
     /**
@@ -149,69 +119,6 @@ class Signature implements ArrayAccess
                 }
             }
         }
-    }
-    
-    /**
-     * Gets id
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-  
-    /**
-     * Sets id
-     * @param int $id 
-     * @return $this
-     */
-    public function setId($id)
-    {
-        
-        $this->id = $id;
-        return $this;
-    }
-    
-    /**
-     * Gets address
-     * @return int
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-  
-    /**
-     * Sets address
-     * @param int $address 
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        
-        $this->address = $address;
-        return $this;
-    }
-    
-    /**
-     * Gets template
-     * @return int
-     */
-    public function getTemplate()
-    {
-        return $this->template;
-    }
-  
-    /**
-     * Sets template
-     * @param int $template 
-     * @return $this
-     */
-    public function setTemplate($template)
-    {
-        
-        $this->template = $template;
-        return $this;
     }
     
     /**
@@ -325,9 +232,9 @@ class Signature implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) {
-            return json_encode(get_object_vars($this), JSON_PRETTY_PRINT);
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         } else {
-            return json_encode(get_object_vars($this));
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this));
         }
     }
 }

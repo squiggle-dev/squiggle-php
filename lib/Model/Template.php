@@ -11,7 +11,7 @@
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 /**
- *  Copyright 2015 SmartBear Software
+ *  Copyright 2016 SmartBear Software
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -119,61 +119,61 @@ class Template implements ArrayAccess
       * $id 
       * @var int
       */
-    protected $id;
+    protected $id = null;
     
     /**
       * $name 
       * @var string
       */
-    protected $name;
+    protected $name = null;
     
     /**
       * $description 
       * @var string
       */
-    protected $description;
+    protected $description = null;
     
     /**
       * $thumbnail 
       * @var string
       */
-    protected $thumbnail;
+    protected $thumbnail = null;
     
     /**
       * $content_html 
       * @var string
       */
-    protected $content_html;
+    protected $content_html = null;
     
     /**
       * $content_plaintext 
       * @var string
       */
-    protected $content_plaintext;
+    protected $content_plaintext = null;
     
     /**
       * $content_richtext 
       * @var string
       */
-    protected $content_richtext;
+    protected $content_richtext = null;
     
     /**
       * $settings 
       * @var string
       */
-    protected $settings;
+    protected $settings = null;
     
     /**
       * $user 
       * @var int
       */
-    protected $user;
+    protected $user = null;
     
     /**
       * $template 
       * @var int
       */
-    protected $template;
+    protected $template = null;
     
 
     /**
@@ -449,9 +449,9 @@ class Template implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) {
-            return json_encode(get_object_vars($this), JSON_PRETTY_PRINT);
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         } else {
-            return json_encode(get_object_vars($this));
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this));
         }
     }
 }

@@ -11,7 +11,7 @@
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 /**
- *  Copyright 2015 SmartBear Software
+ *  Copyright 2016 SmartBear Software
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -151,109 +151,109 @@ class User implements ArrayAccess
       * $id 
       * @var int
       */
-    protected $id;
+    protected $id = null;
     
     /**
       * $email 
       * @var string
       */
-    protected $email;
+    protected $email = null;
     
     /**
       * $company_name 
       * @var string
       */
-    protected $company_name;
+    protected $company_name = null;
     
     /**
       * $first_name 
       * @var string
       */
-    protected $first_name;
+    protected $first_name = null;
     
     /**
       * $last_name 
       * @var string
       */
-    protected $last_name;
+    protected $last_name = null;
     
     /**
       * $domain 
       * @var string
       */
-    protected $domain;
+    protected $domain = null;
     
     /**
       * $address1 
       * @var string
       */
-    protected $address1;
+    protected $address1 = null;
     
     /**
       * $address2 
       * @var string
       */
-    protected $address2;
+    protected $address2 = null;
     
     /**
       * $address3 
       * @var string
       */
-    protected $address3;
+    protected $address3 = null;
     
     /**
       * $address_city 
       * @var string
       */
-    protected $address_city;
+    protected $address_city = null;
     
     /**
       * $address_postcode 
       * @var string
       */
-    protected $address_postcode;
+    protected $address_postcode = null;
     
     /**
       * $address_country 
       * @var string
       */
-    protected $address_country;
+    protected $address_country = null;
     
     /**
       * $linkedin 
       * @var string
       */
-    protected $linkedin;
+    protected $linkedin = null;
     
     /**
       * $facebook 
       * @var string
       */
-    protected $facebook;
+    protected $facebook = null;
     
     /**
       * $twitter 
       * @var string
       */
-    protected $twitter;
+    protected $twitter = null;
     
     /**
       * $instagram 
       * @var string
       */
-    protected $instagram;
+    protected $instagram = null;
     
     /**
       * $googleplus 
       * @var string
       */
-    protected $googleplus;
+    protected $googleplus = null;
     
     /**
       * $snippet 
       * @var int
       */
-    protected $snippet;
+    protected $snippet = null;
     
 
     /**
@@ -697,9 +697,9 @@ class User implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) {
-            return json_encode(get_object_vars($this), JSON_PRETTY_PRINT);
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         } else {
-            return json_encode(get_object_vars($this));
+            return json_encode(\Squiggle\ObjectSerializer::sanitizeForSerialization($this));
         }
     }
 }

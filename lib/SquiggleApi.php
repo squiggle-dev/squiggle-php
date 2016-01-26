@@ -10,7 +10,7 @@
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 /**
- *  Copyright 2015 SmartBear Software
+ *  Copyright 2016 SmartBear Software
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -102,6 +102,22 @@ class SquiggleApi
      */
     public function requestAddressToken($data)
     {
+        list($response, $statusCode, $httpHeader) = $this->requestAddressTokenWithHttpInfo ($data);
+        return $response; 
+    }
+
+
+    /**
+     * requestAddressTokenWithHttpInfo
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\JSONWebTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function requestAddressTokenWithHttpInfo($data)
+    {
         
         // verify the required parameter 'data' is set
         if ($data === null) {
@@ -110,8 +126,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/authentication/address";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "POST";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -125,6 +139,9 @@ class SquiggleApi
         
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -135,35 +152,34 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\JSONWebTokenResponse'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\JSONWebTokenResponse', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\JSONWebTokenResponse');
-        
     }
     
     /**
@@ -176,14 +192,29 @@ class SquiggleApi
      * @return \Squiggle\Model\AddressResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function findAddresses($offset=null, $limit=null)
+    public function findAddresses($offset = null, $limit = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->findAddressesWithHttpInfo ($offset, $limit);
+        return $response; 
+    }
+
+
+    /**
+     * findAddressesWithHttpInfo
+     *
+     * 
+     *
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @return Array of \Squiggle\Model\AddressResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function findAddressesWithHttpInfo($offset = null, $limit = null)
     {
         
   
         // parse inputs
         $resourcePath = "/v1/addresses";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -195,56 +226,60 @@ class SquiggleApi
         $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
   
         // query params
+        
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
         }// query params
+        
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
         }
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\AddressResponseMultiple'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\AddressResponseMultiple', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseMultiple', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseMultiple');
-        
     }
     
     /**
@@ -258,6 +293,22 @@ class SquiggleApi
      */
     public function addAddress($data)
     {
+        list($response, $statusCode, $httpHeader) = $this->addAddressWithHttpInfo ($data);
+        return $response; 
+    }
+
+
+    /**
+     * addAddressWithHttpInfo
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function addAddressWithHttpInfo($data)
+    {
         
         // verify the required parameter 'data' is set
         if ($data === null) {
@@ -266,8 +317,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/addresses";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "POST";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -281,6 +330,9 @@ class SquiggleApi
         
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -291,42 +343,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\AddressResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\AddressResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle');
-        
     }
     
     /**
@@ -340,6 +391,22 @@ class SquiggleApi
      */
     public function getAddress($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->getAddressWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * getAddressWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of address to get (required)
+     * @return Array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function getAddressWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -348,8 +415,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/addresses/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -363,6 +428,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -370,48 +436,50 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\AddressResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\AddressResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle');
-        
     }
     
     /**
@@ -425,6 +493,22 @@ class SquiggleApi
      */
     public function deleteAddress($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->deleteAddressWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteAddressWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of address to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function deleteAddressWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -433,8 +517,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/addresses/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "DELETE";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -448,6 +530,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -455,38 +538,42 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
                 $queryParams, $httpBody,
                 $headerParams
             );
+            
+            return array(null, $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             }
   
             throw $e;
         }
-        
     }
     
     /**
@@ -501,6 +588,23 @@ class SquiggleApi
      */
     public function editAddress($id, $data)
     {
+        list($response, $statusCode, $httpHeader) = $this->editAddressWithHttpInfo ($id, $data);
+        return $response; 
+    }
+
+
+    /**
+     * editAddressWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of address to update (required)
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function editAddressWithHttpInfo($id, $data)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -513,8 +617,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/addresses/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "PATCH";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -528,6 +630,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -535,6 +638,9 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -545,42 +651,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PATCH',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\AddressResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\AddressResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle');
-        
     }
     
     /**
@@ -593,14 +698,29 @@ class SquiggleApi
      * @return \Squiggle\Model\GlobalTemplateResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function findGlobalTemplates($offset=null, $limit=null)
+    public function findGlobalTemplates($offset = null, $limit = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->findGlobalTemplatesWithHttpInfo ($offset, $limit);
+        return $response; 
+    }
+
+
+    /**
+     * findGlobalTemplatesWithHttpInfo
+     *
+     * 
+     *
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @return Array of \Squiggle\Model\GlobalTemplateResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function findGlobalTemplatesWithHttpInfo($offset = null, $limit = null)
     {
         
   
         // parse inputs
         $resourcePath = "/v1/global-templates";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -612,56 +732,60 @@ class SquiggleApi
         $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
   
         // query params
+        
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
         }// query params
+        
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
         }
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\GlobalTemplateResponseMultiple'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\GlobalTemplateResponseMultiple', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseMultiple', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseMultiple');
-        
     }
     
     /**
@@ -675,6 +799,22 @@ class SquiggleApi
      */
     public function addGlobalTemplate($data)
     {
+        list($response, $statusCode, $httpHeader) = $this->addGlobalTemplateWithHttpInfo ($data);
+        return $response; 
+    }
+
+
+    /**
+     * addGlobalTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function addGlobalTemplateWithHttpInfo($data)
+    {
         
         // verify the required parameter 'data' is set
         if ($data === null) {
@@ -683,8 +823,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/global-templates";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "POST";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -698,6 +836,9 @@ class SquiggleApi
         
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -708,42 +849,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\GlobalTemplateResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle');
-        
     }
     
     /**
@@ -757,6 +897,22 @@ class SquiggleApi
      */
     public function getGlobalTemplate($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->getGlobalTemplateWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * getGlobalTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of global template to get (required)
+     * @return Array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function getGlobalTemplateWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -765,8 +921,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/global-templates/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -780,6 +934,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -787,48 +942,50 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\GlobalTemplateResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle');
-        
     }
     
     /**
@@ -842,6 +999,22 @@ class SquiggleApi
      */
     public function deleteGlobalTemplate($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->deleteGlobalTemplateWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteGlobalTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of global template to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function deleteGlobalTemplateWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -850,8 +1023,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/global-templates/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "DELETE";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -865,6 +1036,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -872,38 +1044,42 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
                 $queryParams, $httpBody,
                 $headerParams
             );
+            
+            return array(null, $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             }
   
             throw $e;
         }
-        
     }
     
     /**
@@ -918,6 +1094,23 @@ class SquiggleApi
      */
     public function editGlobalTemplate($id, $data)
     {
+        list($response, $statusCode, $httpHeader) = $this->editGlobalTemplateWithHttpInfo ($id, $data);
+        return $response; 
+    }
+
+
+    /**
+     * editGlobalTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of global template to update (required)
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function editGlobalTemplateWithHttpInfo($id, $data)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -930,8 +1123,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/global-templates/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "PATCH";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -945,6 +1136,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -952,6 +1144,9 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -962,42 +1157,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PATCH',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\GlobalTemplateResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle');
-        
     }
     
     /**
@@ -1010,14 +1204,29 @@ class SquiggleApi
      * @return \Squiggle\Model\SnippetResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function findSnippets($offset=null, $limit=null)
+    public function findSnippets($offset = null, $limit = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->findSnippetsWithHttpInfo ($offset, $limit);
+        return $response; 
+    }
+
+
+    /**
+     * findSnippetsWithHttpInfo
+     *
+     * 
+     *
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @return Array of \Squiggle\Model\SnippetResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function findSnippetsWithHttpInfo($offset = null, $limit = null)
     {
         
   
         // parse inputs
         $resourcePath = "/v1/snippets";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1029,56 +1238,60 @@ class SquiggleApi
         $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
   
         // query params
+        
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
         }// query params
+        
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
         }
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\SnippetResponseMultiple'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\SnippetResponseMultiple', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseMultiple', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseMultiple');
-        
     }
     
     /**
@@ -1092,6 +1305,22 @@ class SquiggleApi
      */
     public function addSnippet($data)
     {
+        list($response, $statusCode, $httpHeader) = $this->addSnippetWithHttpInfo ($data);
+        return $response; 
+    }
+
+
+    /**
+     * addSnippetWithHttpInfo
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function addSnippetWithHttpInfo($data)
+    {
         
         // verify the required parameter 'data' is set
         if ($data === null) {
@@ -1100,8 +1329,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/snippets";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "POST";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1115,6 +1342,9 @@ class SquiggleApi
         
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -1125,42 +1355,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\SnippetResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\SnippetResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle');
-        
     }
     
     /**
@@ -1174,6 +1403,22 @@ class SquiggleApi
      */
     public function getSnippet($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->getSnippetWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * getSnippetWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of snippet to get (required)
+     * @return Array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function getSnippetWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1182,8 +1427,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/snippets/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1197,6 +1440,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -1204,48 +1448,50 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\SnippetResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\SnippetResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle');
-        
     }
     
     /**
@@ -1259,6 +1505,22 @@ class SquiggleApi
      */
     public function deleteSnippet($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->deleteSnippetWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteSnippetWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of snippet to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function deleteSnippetWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1267,8 +1529,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/snippets/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "DELETE";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1282,6 +1542,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -1289,38 +1550,42 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
                 $queryParams, $httpBody,
                 $headerParams
             );
+            
+            return array(null, $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             }
   
             throw $e;
         }
-        
     }
     
     /**
@@ -1335,6 +1600,23 @@ class SquiggleApi
      */
     public function editSnippet($id, $data)
     {
+        list($response, $statusCode, $httpHeader) = $this->editSnippetWithHttpInfo ($id, $data);
+        return $response; 
+    }
+
+
+    /**
+     * editSnippetWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of snippet to update (required)
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function editSnippetWithHttpInfo($id, $data)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1347,8 +1629,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/snippets/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "PATCH";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1362,6 +1642,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -1369,6 +1650,9 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -1379,42 +1663,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PATCH',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\SnippetResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\SnippetResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle');
-        
     }
     
     /**
@@ -1427,14 +1710,29 @@ class SquiggleApi
      * @return \Squiggle\Model\TemplateResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function findTemplates($offset=null, $limit=null)
+    public function findTemplates($offset = null, $limit = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->findTemplatesWithHttpInfo ($offset, $limit);
+        return $response; 
+    }
+
+
+    /**
+     * findTemplatesWithHttpInfo
+     *
+     * 
+     *
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @return Array of \Squiggle\Model\TemplateResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function findTemplatesWithHttpInfo($offset = null, $limit = null)
     {
         
   
         // parse inputs
         $resourcePath = "/v1/templates";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1446,56 +1744,60 @@ class SquiggleApi
         $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
   
         // query params
+        
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
         }// query params
+        
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
         }
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\TemplateResponseMultiple'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\TemplateResponseMultiple', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseMultiple', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseMultiple');
-        
     }
     
     /**
@@ -1509,6 +1811,22 @@ class SquiggleApi
      */
     public function addTemplate($data)
     {
+        list($response, $statusCode, $httpHeader) = $this->addTemplateWithHttpInfo ($data);
+        return $response; 
+    }
+
+
+    /**
+     * addTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function addTemplateWithHttpInfo($data)
+    {
         
         // verify the required parameter 'data' is set
         if ($data === null) {
@@ -1517,8 +1835,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/templates";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "POST";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1532,6 +1848,9 @@ class SquiggleApi
         
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -1542,42 +1861,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\TemplateResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\TemplateResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle');
-        
     }
     
     /**
@@ -1591,6 +1909,22 @@ class SquiggleApi
      */
     public function getTemplate($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->getTemplateWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * getTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of template to get (required)
+     * @return Array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function getTemplateWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1599,8 +1933,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/templates/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1614,6 +1946,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -1621,48 +1954,50 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\TemplateResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\TemplateResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle');
-        
     }
     
     /**
@@ -1676,6 +2011,22 @@ class SquiggleApi
      */
     public function deleteTemplate($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->deleteTemplateWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of template to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function deleteTemplateWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1684,8 +2035,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/templates/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "DELETE";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1699,6 +2048,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -1706,38 +2056,42 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
                 $queryParams, $httpBody,
                 $headerParams
             );
+            
+            return array(null, $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             }
   
             throw $e;
         }
-        
     }
     
     /**
@@ -1752,6 +2106,23 @@ class SquiggleApi
      */
     public function editTemplate($id, $data)
     {
+        list($response, $statusCode, $httpHeader) = $this->editTemplateWithHttpInfo ($id, $data);
+        return $response; 
+    }
+
+
+    /**
+     * editTemplateWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of template to update (required)
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function editTemplateWithHttpInfo($id, $data)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1764,8 +2135,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/templates/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "PATCH";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1779,6 +2148,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -1786,6 +2156,9 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -1796,42 +2169,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PATCH',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\TemplateResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\TemplateResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle');
-        
     }
     
     /**
@@ -1844,14 +2216,29 @@ class SquiggleApi
      * @return \Squiggle\Model\UserResponseMultiple
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function findUsers($offset=null, $limit=null)
+    public function findUsers($offset = null, $limit = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->findUsersWithHttpInfo ($offset, $limit);
+        return $response; 
+    }
+
+
+    /**
+     * findUsersWithHttpInfo
+     *
+     * 
+     *
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @return Array of \Squiggle\Model\UserResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function findUsersWithHttpInfo($offset = null, $limit = null)
     {
         
   
         // parse inputs
         $resourcePath = "/v1/users";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1863,56 +2250,60 @@ class SquiggleApi
         $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
   
         // query params
+        
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
         }// query params
+        
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
         }
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\UserResponseMultiple'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\UserResponseMultiple', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseMultiple', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseMultiple', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseMultiple');
-        
     }
     
     /**
@@ -1926,6 +2317,22 @@ class SquiggleApi
      */
     public function addUser($data)
     {
+        list($response, $statusCode, $httpHeader) = $this->addUserWithHttpInfo ($data);
+        return $response; 
+    }
+
+
+    /**
+     * addUserWithHttpInfo
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function addUserWithHttpInfo($data)
+    {
         
         // verify the required parameter 'data' is set
         if ($data === null) {
@@ -1934,8 +2341,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/users";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "POST";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1949,6 +2354,9 @@ class SquiggleApi
         
         
         
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -1959,42 +2367,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\UserResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\UserResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 201:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle');
-        
     }
     
     /**
@@ -2008,6 +2415,22 @@ class SquiggleApi
      */
     public function getUser($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->getUserWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * getUserWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of user to get (required)
+     * @return Array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function getUserWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -2016,8 +2439,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/users/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2031,6 +2452,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -2038,48 +2460,50 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\UserResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\UserResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle');
-        
     }
     
     /**
@@ -2093,6 +2517,22 @@ class SquiggleApi
      */
     public function deleteUser($id)
     {
+        list($response, $statusCode, $httpHeader) = $this->deleteUserWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteUserWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of user to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function deleteUserWithHttpInfo($id)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -2101,8 +2541,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/users/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "DELETE";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2116,6 +2554,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -2123,38 +2562,42 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         
   
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
                 $queryParams, $httpBody,
                 $headerParams
             );
+            
+            return array(null, $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             }
   
             throw $e;
         }
-        
     }
     
     /**
@@ -2169,6 +2612,23 @@ class SquiggleApi
      */
     public function editUser($id, $data)
     {
+        list($response, $statusCode, $httpHeader) = $this->editUserWithHttpInfo ($id, $data);
+        return $response; 
+    }
+
+
+    /**
+     * editUserWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of user to update (required)
+     * @param object $data  (required)
+     * @return Array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function editUserWithHttpInfo($id, $data)
+    {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -2181,8 +2641,6 @@ class SquiggleApi
   
         // parse inputs
         $resourcePath = "/v1/users/{id}";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "PATCH";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2196,6 +2654,7 @@ class SquiggleApi
         
         
         // path params
+        
         if ($id !== null) {
             $resourcePath = str_replace(
                 "{" . "id" . "}",
@@ -2203,6 +2662,9 @@ class SquiggleApi
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
         
         // body params
         $_tempBody = null;
@@ -2213,42 +2675,41 @@ class SquiggleApi
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } else if (count($formParams) > 0) {
+        } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
         
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('jwt');
-        if (isset($apiKey)) {
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
             $headerParams['Authorization'] = $apiKey;
         }
         
         
-        
         // make the API Call
-        try
-        {
-            list($response, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, $method,
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PATCH',
                 $queryParams, $httpBody,
                 $headerParams, '\Squiggle\Model\UserResponseSingle'
             );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\UserResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $httpHeader);
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
   
             throw $e;
         }
-        
-        if (!$response) {
-            return null;
-        }
-  
-        return $this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle');
-        
     }
     
 }
