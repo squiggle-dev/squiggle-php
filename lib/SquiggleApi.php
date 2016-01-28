@@ -64,7 +64,7 @@ class SquiggleApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('http://squiggle-api.sitlabs.co.uk/');
+            $apiClient->getConfig()->setHost('http://squiggle-api.sitlabs.co.uk/v1');
         }
   
         $this->apiClient = $apiClient;
@@ -90,101 +90,6 @@ class SquiggleApi
         return $this;
     }
   
-    
-    /**
-     * requestAddressToken
-     *
-     * 
-     *
-     * @param \Squiggle\Model\LoginDetails $data  (required)
-     * @return \Squiggle\Model\JSONWebTokenResponse
-     * @throws \Squiggle\ApiException on non-2xx response
-     */
-    public function requestAddressToken($data)
-    {
-        list($response, $statusCode, $httpHeader) = $this->requestAddressTokenWithHttpInfo ($data);
-        return $response; 
-    }
-
-
-    /**
-     * requestAddressTokenWithHttpInfo
-     *
-     * 
-     *
-     * @param \Squiggle\Model\LoginDetails $data  (required)
-     * @return Array of \Squiggle\Model\JSONWebTokenResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Squiggle\ApiException on non-2xx response
-     */
-    public function requestAddressTokenWithHttpInfo($data)
-    {
-        
-        // verify the required parameter 'data' is set
-        if ($data === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $data when calling requestAddressToken');
-        }
-  
-        // parse inputs
-        $resourcePath = "/authentication/address";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
-  
-        
-        
-        
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // body params
-        $_tempBody = null;
-        if (isset($data)) {
-            $_tempBody = $data;
-        }
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'POST',
-                $queryParams, $httpBody,
-                $headerParams, '\Squiggle\Model\JSONWebTokenResponse'
-            );
-            
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\JSONWebTokenResponse', $httpHeader), $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            case 200:
-                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            default:
-                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            }
-  
-            throw $e;
-        }
-    }
     
     /**
      * findAddresses
@@ -218,7 +123,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/v1/addresses";
+        $resourcePath = "/addresses";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -324,7 +229,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/addresses";
+        $resourcePath = "/addresses";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -426,7 +331,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/addresses/{id}";
+        $resourcePath = "/addresses/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -532,7 +437,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/addresses/{id}";
+        $resourcePath = "/addresses/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -636,7 +541,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/addresses/{id}";
+        $resourcePath = "/addresses/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -713,6 +618,101 @@ class SquiggleApi
     }
     
     /**
+     * requestAddressToken
+     *
+     * 
+     *
+     * @param \Squiggle\Model\LoginDetails $data  (required)
+     * @return \Squiggle\Model\JSONWebTokenResponse
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function requestAddressToken($data)
+    {
+        list($response, $statusCode, $httpHeader) = $this->requestAddressTokenWithHttpInfo ($data);
+        return $response; 
+    }
+
+
+    /**
+     * requestAddressTokenWithHttpInfo
+     *
+     * 
+     *
+     * @param \Squiggle\Model\LoginDetails $data  (required)
+     * @return Array of \Squiggle\Model\JSONWebTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function requestAddressTokenWithHttpInfo($data)
+    {
+        
+        // verify the required parameter 'data' is set
+        if ($data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $data when calling requestAddressToken');
+        }
+  
+        // parse inputs
+        $resourcePath = "/authentication/address";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($data)) {
+            $_tempBody = $data;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Squiggle\Model\JSONWebTokenResponse'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\JSONWebTokenResponse', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * findFiles
      *
      * 
@@ -744,7 +744,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/v1/files";
+        $resourcePath = "/files";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -850,7 +850,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/files";
+        $resourcePath = "/files";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -960,7 +960,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/files/{id}";
+        $resourcePath = "/files/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1066,7 +1066,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/files/{id}";
+        $resourcePath = "/files/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1170,7 +1170,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/files/{id}";
+        $resourcePath = "/files/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1278,7 +1278,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/v1/global-templates";
+        $resourcePath = "/global-templates";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1384,7 +1384,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/global-templates";
+        $resourcePath = "/global-templates";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1486,7 +1486,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/global-templates/{id}";
+        $resourcePath = "/global-templates/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1592,7 +1592,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/global-templates/{id}";
+        $resourcePath = "/global-templates/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1696,7 +1696,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/global-templates/{id}";
+        $resourcePath = "/global-templates/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1804,7 +1804,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/v1/snippets";
+        $resourcePath = "/snippets";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1910,7 +1910,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/snippets";
+        $resourcePath = "/snippets";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2012,7 +2012,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/snippets/{id}";
+        $resourcePath = "/snippets/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2118,7 +2118,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/snippets/{id}";
+        $resourcePath = "/snippets/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2222,7 +2222,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/snippets/{id}";
+        $resourcePath = "/snippets/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2330,7 +2330,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/v1/templates";
+        $resourcePath = "/templates";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2436,7 +2436,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/templates";
+        $resourcePath = "/templates";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2538,7 +2538,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/templates/{id}";
+        $resourcePath = "/templates/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2644,7 +2644,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/templates/{id}";
+        $resourcePath = "/templates/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2748,7 +2748,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/templates/{id}";
+        $resourcePath = "/templates/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2856,7 +2856,7 @@ class SquiggleApi
         
   
         // parse inputs
-        $resourcePath = "/v1/users";
+        $resourcePath = "/users";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -2962,7 +2962,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/users";
+        $resourcePath = "/users";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -3064,7 +3064,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/users/{id}";
+        $resourcePath = "/users/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -3170,7 +3170,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/users/{id}";
+        $resourcePath = "/users/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -3274,7 +3274,7 @@ class SquiggleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1/users/{id}";
+        $resourcePath = "/users/{id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
