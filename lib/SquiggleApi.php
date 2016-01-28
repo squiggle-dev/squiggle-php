@@ -128,11 +128,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         // query params
         
@@ -234,11 +234,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -336,11 +336,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -442,11 +442,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -546,11 +546,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -656,11 +656,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -749,11 +749,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         // query params
         
@@ -855,7 +855,7 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
@@ -965,11 +965,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -1071,11 +1071,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -1175,11 +1175,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -1283,11 +1283,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         // query params
         
@@ -1389,11 +1389,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -1491,11 +1491,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -1597,11 +1597,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -1701,11 +1701,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -1809,11 +1809,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         // query params
         
@@ -1915,11 +1915,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2017,11 +2017,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2123,11 +2123,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2227,11 +2227,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2335,11 +2335,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         // query params
         
@@ -2441,11 +2441,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2543,11 +2543,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2649,11 +2649,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2753,11 +2753,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -2861,11 +2861,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         // query params
         
@@ -2967,11 +2967,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -3069,11 +3069,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -3175,11 +3175,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
@@ -3279,11 +3279,11 @@ class SquiggleApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
         
         
