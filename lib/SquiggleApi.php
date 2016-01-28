@@ -713,6 +713,540 @@ class SquiggleApi
     }
     
     /**
+     * findFiles
+     *
+     * 
+     *
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @return \Squiggle\Model\FileResponseMultiple
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function findFiles($offset = null, $limit = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->findFilesWithHttpInfo ($offset, $limit);
+        return $response; 
+    }
+
+
+    /**
+     * findFilesWithHttpInfo
+     *
+     * 
+     *
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @return Array of \Squiggle\Model\FileResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function findFilesWithHttpInfo($offset = null, $limit = null)
+    {
+        
+  
+        // parse inputs
+        $resourcePath = "/v1/files";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+  
+        // query params
+        
+        if ($offset !== null) {
+            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
+        }// query params
+        
+        if ($limit !== null) {
+            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
+        }
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Squiggle\Model\FileResponseMultiple'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\FileResponseMultiple', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseMultiple', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addFile
+     *
+     * 
+     *
+     * @param \SplFileObject $file  (required)
+     * @return \Squiggle\Model\FileResponseSingle
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function addFile($file)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addFileWithHttpInfo ($file);
+        return $response; 
+    }
+
+
+    /**
+     * addFileWithHttpInfo
+     *
+     * 
+     *
+     * @param \SplFileObject $file  (required)
+     * @return Array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function addFileWithHttpInfo($file)
+    {
+        
+        // verify the required parameter 'file' is set
+        if ($file === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $file when calling addFile');
+        }
+  
+        // parse inputs
+        $resourcePath = "/v1/files";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('multipart/form-data'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // form params
+        if ($file !== null) {
+            
+            // PHP 5.5 introduced a CurlFile object that deprecates the old @filename syntax
+            // See: https://wiki.php.net/rfc/curl-file-upload
+            if (function_exists('curl_file_create')) {
+                $formParams['file'] = curl_file_create($this->apiClient->getSerializer()->toFormValue($file));
+            } else {
+               $formParams['file'] = '@' . $this->apiClient->getSerializer()->toFormValue($file);
+            }
+            
+            
+        }
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Squiggle\Model\FileResponseSingle'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\FileResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 201:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getFile
+     *
+     * 
+     *
+     * @param int $id ID of file to get (required)
+     * @return \Squiggle\Model\FileResponseSingle
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function getFile($id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getFileWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * getFileWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of file to get (required)
+     * @return Array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function getFileWithHttpInfo($id)
+    {
+        
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling getFile');
+        }
+  
+        // parse inputs
+        $resourcePath = "/v1/files/{id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+  
+        
+        
+        // path params
+        
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Squiggle\Model\FileResponseSingle'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\FileResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteFile
+     *
+     * 
+     *
+     * @param int $id ID of file to delete (required)
+     * @return void
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function deleteFile($id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteFileWithHttpInfo ($id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteFileWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of file to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function deleteFileWithHttpInfo($id)
+    {
+        
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling deleteFile');
+        }
+  
+        // parse inputs
+        $resourcePath = "/v1/files/{id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+  
+        
+        
+        // path params
+        
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * editFile
+     *
+     * 
+     *
+     * @param int $id ID of file to update (required)
+     * @param \Squiggle\Model\FileObject $data  (required)
+     * @return \Squiggle\Model\FileResponseSingle
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function editFile($id, $data)
+    {
+        list($response, $statusCode, $httpHeader) = $this->editFileWithHttpInfo ($id, $data);
+        return $response; 
+    }
+
+
+    /**
+     * editFileWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of file to update (required)
+     * @param \Squiggle\Model\FileObject $data  (required)
+     * @return Array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Squiggle\ApiException on non-2xx response
+     */
+    public function editFileWithHttpInfo($id, $data)
+    {
+        
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling editFile');
+        }
+        // verify the required parameter 'data' is set
+        if ($data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $data when calling editFile');
+        }
+  
+        // parse inputs
+        $resourcePath = "/v1/files/{id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/vnd.api+json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/vnd.api+json'));
+  
+        
+        
+        // path params
+        
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($data)) {
+            $_tempBody = $data;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PATCH',
+                $queryParams, $httpBody,
+                $headerParams, '\Squiggle\Model\FileResponseSingle'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Squiggle\ObjectSerializer::deserialize($response, '\Squiggle\Model\FileResponseSingle', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseSingle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            default:
+                $data = \Squiggle\ObjectSerializer::deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * findGlobalTemplates
      *
      * 

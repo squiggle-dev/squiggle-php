@@ -126,6 +126,56 @@ class SquiggleApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for findFiles
+     *
+     * 
+     *
+     */
+    public function test_findFiles() {
+
+    }
+    
+    /**
+     * Test case for addFile
+     *
+     * 
+     *
+     */
+    public function test_addFile() {
+
+    }
+    
+    /**
+     * Test case for getFile
+     *
+     * 
+     *
+     */
+    public function test_getFile() {
+
+    }
+    
+    /**
+     * Test case for deleteFile
+     *
+     * 
+     *
+     */
+    public function test_deleteFile() {
+
+    }
+    
+    /**
+     * Test case for editFile
+     *
+     * 
+     *
+     */
+    public function test_editFile() {
+
+    }
+    
+    /**
      * Test case for findGlobalTemplates
      *
      * 
