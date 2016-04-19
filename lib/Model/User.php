@@ -63,12 +63,17 @@ class User implements ArrayAccess
         'address_city' => 'string',
         'address_postcode' => 'string',
         'address_country' => 'string',
+        'website' => 'string',
+        'tel' => 'string',
         'linkedin' => 'string',
         'facebook' => 'string',
         'twitter' => 'string',
         'instagram' => 'string',
         'googleplus' => 'string',
-        'snippet' => 'int'
+        'logo' => 'int',
+        'snippet' => 'int',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     );
   
     /** 
@@ -88,12 +93,17 @@ class User implements ArrayAccess
         'address_city' => 'address_city',
         'address_postcode' => 'address_postcode',
         'address_country' => 'address_country',
+        'website' => 'website',
+        'tel' => 'tel',
         'linkedin' => 'linkedin',
         'facebook' => 'facebook',
         'twitter' => 'twitter',
         'instagram' => 'instagram',
         'googleplus' => 'googleplus',
-        'snippet' => 'snippet'
+        'logo' => 'logo',
+        'snippet' => 'snippet',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     );
   
     /**
@@ -113,12 +123,17 @@ class User implements ArrayAccess
         'address_city' => 'setAddressCity',
         'address_postcode' => 'setAddressPostcode',
         'address_country' => 'setAddressCountry',
+        'website' => 'setWebsite',
+        'tel' => 'setTel',
         'linkedin' => 'setLinkedin',
         'facebook' => 'setFacebook',
         'twitter' => 'setTwitter',
         'instagram' => 'setInstagram',
         'googleplus' => 'setGoogleplus',
-        'snippet' => 'setSnippet'
+        'logo' => 'setLogo',
+        'snippet' => 'setSnippet',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     );
   
     /**
@@ -138,12 +153,17 @@ class User implements ArrayAccess
         'address_city' => 'getAddressCity',
         'address_postcode' => 'getAddressPostcode',
         'address_country' => 'getAddressCountry',
+        'website' => 'getWebsite',
+        'tel' => 'getTel',
         'linkedin' => 'getLinkedin',
         'facebook' => 'getFacebook',
         'twitter' => 'getTwitter',
         'instagram' => 'getInstagram',
         'googleplus' => 'getGoogleplus',
-        'snippet' => 'getSnippet'
+        'logo' => 'getLogo',
+        'snippet' => 'getSnippet',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     );
   
     
@@ -220,6 +240,18 @@ class User implements ArrayAccess
     protected $address_country;
     
     /**
+      * $website 
+      * @var string
+      */
+    protected $website;
+    
+    /**
+      * $tel 
+      * @var string
+      */
+    protected $tel;
+    
+    /**
       * $linkedin 
       * @var string
       */
@@ -250,10 +282,28 @@ class User implements ArrayAccess
     protected $googleplus;
     
     /**
+      * $logo 
+      * @var int
+      */
+    protected $logo;
+    
+    /**
       * $snippet 
       * @var int
       */
     protected $snippet;
+    
+    /**
+      * $created_at 
+      * @var \DateTime
+      */
+    protected $created_at;
+    
+    /**
+      * $updated_at 
+      * @var \DateTime
+      */
+    protected $updated_at;
     
 
     /**
@@ -524,6 +574,48 @@ class User implements ArrayAccess
     }
     
     /**
+     * Gets website
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+  
+    /**
+     * Sets website
+     * @param string $website 
+     * @return $this
+     */
+    public function setWebsite($website)
+    {
+        
+        $this->website = $website;
+        return $this;
+    }
+    
+    /**
+     * Gets tel
+     * @return string
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+  
+    /**
+     * Sets tel
+     * @param string $tel 
+     * @return $this
+     */
+    public function setTel($tel)
+    {
+        
+        $this->tel = $tel;
+        return $this;
+    }
+    
+    /**
      * Gets linkedin
      * @return string
      */
@@ -629,6 +721,27 @@ class User implements ArrayAccess
     }
     
     /**
+     * Gets logo
+     * @return int
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+  
+    /**
+     * Sets logo
+     * @param int $logo 
+     * @return $this
+     */
+    public function setLogo($logo)
+    {
+        
+        $this->logo = $logo;
+        return $this;
+    }
+    
+    /**
      * Gets snippet
      * @return int
      */
@@ -646,6 +759,48 @@ class User implements ArrayAccess
     {
         
         $this->snippet = $snippet;
+        return $this;
+    }
+    
+    /**
+     * Gets created_at
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+  
+    /**
+     * Sets created_at
+     * @param \DateTime $created_at 
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        
+        $this->created_at = $created_at;
+        return $this;
+    }
+    
+    /**
+     * Gets updated_at
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+  
+    /**
+     * Sets updated_at
+     * @param \DateTime $updated_at 
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        
+        $this->updated_at = $updated_at;
         return $this;
     }
     

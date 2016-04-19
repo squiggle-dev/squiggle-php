@@ -116,16 +116,6 @@ class SquiggleApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for requestAddressToken
-     *
-     * 
-     *
-     */
-    public function test_requestAddressToken() {
-
-    }
-    
-    /**
      * Test case for findFiles
      *
      * 
@@ -322,6 +312,26 @@ class SquiggleApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_editTemplate() {
+
+    }
+    
+    /**
+     * Test case for getAddressToken
+     *
+     * 
+     *
+     */
+    public function test_getAddressToken() {
+
+    }
+    
+    /**
+     * Test case for getUserToken
+     *
+     * 
+     *
+     */
+    public function test_getUserToken() {
 
     }
     

@@ -51,8 +51,7 @@ class JSONWebTokenResponse implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'data' => '\Squiggle\Model\JSONWebToken',
-        'links' => '\Squiggle\Model\ResponseLinks'
+        'data' => '\Squiggle\Model\JSONWebToken'
     );
   
     /** 
@@ -60,8 +59,7 @@ class JSONWebTokenResponse implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'data' => 'data',
-        'links' => 'links'
+        'data' => 'data'
     );
   
     /**
@@ -69,8 +67,7 @@ class JSONWebTokenResponse implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'data' => 'setData',
-        'links' => 'setLinks'
+        'data' => 'setData'
     );
   
     /**
@@ -78,8 +75,7 @@ class JSONWebTokenResponse implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'data' => 'getData',
-        'links' => 'getLinks'
+        'data' => 'getData'
     );
   
     
@@ -88,12 +84,6 @@ class JSONWebTokenResponse implements ArrayAccess
       * @var \Squiggle\Model\JSONWebToken
       */
     protected $data;
-    
-    /**
-      * $links 
-      * @var \Squiggle\Model\ResponseLinks
-      */
-    protected $links;
     
 
     /**
@@ -129,27 +119,6 @@ class JSONWebTokenResponse implements ArrayAccess
     {
         
         $this->data = $data;
-        return $this;
-    }
-    
-    /**
-     * Gets links
-     * @return \Squiggle\Model\ResponseLinks
-     */
-    public function getLinks()
-    {
-        return $this->links;
-    }
-  
-    /**
-     * Sets links
-     * @param \Squiggle\Model\ResponseLinks $links 
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        
-        $this->links = $links;
         return $this;
     }
     

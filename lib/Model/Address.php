@@ -65,7 +65,9 @@ class Address implements ArrayAccess
         'instagram' => 'string',
         'googleplus' => 'string',
         'signatures' => '\Squiggle\Model\Signature[]',
-        'user' => 'int'
+        'user' => 'int',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     );
   
     /** 
@@ -87,7 +89,9 @@ class Address implements ArrayAccess
         'instagram' => 'instagram',
         'googleplus' => 'googleplus',
         'signatures' => 'signatures',
-        'user' => 'user'
+        'user' => 'user',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     );
   
     /**
@@ -109,7 +113,9 @@ class Address implements ArrayAccess
         'instagram' => 'setInstagram',
         'googleplus' => 'setGoogleplus',
         'signatures' => 'setSignatures',
-        'user' => 'setUser'
+        'user' => 'setUser',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     );
   
     /**
@@ -131,7 +137,9 @@ class Address implements ArrayAccess
         'instagram' => 'getInstagram',
         'googleplus' => 'getGoogleplus',
         'signatures' => 'getSignatures',
-        'user' => 'getUser'
+        'user' => 'getUser',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     );
   
     
@@ -224,6 +232,18 @@ class Address implements ArrayAccess
       * @var int
       */
     protected $user;
+    
+    /**
+      * $created_at 
+      * @var \DateTime
+      */
+    protected $created_at;
+    
+    /**
+      * $updated_at 
+      * @var \DateTime
+      */
+    protected $updated_at;
     
 
     /**
@@ -553,6 +573,48 @@ class Address implements ArrayAccess
     {
         
         $this->user = $user;
+        return $this;
+    }
+    
+    /**
+     * Gets created_at
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+  
+    /**
+     * Sets created_at
+     * @param \DateTime $created_at 
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        
+        $this->created_at = $created_at;
+        return $this;
+    }
+    
+    /**
+     * Gets updated_at
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+  
+    /**
+     * Sets updated_at
+     * @param \DateTime $updated_at 
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        
+        $this->updated_at = $updated_at;
         return $this;
     }
     

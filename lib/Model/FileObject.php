@@ -54,7 +54,9 @@ class FileObject implements ArrayAccess
         'id' => 'int',
         'name' => 'string',
         'src' => 'string',
-        'size' => 'int'
+        'size' => 'int',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     );
   
     /** 
@@ -65,7 +67,9 @@ class FileObject implements ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'src' => 'src',
-        'size' => 'size'
+        'size' => 'size',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     );
   
     /**
@@ -76,7 +80,9 @@ class FileObject implements ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'src' => 'setSrc',
-        'size' => 'setSize'
+        'size' => 'setSize',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     );
   
     /**
@@ -87,7 +93,9 @@ class FileObject implements ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'src' => 'getSrc',
-        'size' => 'getSize'
+        'size' => 'getSize',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     );
   
     
@@ -114,6 +122,18 @@ class FileObject implements ArrayAccess
       * @var int
       */
     protected $size;
+    
+    /**
+      * $created_at 
+      * @var \DateTime
+      */
+    protected $created_at;
+    
+    /**
+      * $updated_at 
+      * @var \DateTime
+      */
+    protected $updated_at;
     
 
     /**
@@ -212,6 +232,48 @@ class FileObject implements ArrayAccess
     {
         
         $this->size = $size;
+        return $this;
+    }
+    
+    /**
+     * Gets created_at
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+  
+    /**
+     * Sets created_at
+     * @param \DateTime $created_at 
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        
+        $this->created_at = $created_at;
+        return $this;
+    }
+    
+    /**
+     * Gets updated_at
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+  
+    /**
+     * Sets updated_at
+     * @param \DateTime $updated_at 
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        
+        $this->updated_at = $updated_at;
         return $this;
     }
     

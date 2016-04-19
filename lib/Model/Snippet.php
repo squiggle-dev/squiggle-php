@@ -52,11 +52,12 @@ class Snippet implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
+        'user' => 'int',
         'content_html' => 'string',
         'content_plaintext' => 'string',
-        'content_richtext' => 'string',
-        'thumbnail' => 'string',
-        'user' => 'int'
+        'image' => 'int',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     );
   
     /** 
@@ -65,11 +66,12 @@ class Snippet implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
+        'user' => 'user',
         'content_html' => 'content_html',
         'content_plaintext' => 'content_plaintext',
-        'content_richtext' => 'content_richtext',
-        'thumbnail' => 'thumbnail',
-        'user' => 'user'
+        'image' => 'image',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     );
   
     /**
@@ -78,11 +80,12 @@ class Snippet implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
+        'user' => 'setUser',
         'content_html' => 'setContentHtml',
         'content_plaintext' => 'setContentPlaintext',
-        'content_richtext' => 'setContentRichtext',
-        'thumbnail' => 'setThumbnail',
-        'user' => 'setUser'
+        'image' => 'setImage',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     );
   
     /**
@@ -91,11 +94,12 @@ class Snippet implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
+        'user' => 'getUser',
         'content_html' => 'getContentHtml',
         'content_plaintext' => 'getContentPlaintext',
-        'content_richtext' => 'getContentRichtext',
-        'thumbnail' => 'getThumbnail',
-        'user' => 'getUser'
+        'image' => 'getImage',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     );
   
     
@@ -104,6 +108,12 @@ class Snippet implements ArrayAccess
       * @var int
       */
     protected $id;
+    
+    /**
+      * $user 
+      * @var int
+      */
+    protected $user;
     
     /**
       * $content_html 
@@ -118,22 +128,22 @@ class Snippet implements ArrayAccess
     protected $content_plaintext;
     
     /**
-      * $content_richtext 
-      * @var string
-      */
-    protected $content_richtext;
-    
-    /**
-      * $thumbnail 
-      * @var string
-      */
-    protected $thumbnail;
-    
-    /**
-      * $user 
+      * $image 
       * @var int
       */
-    protected $user;
+    protected $image;
+    
+    /**
+      * $created_at 
+      * @var \DateTime
+      */
+    protected $created_at;
+    
+    /**
+      * $updated_at 
+      * @var \DateTime
+      */
+    protected $updated_at;
     
 
     /**
@@ -169,6 +179,27 @@ class Snippet implements ArrayAccess
     {
         
         $this->id = $id;
+        return $this;
+    }
+    
+    /**
+     * Gets user
+     * @return int
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+  
+    /**
+     * Sets user
+     * @param int $user 
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        
+        $this->user = $user;
         return $this;
     }
     
@@ -215,65 +246,65 @@ class Snippet implements ArrayAccess
     }
     
     /**
-     * Gets content_richtext
-     * @return string
-     */
-    public function getContentRichtext()
-    {
-        return $this->content_richtext;
-    }
-  
-    /**
-     * Sets content_richtext
-     * @param string $content_richtext 
-     * @return $this
-     */
-    public function setContentRichtext($content_richtext)
-    {
-        
-        $this->content_richtext = $content_richtext;
-        return $this;
-    }
-    
-    /**
-     * Gets thumbnail
-     * @return string
-     */
-    public function getThumbnail()
-    {
-        return $this->thumbnail;
-    }
-  
-    /**
-     * Sets thumbnail
-     * @param string $thumbnail 
-     * @return $this
-     */
-    public function setThumbnail($thumbnail)
-    {
-        
-        $this->thumbnail = $thumbnail;
-        return $this;
-    }
-    
-    /**
-     * Gets user
+     * Gets image
      * @return int
      */
-    public function getUser()
+    public function getImage()
     {
-        return $this->user;
+        return $this->image;
     }
   
     /**
-     * Sets user
-     * @param int $user 
+     * Sets image
+     * @param int $image 
      * @return $this
      */
-    public function setUser($user)
+    public function setImage($image)
     {
         
-        $this->user = $user;
+        $this->image = $image;
+        return $this;
+    }
+    
+    /**
+     * Gets created_at
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+  
+    /**
+     * Sets created_at
+     * @param \DateTime $created_at 
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        
+        $this->created_at = $created_at;
+        return $this;
+    }
+    
+    /**
+     * Gets updated_at
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+  
+    /**
+     * Sets updated_at
+     * @param \DateTime $updated_at 
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        
+        $this->updated_at = $updated_at;
         return $this;
     }
     

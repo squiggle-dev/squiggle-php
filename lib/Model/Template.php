@@ -52,15 +52,16 @@ class Template implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
+        'user' => 'int',
+        'global_template' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'thumbnail' => 'string',
         'content_html' => 'string',
         'content_plaintext' => 'string',
-        'content_richtext' => 'string',
+        'thumbnail' => 'int',
         'settings' => 'string',
-        'user' => 'int',
-        'template' => 'int'
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     );
   
     /** 
@@ -69,15 +70,16 @@ class Template implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
+        'user' => 'user',
+        'global_template' => 'global_template',
         'name' => 'name',
         'description' => 'description',
-        'thumbnail' => 'thumbnail',
         'content_html' => 'content_html',
         'content_plaintext' => 'content_plaintext',
-        'content_richtext' => 'content_richtext',
+        'thumbnail' => 'thumbnail',
         'settings' => 'settings',
-        'user' => 'user',
-        'template' => 'template'
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     );
   
     /**
@@ -86,15 +88,16 @@ class Template implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
+        'user' => 'setUser',
+        'global_template' => 'setGlobalTemplate',
         'name' => 'setName',
         'description' => 'setDescription',
-        'thumbnail' => 'setThumbnail',
         'content_html' => 'setContentHtml',
         'content_plaintext' => 'setContentPlaintext',
-        'content_richtext' => 'setContentRichtext',
+        'thumbnail' => 'setThumbnail',
         'settings' => 'setSettings',
-        'user' => 'setUser',
-        'template' => 'setTemplate'
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     );
   
     /**
@@ -103,15 +106,16 @@ class Template implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
+        'user' => 'getUser',
+        'global_template' => 'getGlobalTemplate',
         'name' => 'getName',
         'description' => 'getDescription',
-        'thumbnail' => 'getThumbnail',
         'content_html' => 'getContentHtml',
         'content_plaintext' => 'getContentPlaintext',
-        'content_richtext' => 'getContentRichtext',
+        'thumbnail' => 'getThumbnail',
         'settings' => 'getSettings',
-        'user' => 'getUser',
-        'template' => 'getTemplate'
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     );
   
     
@@ -120,6 +124,18 @@ class Template implements ArrayAccess
       * @var int
       */
     protected $id;
+    
+    /**
+      * $user 
+      * @var int
+      */
+    protected $user;
+    
+    /**
+      * $global_template 
+      * @var int
+      */
+    protected $global_template;
     
     /**
       * $name 
@@ -134,12 +150,6 @@ class Template implements ArrayAccess
     protected $description;
     
     /**
-      * $thumbnail 
-      * @var string
-      */
-    protected $thumbnail;
-    
-    /**
       * $content_html 
       * @var string
       */
@@ -152,10 +162,10 @@ class Template implements ArrayAccess
     protected $content_plaintext;
     
     /**
-      * $content_richtext 
-      * @var string
+      * $thumbnail 
+      * @var int
       */
-    protected $content_richtext;
+    protected $thumbnail;
     
     /**
       * $settings 
@@ -164,16 +174,16 @@ class Template implements ArrayAccess
     protected $settings;
     
     /**
-      * $user 
-      * @var int
+      * $created_at 
+      * @var \DateTime
       */
-    protected $user;
+    protected $created_at;
     
     /**
-      * $template 
-      * @var int
+      * $updated_at 
+      * @var \DateTime
       */
-    protected $template;
+    protected $updated_at;
     
 
     /**
@@ -209,6 +219,48 @@ class Template implements ArrayAccess
     {
         
         $this->id = $id;
+        return $this;
+    }
+    
+    /**
+     * Gets user
+     * @return int
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+  
+    /**
+     * Sets user
+     * @param int $user 
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        
+        $this->user = $user;
+        return $this;
+    }
+    
+    /**
+     * Gets global_template
+     * @return int
+     */
+    public function getGlobalTemplate()
+    {
+        return $this->global_template;
+    }
+  
+    /**
+     * Sets global_template
+     * @param int $global_template 
+     * @return $this
+     */
+    public function setGlobalTemplate($global_template)
+    {
+        
+        $this->global_template = $global_template;
         return $this;
     }
     
@@ -255,27 +307,6 @@ class Template implements ArrayAccess
     }
     
     /**
-     * Gets thumbnail
-     * @return string
-     */
-    public function getThumbnail()
-    {
-        return $this->thumbnail;
-    }
-  
-    /**
-     * Sets thumbnail
-     * @param string $thumbnail 
-     * @return $this
-     */
-    public function setThumbnail($thumbnail)
-    {
-        
-        $this->thumbnail = $thumbnail;
-        return $this;
-    }
-    
-    /**
      * Gets content_html
      * @return string
      */
@@ -318,23 +349,23 @@ class Template implements ArrayAccess
     }
     
     /**
-     * Gets content_richtext
-     * @return string
+     * Gets thumbnail
+     * @return int
      */
-    public function getContentRichtext()
+    public function getThumbnail()
     {
-        return $this->content_richtext;
+        return $this->thumbnail;
     }
   
     /**
-     * Sets content_richtext
-     * @param string $content_richtext 
+     * Sets thumbnail
+     * @param int $thumbnail 
      * @return $this
      */
-    public function setContentRichtext($content_richtext)
+    public function setThumbnail($thumbnail)
     {
         
-        $this->content_richtext = $content_richtext;
+        $this->thumbnail = $thumbnail;
         return $this;
     }
     
@@ -360,44 +391,44 @@ class Template implements ArrayAccess
     }
     
     /**
-     * Gets user
-     * @return int
+     * Gets created_at
+     * @return \DateTime
      */
-    public function getUser()
+    public function getCreatedAt()
     {
-        return $this->user;
+        return $this->created_at;
     }
   
     /**
-     * Sets user
-     * @param int $user 
+     * Sets created_at
+     * @param \DateTime $created_at 
      * @return $this
      */
-    public function setUser($user)
+    public function setCreatedAt($created_at)
     {
         
-        $this->user = $user;
+        $this->created_at = $created_at;
         return $this;
     }
     
     /**
-     * Gets template
-     * @return int
+     * Gets updated_at
+     * @return \DateTime
      */
-    public function getTemplate()
+    public function getUpdatedAt()
     {
-        return $this->template;
+        return $this->updated_at;
     }
   
     /**
-     * Sets template
-     * @param int $template 
+     * Sets updated_at
+     * @param \DateTime $updated_at 
      * @return $this
      */
-    public function setTemplate($template)
+    public function setUpdatedAt($updated_at)
     {
         
-        $this->template = $template;
+        $this->updated_at = $updated_at;
         return $this;
     }
     

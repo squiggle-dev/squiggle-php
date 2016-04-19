@@ -52,10 +52,8 @@ class Signature implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'address' => 'int',
         'template' => 'int',
         'plain' => 'string',
-        'rich' => 'string',
         'html' => 'string'
     );
   
@@ -65,10 +63,8 @@ class Signature implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
-        'address' => 'address',
         'template' => 'template',
         'plain' => 'plain',
-        'rich' => 'rich',
         'html' => 'html'
     );
   
@@ -78,10 +74,8 @@ class Signature implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
-        'address' => 'setAddress',
         'template' => 'setTemplate',
         'plain' => 'setPlain',
-        'rich' => 'setRich',
         'html' => 'setHtml'
     );
   
@@ -91,10 +85,8 @@ class Signature implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
-        'address' => 'getAddress',
         'template' => 'getTemplate',
         'plain' => 'getPlain',
-        'rich' => 'getRich',
         'html' => 'getHtml'
     );
   
@@ -104,12 +96,6 @@ class Signature implements ArrayAccess
       * @var int
       */
     protected $id;
-    
-    /**
-      * $address 
-      * @var int
-      */
-    protected $address;
     
     /**
       * $template 
@@ -122,12 +108,6 @@ class Signature implements ArrayAccess
       * @var string
       */
     protected $plain;
-    
-    /**
-      * $rich 
-      * @var string
-      */
-    protected $rich;
     
     /**
       * $html 
@@ -173,27 +153,6 @@ class Signature implements ArrayAccess
     }
     
     /**
-     * Gets address
-     * @return int
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-  
-    /**
-     * Sets address
-     * @param int $address 
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        
-        $this->address = $address;
-        return $this;
-    }
-    
-    /**
      * Gets template
      * @return int
      */
@@ -232,27 +191,6 @@ class Signature implements ArrayAccess
     {
         
         $this->plain = $plain;
-        return $this;
-    }
-    
-    /**
-     * Gets rich
-     * @return string
-     */
-    public function getRich()
-    {
-        return $this->rich;
-    }
-  
-    /**
-     * Sets rich
-     * @param string $rich 
-     * @return $this
-     */
-    public function setRich($rich)
-    {
-        
-        $this->rich = $rich;
         return $this;
     }
     

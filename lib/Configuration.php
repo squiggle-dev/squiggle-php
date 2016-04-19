@@ -96,7 +96,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://squiggle-api.sitlabs.co.uk/v1';
+    protected $host = 'http://api.squigglesignatures.com/v1';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout

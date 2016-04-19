@@ -54,11 +54,12 @@ class GlobalTemplate implements ArrayAccess
         'id' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'thumbnail' => 'string',
+        'thumbnail' => 'int',
         'content_html' => 'string',
         'content_plaintext' => 'string',
-        'content_richtext' => 'string',
-        'settings' => 'string'
+        'settings' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     );
   
     /** 
@@ -72,8 +73,9 @@ class GlobalTemplate implements ArrayAccess
         'thumbnail' => 'thumbnail',
         'content_html' => 'content_html',
         'content_plaintext' => 'content_plaintext',
-        'content_richtext' => 'content_richtext',
-        'settings' => 'settings'
+        'settings' => 'settings',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     );
   
     /**
@@ -87,8 +89,9 @@ class GlobalTemplate implements ArrayAccess
         'thumbnail' => 'setThumbnail',
         'content_html' => 'setContentHtml',
         'content_plaintext' => 'setContentPlaintext',
-        'content_richtext' => 'setContentRichtext',
-        'settings' => 'setSettings'
+        'settings' => 'setSettings',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     );
   
     /**
@@ -102,8 +105,9 @@ class GlobalTemplate implements ArrayAccess
         'thumbnail' => 'getThumbnail',
         'content_html' => 'getContentHtml',
         'content_plaintext' => 'getContentPlaintext',
-        'content_richtext' => 'getContentRichtext',
-        'settings' => 'getSettings'
+        'settings' => 'getSettings',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     );
   
     
@@ -127,7 +131,7 @@ class GlobalTemplate implements ArrayAccess
     
     /**
       * $thumbnail 
-      * @var string
+      * @var int
       */
     protected $thumbnail;
     
@@ -144,16 +148,22 @@ class GlobalTemplate implements ArrayAccess
     protected $content_plaintext;
     
     /**
-      * $content_richtext 
-      * @var string
-      */
-    protected $content_richtext;
-    
-    /**
       * $settings 
       * @var string
       */
     protected $settings;
+    
+    /**
+      * $created_at 
+      * @var \DateTime
+      */
+    protected $created_at;
+    
+    /**
+      * $updated_at 
+      * @var \DateTime
+      */
+    protected $updated_at;
     
 
     /**
@@ -236,7 +246,7 @@ class GlobalTemplate implements ArrayAccess
     
     /**
      * Gets thumbnail
-     * @return string
+     * @return int
      */
     public function getThumbnail()
     {
@@ -245,7 +255,7 @@ class GlobalTemplate implements ArrayAccess
   
     /**
      * Sets thumbnail
-     * @param string $thumbnail 
+     * @param int $thumbnail 
      * @return $this
      */
     public function setThumbnail($thumbnail)
@@ -298,27 +308,6 @@ class GlobalTemplate implements ArrayAccess
     }
     
     /**
-     * Gets content_richtext
-     * @return string
-     */
-    public function getContentRichtext()
-    {
-        return $this->content_richtext;
-    }
-  
-    /**
-     * Sets content_richtext
-     * @param string $content_richtext 
-     * @return $this
-     */
-    public function setContentRichtext($content_richtext)
-    {
-        
-        $this->content_richtext = $content_richtext;
-        return $this;
-    }
-    
-    /**
      * Gets settings
      * @return string
      */
@@ -336,6 +325,48 @@ class GlobalTemplate implements ArrayAccess
     {
         
         $this->settings = $settings;
+        return $this;
+    }
+    
+    /**
+     * Gets created_at
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+  
+    /**
+     * Sets created_at
+     * @param \DateTime $created_at 
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        
+        $this->created_at = $created_at;
+        return $this;
+    }
+    
+    /**
+     * Gets updated_at
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+  
+    /**
+     * Sets updated_at
+     * @param \DateTime $updated_at 
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        
+        $this->updated_at = $updated_at;
         return $this;
     }
     
