@@ -54,7 +54,8 @@ class Signature implements ArrayAccess
         'id' => 'int',
         'template' => 'int',
         'plain' => 'string',
-        'html' => 'string'
+        'html' => 'string',
+        'errors' => 'map[string,string]'
     );
   
     /** 
@@ -65,7 +66,8 @@ class Signature implements ArrayAccess
         'id' => 'id',
         'template' => 'template',
         'plain' => 'plain',
-        'html' => 'html'
+        'html' => 'html',
+        'errors' => 'errors'
     );
   
     /**
@@ -76,7 +78,8 @@ class Signature implements ArrayAccess
         'id' => 'setId',
         'template' => 'setTemplate',
         'plain' => 'setPlain',
-        'html' => 'setHtml'
+        'html' => 'setHtml',
+        'errors' => 'setErrors'
     );
   
     /**
@@ -87,7 +90,8 @@ class Signature implements ArrayAccess
         'id' => 'getId',
         'template' => 'getTemplate',
         'plain' => 'getPlain',
-        'html' => 'getHtml'
+        'html' => 'getHtml',
+        'errors' => 'getErrors'
     );
   
     
@@ -114,6 +118,12 @@ class Signature implements ArrayAccess
       * @var string
       */
     protected $html;
+    
+    /**
+      * $errors 
+      * @var map[string,string]
+      */
+    protected $errors;
     
 
     /**
@@ -212,6 +222,27 @@ class Signature implements ArrayAccess
     {
         
         $this->html = $html;
+        return $this;
+    }
+    
+    /**
+     * Gets errors
+     * @return map[string,string]
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+  
+    /**
+     * Sets errors
+     * @param map[string,string] $errors 
+     * @return $this
+     */
+    public function setErrors($errors)
+    {
+        
+        $this->errors = $errors;
         return $this;
     }
     

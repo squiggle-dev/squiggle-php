@@ -51,7 +51,9 @@ class UnexpectedErrorResponse implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'errors' => '\Squiggle\Model\Error[]'
+        'code' => 'int',
+        'message' => 'string',
+        'errors' => 'map[string,string]'
     );
   
     /** 
@@ -59,6 +61,8 @@ class UnexpectedErrorResponse implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
+        'code' => 'code',
+        'message' => 'message',
         'errors' => 'errors'
     );
   
@@ -67,6 +71,8 @@ class UnexpectedErrorResponse implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
+        'code' => 'setCode',
+        'message' => 'setMessage',
         'errors' => 'setErrors'
     );
   
@@ -75,13 +81,27 @@ class UnexpectedErrorResponse implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
+        'code' => 'getCode',
+        'message' => 'getMessage',
         'errors' => 'getErrors'
     );
   
     
     /**
+      * $code 
+      * @var int
+      */
+    protected $code;
+    
+    /**
+      * $message 
+      * @var string
+      */
+    protected $message;
+    
+    /**
       * $errors 
-      * @var \Squiggle\Model\Error[]
+      * @var map[string,string]
       */
     protected $errors;
     
@@ -102,8 +122,50 @@ class UnexpectedErrorResponse implements ArrayAccess
     }
     
     /**
+     * Gets code
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+  
+    /**
+     * Sets code
+     * @param int $code 
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        
+        $this->code = $code;
+        return $this;
+    }
+    
+    /**
+     * Gets message
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+  
+    /**
+     * Sets message
+     * @param string $message 
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        
+        $this->message = $message;
+        return $this;
+    }
+    
+    /**
      * Gets errors
-     * @return \Squiggle\Model\Error[]
+     * @return map[string,string]
      */
     public function getErrors()
     {
@@ -112,7 +174,7 @@ class UnexpectedErrorResponse implements ArrayAccess
   
     /**
      * Sets errors
-     * @param \Squiggle\Model\Error[] $errors 
+     * @param map[string,string] $errors 
      * @return $this
      */
     public function setErrors($errors)
