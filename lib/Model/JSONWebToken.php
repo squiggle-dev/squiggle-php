@@ -51,6 +51,7 @@ class JSONWebToken implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
+        'id' => 'int',
         'token' => 'string'
     );
   
@@ -59,6 +60,7 @@ class JSONWebToken implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
+        'id' => 'id',
         'token' => 'token'
     );
   
@@ -67,6 +69,7 @@ class JSONWebToken implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
+        'id' => 'setId',
         'token' => 'setToken'
     );
   
@@ -75,9 +78,16 @@ class JSONWebToken implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
+        'id' => 'getId',
         'token' => 'getToken'
     );
   
+    
+    /**
+      * $id 
+      * @var int
+      */
+    protected $id;
     
     /**
       * $token 
@@ -99,6 +109,27 @@ class JSONWebToken implements ArrayAccess
                 }
             }
         }
+    }
+    
+    /**
+     * Gets id
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+  
+    /**
+     * Sets id
+     * @param int $id 
+     * @return $this
+     */
+    public function setId($id)
+    {
+        
+        $this->id = $id;
+        return $this;
     }
     
     /**
