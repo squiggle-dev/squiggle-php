@@ -52,6 +52,7 @@ class Signature implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
+        'label' => 'string',
         'template' => 'int',
         'plain' => 'string',
         'html' => 'string',
@@ -64,6 +65,7 @@ class Signature implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
+        'label' => 'label',
         'template' => 'template',
         'plain' => 'plain',
         'html' => 'html',
@@ -76,6 +78,7 @@ class Signature implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
+        'label' => 'setLabel',
         'template' => 'setTemplate',
         'plain' => 'setPlain',
         'html' => 'setHtml',
@@ -88,6 +91,7 @@ class Signature implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
+        'label' => 'getLabel',
         'template' => 'getTemplate',
         'plain' => 'getPlain',
         'html' => 'getHtml',
@@ -100,6 +104,12 @@ class Signature implements ArrayAccess
       * @var int
       */
     protected $id;
+    
+    /**
+      * $label 
+      * @var string
+      */
+    protected $label;
     
     /**
       * $template 
@@ -159,6 +169,27 @@ class Signature implements ArrayAccess
     {
         
         $this->id = $id;
+        return $this;
+    }
+    
+    /**
+     * Gets label
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+  
+    /**
+     * Sets label
+     * @param string $label 
+     * @return $this
+     */
+    public function setLabel($label)
+    {
+        
+        $this->label = $label;
         return $this;
     }
     
