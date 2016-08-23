@@ -72,6 +72,8 @@ class User implements ArrayAccess
         'googleplus' => 'string',
         'logo' => 'int',
         'snippet' => 'int',
+        'secret_key' => 'string',
+        'access_token' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     );
@@ -102,6 +104,8 @@ class User implements ArrayAccess
         'googleplus' => 'googleplus',
         'logo' => 'logo',
         'snippet' => 'snippet',
+        'secret_key' => 'secret_key',
+        'access_token' => 'access_token',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     );
@@ -132,6 +136,8 @@ class User implements ArrayAccess
         'googleplus' => 'setGoogleplus',
         'logo' => 'setLogo',
         'snippet' => 'setSnippet',
+        'secret_key' => 'setSecretKey',
+        'access_token' => 'setAccessToken',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     );
@@ -162,6 +168,8 @@ class User implements ArrayAccess
         'googleplus' => 'getGoogleplus',
         'logo' => 'getLogo',
         'snippet' => 'getSnippet',
+        'secret_key' => 'getSecretKey',
+        'access_token' => 'getAccessToken',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     );
@@ -292,6 +300,18 @@ class User implements ArrayAccess
       * @var int
       */
     protected $snippet;
+    
+    /**
+      * $secret_key 
+      * @var string
+      */
+    protected $secret_key;
+    
+    /**
+      * $access_token 
+      * @var string
+      */
+    protected $access_token;
     
     /**
       * $created_at 
@@ -759,6 +779,48 @@ class User implements ArrayAccess
     {
         
         $this->snippet = $snippet;
+        return $this;
+    }
+    
+    /**
+     * Gets secret_key
+     * @return string
+     */
+    public function getSecretKey()
+    {
+        return $this->secret_key;
+    }
+  
+    /**
+     * Sets secret_key
+     * @param string $secret_key 
+     * @return $this
+     */
+    public function setSecretKey($secret_key)
+    {
+        
+        $this->secret_key = $secret_key;
+        return $this;
+    }
+    
+    /**
+     * Gets access_token
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->access_token;
+    }
+  
+    /**
+     * Sets access_token
+     * @param string $access_token 
+     * @return $this
+     */
+    public function setAccessToken($access_token)
+    {
+        
+        $this->access_token = $access_token;
         return $this;
     }
     
