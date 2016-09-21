@@ -727,12 +727,13 @@ class SquiggleApi
      * 
      *
      * @param \SplFileObject $file  (required)
+     * @param string $name  (optional)
      * @return \Squiggle\Model\FileResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function addFile($file)
+    public function addFile($file, $name = null)
     {
-        list($response, $statusCode, $httpHeader) = $this->addFileWithHttpInfo ($file);
+        list($response, $statusCode, $httpHeader) = $this->addFileWithHttpInfo ($file, $name);
         return $response; 
     }
 
@@ -743,10 +744,11 @@ class SquiggleApi
      * 
      *
      * @param \SplFileObject $file  (required)
+     * @param string $name  (optional)
      * @return Array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function addFileWithHttpInfo($file)
+    public function addFileWithHttpInfo($file, $name = null)
     {
         
         // verify the required parameter 'file' is set
@@ -783,6 +785,12 @@ class SquiggleApi
                $formParams['file'] = '@' . $this->apiClient->getSerializer()->toFormValue($file);
             }
             
+            
+        }// form params
+        if ($name !== null) {
+            
+            
+            $formParams['name'] = $this->apiClient->getSerializer()->toFormValue($name);
             
         }
         
@@ -1041,13 +1049,14 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of file to update (required)
-     * @param \Squiggle\Model\FileObject $data  (required)
+     * @param \SplFileObject $file  (optional)
+     * @param string $name  (optional)
      * @return \Squiggle\Model\FileResponseSingle
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function editFile($id, $data)
+    public function editFile($id, $file = null, $name = null)
     {
-        list($response, $statusCode, $httpHeader) = $this->editFileWithHttpInfo ($id, $data);
+        list($response, $statusCode, $httpHeader) = $this->editFileWithHttpInfo ($id, $file, $name);
         return $response; 
     }
 
@@ -1058,20 +1067,17 @@ class SquiggleApi
      * 
      *
      * @param int $id ID of file to update (required)
-     * @param \Squiggle\Model\FileObject $data  (required)
+     * @param \SplFileObject $file  (optional)
+     * @param string $name  (optional)
      * @return Array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
      * @throws \Squiggle\ApiException on non-2xx response
      */
-    public function editFileWithHttpInfo($id, $data)
+    public function editFileWithHttpInfo($id, $file = null, $name = null)
     {
         
         // verify the required parameter 'id' is set
         if ($id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $id when calling editFile');
-        }
-        // verify the required parameter 'data' is set
-        if ($data === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $data when calling editFile');
         }
   
         // parse inputs
@@ -1100,12 +1106,26 @@ class SquiggleApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
-        // body params
-        $_tempBody = null;
-        if (isset($data)) {
-            $_tempBody = $data;
+        // form params
+        if ($file !== null) {
+            
+            // PHP 5.5 introduced a CurlFile object that deprecates the old @filename syntax
+            // See: https://wiki.php.net/rfc/curl-file-upload
+            if (function_exists('curl_file_create')) {
+                $formParams['file'] = curl_file_create($this->apiClient->getSerializer()->toFormValue($file));
+            } else {
+               $formParams['file'] = '@' . $this->apiClient->getSerializer()->toFormValue($file);
+            }
+            
+            
+        }// form params
+        if ($name !== null) {
+            
+            
+            $formParams['name'] = $this->apiClient->getSerializer()->toFormValue($name);
+            
         }
+        
   
         // for model (json/xml)
         if (isset($_tempBody)) {
