@@ -266,6 +266,9 @@ class ApiClient
                 $data
             );
         }
+        if (is_object($data) && property_exists($data, 'data')) {
+            $data = $data->data;
+        }
         return [$data, $response_info['http_code'], $http_header];
     }
 
