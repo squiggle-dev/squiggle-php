@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**user** | **int** |  | [optional] 
 **global_template** | [**\Squiggle\Model\GlobalTemplate**](GlobalTemplate.md) |  | [optional] 
 **name** | **string** |  | [optional] 
 **description** | **string** |  | [optional] 

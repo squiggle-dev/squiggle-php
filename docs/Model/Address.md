@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **instagram** | **string** |  | [optional] 
 **googleplus** | **string** |  | [optional] 
 **signatures** | [**\Squiggle\Model\Signature[]**](Signature.md) |  | [optional] 
-**user** | **int** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

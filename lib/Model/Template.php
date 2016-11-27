@@ -54,7 +54,6 @@ class Template implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
-        'user' => 'int',
         'global_template' => '\Squiggle\Model\GlobalTemplate',
         'name' => 'string',
         'description' => 'string',
@@ -77,7 +76,6 @@ class Template implements ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'user' => 'user',
         'global_template' => 'global_template',
         'name' => 'name',
         'description' => 'description',
@@ -96,7 +94,6 @@ class Template implements ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'user' => 'setUser',
         'global_template' => 'setGlobalTemplate',
         'name' => 'setName',
         'description' => 'setDescription',
@@ -115,7 +112,6 @@ class Template implements ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'user' => 'getUser',
         'global_template' => 'getGlobalTemplate',
         'name' => 'getName',
         'description' => 'getDescription',
@@ -159,7 +155,6 @@ class Template implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['global_template'] = isset($data['global_template']) ? $data['global_template'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -211,27 +206,6 @@ class Template implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     * @return int
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     * @param int $user
-     * @return $this
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
 
         return $this;
     }

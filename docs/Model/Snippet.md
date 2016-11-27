@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**user** | **int** |  | [optional] 
 **content_html** | **string** |  | [optional] 
 **content_plaintext** | **string** |  | [optional] 
 **image** | [**\Squiggle\Model\FileObject**](FileObject.md) |  | [optional] 

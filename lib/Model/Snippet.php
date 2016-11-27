@@ -54,7 +54,6 @@ class Snippet implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
-        'user' => 'int',
         'content_html' => 'string',
         'content_plaintext' => 'string',
         'image' => '\Squiggle\Model\FileObject',
@@ -73,7 +72,6 @@ class Snippet implements ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'user' => 'user',
         'content_html' => 'content_html',
         'content_plaintext' => 'content_plaintext',
         'image' => 'image',
@@ -88,7 +86,6 @@ class Snippet implements ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'user' => 'setUser',
         'content_html' => 'setContentHtml',
         'content_plaintext' => 'setContentPlaintext',
         'image' => 'setImage',
@@ -103,7 +100,6 @@ class Snippet implements ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'user' => 'getUser',
         'content_html' => 'getContentHtml',
         'content_plaintext' => 'getContentPlaintext',
         'image' => 'getImage',
@@ -143,7 +139,6 @@ class Snippet implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['content_html'] = isset($data['content_html']) ? $data['content_html'] : null;
         $this->container['content_plaintext'] = isset($data['content_plaintext']) ? $data['content_plaintext'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
@@ -191,27 +186,6 @@ class Snippet implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     * @return int
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     * @param int $user
-     * @return $this
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
 
         return $this;
     }

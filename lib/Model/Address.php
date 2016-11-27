@@ -67,7 +67,6 @@ class Address implements ArrayAccess
         'instagram' => 'string',
         'googleplus' => 'string',
         'signatures' => '\Squiggle\Model\Signature[]',
-        'user' => 'int',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -96,7 +95,6 @@ class Address implements ArrayAccess
         'instagram' => 'instagram',
         'googleplus' => 'googleplus',
         'signatures' => 'signatures',
-        'user' => 'user',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -121,7 +119,6 @@ class Address implements ArrayAccess
         'instagram' => 'setInstagram',
         'googleplus' => 'setGoogleplus',
         'signatures' => 'setSignatures',
-        'user' => 'setUser',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -146,7 +143,6 @@ class Address implements ArrayAccess
         'instagram' => 'getInstagram',
         'googleplus' => 'getGoogleplus',
         'signatures' => 'getSignatures',
-        'user' => 'getUser',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -196,7 +192,6 @@ class Address implements ArrayAccess
         $this->container['instagram'] = isset($data['instagram']) ? $data['instagram'] : null;
         $this->container['googleplus'] = isset($data['googleplus']) ? $data['googleplus'] : null;
         $this->container['signatures'] = isset($data['signatures']) ? $data['signatures'] : null;
-        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -514,27 +509,6 @@ class Address implements ArrayAccess
     public function setSignatures($signatures)
     {
         $this->container['signatures'] = $signatures;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     * @return int
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     * @param int $user
-     * @return $this
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
 
         return $this;
     }
