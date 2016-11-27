@@ -72,8 +72,8 @@ class User implements ArrayAccess
         'twitter' => 'string',
         'instagram' => 'string',
         'googleplus' => 'string',
-        'logo' => 'int',
-        'snippet' => 'int',
+        'logo' => '\Squiggle\Model\FileObject',
+        'snippet' => '\Squiggle\Model\Snippet',
         'secret_key' => 'string',
         'access_token' => 'string',
         'created_at' => '\DateTime',
@@ -665,7 +665,7 @@ class User implements ArrayAccess
 
     /**
      * Gets logo
-     * @return int
+     * @return \Squiggle\Model\FileObject
      */
     public function getLogo()
     {
@@ -674,7 +674,7 @@ class User implements ArrayAccess
 
     /**
      * Sets logo
-     * @param int $logo
+     * @param \Squiggle\Model\FileObject $logo
      * @return $this
      */
     public function setLogo($logo)
@@ -686,7 +686,7 @@ class User implements ArrayAccess
 
     /**
      * Gets snippet
-     * @return int
+     * @return \Squiggle\Model\Snippet
      */
     public function getSnippet()
     {
@@ -695,7 +695,7 @@ class User implements ArrayAccess
 
     /**
      * Sets snippet
-     * @param int $snippet
+     * @param \Squiggle\Model\Snippet $snippet
      * @return $this
      */
     public function setSnippet($snippet)

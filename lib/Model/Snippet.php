@@ -57,7 +57,7 @@ class Snippet implements ArrayAccess
         'user' => 'int',
         'content_html' => 'string',
         'content_plaintext' => 'string',
-        'image' => 'int',
+        'image' => '\Squiggle\Model\FileObject',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -260,7 +260,7 @@ class Snippet implements ArrayAccess
 
     /**
      * Gets image
-     * @return int
+     * @return \Squiggle\Model\FileObject
      */
     public function getImage()
     {
@@ -269,7 +269,7 @@ class Snippet implements ArrayAccess
 
     /**
      * Sets image
-     * @param int $image
+     * @param \Squiggle\Model\FileObject $image
      * @return $this
      */
     public function setImage($image)

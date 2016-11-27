@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **label** | **string** |  | [optional] 
-**template** | **int** |  | [optional] 
+**template** | [**\Squiggle\Model\Template**](Template.md) |  | [optional] 
 **plain** | **string** |  | [optional] 
 **html** | **string** |  | [optional] 
 **errors** | **map[string,string]** |  | [optional] 

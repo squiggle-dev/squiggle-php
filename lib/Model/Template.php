@@ -55,12 +55,12 @@ class Template implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'user' => 'int',
-        'global_template' => 'int',
+        'global_template' => '\Squiggle\Model\GlobalTemplate',
         'name' => 'string',
         'description' => 'string',
         'content_html' => 'string',
         'content_plaintext' => 'string',
-        'thumbnail' => 'int',
+        'thumbnail' => '\Squiggle\Model\FileObject',
         'settings' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -238,7 +238,7 @@ class Template implements ArrayAccess
 
     /**
      * Gets global_template
-     * @return int
+     * @return \Squiggle\Model\GlobalTemplate
      */
     public function getGlobalTemplate()
     {
@@ -247,7 +247,7 @@ class Template implements ArrayAccess
 
     /**
      * Sets global_template
-     * @param int $global_template
+     * @param \Squiggle\Model\GlobalTemplate $global_template
      * @return $this
      */
     public function setGlobalTemplate($global_template)
@@ -343,7 +343,7 @@ class Template implements ArrayAccess
 
     /**
      * Gets thumbnail
-     * @return int
+     * @return \Squiggle\Model\FileObject
      */
     public function getThumbnail()
     {
@@ -352,7 +352,7 @@ class Template implements ArrayAccess
 
     /**
      * Sets thumbnail
-     * @param int $thumbnail
+     * @param \Squiggle\Model\FileObject $thumbnail
      * @return $this
      */
     public function setThumbnail($thumbnail)

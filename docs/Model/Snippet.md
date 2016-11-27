@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **user** | **int** |  | [optional] 
 **content_html** | **string** |  | [optional] 
 **content_plaintext** | **string** |  | [optional] 
-**image** | **int** |  | [optional] 
+**image** | [**\Squiggle\Model\FileObject**](FileObject.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

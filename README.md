@@ -118,30 +118,18 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Address](docs/Model/Address.md)
- - [AddressResponseMultiple](docs/Model/AddressResponseMultiple.md)
- - [AddressResponseSingle](docs/Model/AddressResponseSingle.md)
- - [ApiResponse](docs/Model/ApiResponse.md)
  - [FileObject](docs/Model/FileObject.md)
- - [FileResponseMultiple](docs/Model/FileResponseMultiple.md)
- - [FileResponseSingle](docs/Model/FileResponseSingle.md)
  - [GlobalTemplate](docs/Model/GlobalTemplate.md)
- - [GlobalTemplateResponseMultiple](docs/Model/GlobalTemplateResponseMultiple.md)
- - [GlobalTemplateResponseSingle](docs/Model/GlobalTemplateResponseSingle.md)
  - [JSONWebToken](docs/Model/JSONWebToken.md)
  - [JSONWebTokenResponse](docs/Model/JSONWebTokenResponse.md)
+ - [JsonApiResponse](docs/Model/JsonApiResponse.md)
  - [LoginDetails](docs/Model/LoginDetails.md)
  - [ResponseLinks](docs/Model/ResponseLinks.md)
  - [Signature](docs/Model/Signature.md)
  - [Snippet](docs/Model/Snippet.md)
- - [SnippetResponseMultiple](docs/Model/SnippetResponseMultiple.md)
- - [SnippetResponseSingle](docs/Model/SnippetResponseSingle.md)
  - [Template](docs/Model/Template.md)
- - [TemplateResponseMultiple](docs/Model/TemplateResponseMultiple.md)
- - [TemplateResponseSingle](docs/Model/TemplateResponseSingle.md)
  - [UnexpectedErrorResponse](docs/Model/UnexpectedErrorResponse.md)
  - [User](docs/Model/User.md)
- - [UserResponseMultiple](docs/Model/UserResponseMultiple.md)
- - [UserResponseSingle](docs/Model/UserResponseSingle.md)
 
 
 ## Documentation For Authorization

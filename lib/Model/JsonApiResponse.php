@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateResponseSingle
+ * JsonApiResponse
  *
  * PHP version 5
  *
@@ -32,7 +32,7 @@ namespace Squiggle\Model;
 use \ArrayAccess;
 
 /**
- * TemplateResponseSingle Class Doc Comment
+ * JsonApiResponse Class Doc Comment
  *
  * @category    Class */
 /**
@@ -40,21 +40,20 @@ use \ArrayAccess;
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class TemplateResponseSingle implements ArrayAccess
+class JsonApiResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'TemplateResponseSingle';
+    protected static $swaggerModelName = 'JsonApiResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'links' => '\Squiggle\Model\ResponseLinks',
-        'data' => '\Squiggle\Model\Template'
+        'links' => '\Squiggle\Model\ResponseLinks'
     ];
 
     public static function swaggerTypes()
@@ -67,8 +66,7 @@ class TemplateResponseSingle implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'links' => 'links',
-        'data' => 'data'
+        'links' => 'links'
     ];
 
 
@@ -77,8 +75,7 @@ class TemplateResponseSingle implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'links' => 'setLinks',
-        'data' => 'setData'
+        'links' => 'setLinks'
     ];
 
 
@@ -87,8 +84,7 @@ class TemplateResponseSingle implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'links' => 'getLinks',
-        'data' => 'getData'
+        'links' => 'getLinks'
     ];
 
     public static function attributeMap()
@@ -123,7 +119,6 @@ class TemplateResponseSingle implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['links'] = isset($data['links']) ? $data['links'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -166,27 +161,6 @@ class TemplateResponseSingle implements ArrayAccess
     public function setLinks($links)
     {
         $this->container['links'] = $links;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     * @return \Squiggle\Model\Template
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     * @param \Squiggle\Model\Template $data
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
 
         return $this;
     }

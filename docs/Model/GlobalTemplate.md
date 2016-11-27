@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **name** | **string** |  | [optional] 
 **description** | **string** |  | [optional] 
-**thumbnail** | **int** |  | [optional] 
+**thumbnail** | [**\Squiggle\Model\FileObject**](FileObject.md) |  | [optional] 
 **content_html** | **string** |  | [optional] 
 **content_plaintext** | **string** |  | [optional] 
 **settings** | **string** |  | [optional] 

@@ -95,7 +95,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\Address $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\AddressResponseSingle
+     * @return \Squiggle\Model\Address
      */
     public function addAddress($data)
     {
@@ -110,7 +110,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\Address $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Address, HTTP status code, HTTP response headers (array of strings)
      */
     public function addAddressWithHttpInfo($data)
     {
@@ -158,15 +158,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\AddressResponseSingle',
+                '\Squiggle\Model\Address',
                 '/addresses'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Address', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Address', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -187,7 +187,7 @@ class DefaultApi
      * @param \SplFileObject $file  (required)
      * @param string $name  (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\FileResponseSingle
+     * @return \Squiggle\Model\FileObject
      */
     public function addFile($file, $name = null)
     {
@@ -203,7 +203,7 @@ class DefaultApi
      * @param \SplFileObject $file  (required)
      * @param string $name  (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\FileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function addFileWithHttpInfo($file, $name = null)
     {
@@ -260,15 +260,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\FileResponseSingle',
+                '\Squiggle\Model\FileObject',
                 '/files'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileObject', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileObject', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -288,7 +288,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\GlobalTemplateResponseSingle
+     * @return \Squiggle\Model\GlobalTemplate
      */
     public function addGlobalTemplate($data)
     {
@@ -303,7 +303,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\GlobalTemplate, HTTP status code, HTTP response headers (array of strings)
      */
     public function addGlobalTemplateWithHttpInfo($data)
     {
@@ -351,15 +351,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\GlobalTemplateResponseSingle',
+                '\Squiggle\Model\GlobalTemplate',
                 '/global-templates'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplate', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplate', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -379,7 +379,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\Snippet $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\SnippetResponseSingle
+     * @return \Squiggle\Model\Snippet
      */
     public function addSnippet($data)
     {
@@ -394,7 +394,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\Snippet $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Snippet, HTTP status code, HTTP response headers (array of strings)
      */
     public function addSnippetWithHttpInfo($data)
     {
@@ -442,15 +442,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\SnippetResponseSingle',
+                '\Squiggle\Model\Snippet',
                 '/snippets'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Snippet', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Snippet', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -470,7 +470,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\Template $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\TemplateResponseSingle
+     * @return \Squiggle\Model\Template
      */
     public function addTemplate($data)
     {
@@ -485,7 +485,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\Template $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Template, HTTP status code, HTTP response headers (array of strings)
      */
     public function addTemplateWithHttpInfo($data)
     {
@@ -533,15 +533,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\TemplateResponseSingle',
+                '\Squiggle\Model\Template',
                 '/templates'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Template', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Template', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -561,7 +561,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\User $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\UserResponseSingle
+     * @return \Squiggle\Model\User
      */
     public function addUser($data)
     {
@@ -576,7 +576,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\User $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
     public function addUserWithHttpInfo($data)
     {
@@ -624,15 +624,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\UserResponseSingle',
+                '\Squiggle\Model\User',
                 '/users'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\User', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\User', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1193,7 +1193,7 @@ class DefaultApi
      * @param int $id ID of address to update (required)
      * @param \Squiggle\Model\Address $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\AddressResponseSingle
+     * @return \Squiggle\Model\Address
      */
     public function editAddress($id, $data)
     {
@@ -1209,7 +1209,7 @@ class DefaultApi
      * @param int $id ID of address to update (required)
      * @param \Squiggle\Model\Address $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Address, HTTP status code, HTTP response headers (array of strings)
      */
     public function editAddressWithHttpInfo($id, $data)
     {
@@ -1269,15 +1269,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\AddressResponseSingle',
+                '\Squiggle\Model\Address',
                 '/addresses/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Address', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Address', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1299,7 +1299,7 @@ class DefaultApi
      * @param \SplFileObject $file  (optional)
      * @param string $name  (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\FileResponseSingle
+     * @return \Squiggle\Model\FileObject
      */
     public function editFile($id, $file = null, $name = null)
     {
@@ -1316,7 +1316,7 @@ class DefaultApi
      * @param \SplFileObject $file  (optional)
      * @param string $name  (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\FileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function editFileWithHttpInfo($id, $file = null, $name = null)
     {
@@ -1334,7 +1334,7 @@ class DefaultApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['multipart/form-data']);
 
         // path params
         if ($id !== null) {
@@ -1381,15 +1381,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\FileResponseSingle',
+                '\Squiggle\Model\FileObject',
                 '/files/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileObject', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileObject', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1410,7 +1410,7 @@ class DefaultApi
      * @param int $id ID of global template to update (required)
      * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\GlobalTemplateResponseSingle
+     * @return \Squiggle\Model\GlobalTemplate
      */
     public function editGlobalTemplate($id, $data)
     {
@@ -1426,7 +1426,7 @@ class DefaultApi
      * @param int $id ID of global template to update (required)
      * @param \Squiggle\Model\GlobalTemplate $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\GlobalTemplate, HTTP status code, HTTP response headers (array of strings)
      */
     public function editGlobalTemplateWithHttpInfo($id, $data)
     {
@@ -1486,15 +1486,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\GlobalTemplateResponseSingle',
+                '\Squiggle\Model\GlobalTemplate',
                 '/global-templates/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplate', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplate', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1515,7 +1515,7 @@ class DefaultApi
      * @param int $id ID of snippet to update (required)
      * @param \Squiggle\Model\Snippet $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\SnippetResponseSingle
+     * @return \Squiggle\Model\Snippet
      */
     public function editSnippet($id, $data)
     {
@@ -1531,7 +1531,7 @@ class DefaultApi
      * @param int $id ID of snippet to update (required)
      * @param \Squiggle\Model\Snippet $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Snippet, HTTP status code, HTTP response headers (array of strings)
      */
     public function editSnippetWithHttpInfo($id, $data)
     {
@@ -1591,15 +1591,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\SnippetResponseSingle',
+                '\Squiggle\Model\Snippet',
                 '/snippets/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Snippet', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Snippet', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1620,7 +1620,7 @@ class DefaultApi
      * @param int $id ID of template to update (required)
      * @param \Squiggle\Model\Template $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\TemplateResponseSingle
+     * @return \Squiggle\Model\Template
      */
     public function editTemplate($id, $data)
     {
@@ -1636,7 +1636,7 @@ class DefaultApi
      * @param int $id ID of template to update (required)
      * @param \Squiggle\Model\Template $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Template, HTTP status code, HTTP response headers (array of strings)
      */
     public function editTemplateWithHttpInfo($id, $data)
     {
@@ -1696,15 +1696,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\TemplateResponseSingle',
+                '\Squiggle\Model\Template',
                 '/templates/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Template', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Template', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1725,7 +1725,7 @@ class DefaultApi
      * @param int $id ID of user to update (required)
      * @param \Squiggle\Model\User $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\UserResponseSingle
+     * @return \Squiggle\Model\User
      */
     public function editUser($id, $data)
     {
@@ -1741,7 +1741,7 @@ class DefaultApi
      * @param int $id ID of user to update (required)
      * @param \Squiggle\Model\User $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
     public function editUserWithHttpInfo($id, $data)
     {
@@ -1801,15 +1801,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\UserResponseSingle',
+                '\Squiggle\Model\User',
                 '/users/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\User', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\User', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1830,7 +1830,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\AddressResponseMultiple
+     * @return \Squiggle\Model\Address[]
      */
     public function findAddresses($offset = null, $limit = null)
     {
@@ -1846,7 +1846,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\AddressResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Address[], HTTP status code, HTTP response headers (array of strings)
      */
     public function findAddressesWithHttpInfo($offset = null, $limit = null)
     {
@@ -1893,15 +1893,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\AddressResponseMultiple',
+                '\Squiggle\Model\Address[]',
                 '/addresses'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseMultiple', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Address[]', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseMultiple', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Address[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -1922,7 +1922,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\FileResponseMultiple
+     * @return \Squiggle\Model\FileObject[]
      */
     public function findFiles($offset = null, $limit = null)
     {
@@ -1938,7 +1938,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\FileResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\FileObject[], HTTP status code, HTTP response headers (array of strings)
      */
     public function findFilesWithHttpInfo($offset = null, $limit = null)
     {
@@ -1985,15 +1985,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\FileResponseMultiple',
+                '\Squiggle\Model\FileObject[]',
                 '/files'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileResponseMultiple', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileObject[]', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseMultiple', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileObject[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2014,7 +2014,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\GlobalTemplateResponseMultiple
+     * @return \Squiggle\Model\GlobalTemplate[]
      */
     public function findGlobalTemplates($offset = null, $limit = null)
     {
@@ -2030,7 +2030,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\GlobalTemplateResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\GlobalTemplate[], HTTP status code, HTTP response headers (array of strings)
      */
     public function findGlobalTemplatesWithHttpInfo($offset = null, $limit = null)
     {
@@ -2077,15 +2077,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\GlobalTemplateResponseMultiple',
+                '\Squiggle\Model\GlobalTemplate[]',
                 '/global-templates'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseMultiple', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplate[]', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseMultiple', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplate[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2106,7 +2106,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\SnippetResponseMultiple
+     * @return \Squiggle\Model\Snippet[]
      */
     public function findSnippets($offset = null, $limit = null)
     {
@@ -2122,7 +2122,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\SnippetResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Snippet[], HTTP status code, HTTP response headers (array of strings)
      */
     public function findSnippetsWithHttpInfo($offset = null, $limit = null)
     {
@@ -2169,15 +2169,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\SnippetResponseMultiple',
+                '\Squiggle\Model\Snippet[]',
                 '/snippets'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseMultiple', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Snippet[]', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseMultiple', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Snippet[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2198,7 +2198,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\TemplateResponseMultiple
+     * @return \Squiggle\Model\Template[]
      */
     public function findTemplates($offset = null, $limit = null)
     {
@@ -2214,7 +2214,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\TemplateResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Template[], HTTP status code, HTTP response headers (array of strings)
      */
     public function findTemplatesWithHttpInfo($offset = null, $limit = null)
     {
@@ -2261,15 +2261,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\TemplateResponseMultiple',
+                '\Squiggle\Model\Template[]',
                 '/templates'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseMultiple', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Template[]', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseMultiple', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Template[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2290,7 +2290,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\UserResponseMultiple
+     * @return \Squiggle\Model\User[]
      */
     public function findUsers($offset = null, $limit = null)
     {
@@ -2306,7 +2306,7 @@ class DefaultApi
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\UserResponseMultiple, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\User[], HTTP status code, HTTP response headers (array of strings)
      */
     public function findUsersWithHttpInfo($offset = null, $limit = null)
     {
@@ -2353,15 +2353,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\UserResponseMultiple',
+                '\Squiggle\Model\User[]',
                 '/users'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseMultiple', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\User[]', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseMultiple', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\User[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2381,7 +2381,7 @@ class DefaultApi
      *
      * @param int $id ID of address to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\AddressResponseSingle
+     * @return \Squiggle\Model\Address
      */
     public function getAddress($id)
     {
@@ -2396,7 +2396,7 @@ class DefaultApi
      *
      * @param int $id ID of address to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\AddressResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Address, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAddressWithHttpInfo($id)
     {
@@ -2447,15 +2447,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\AddressResponseSingle',
+                '\Squiggle\Model\Address',
                 '/addresses/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AddressResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Address', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AddressResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Address', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2561,7 +2561,7 @@ class DefaultApi
      *
      * @param int $id ID of file to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\FileResponseSingle
+     * @return \Squiggle\Model\FileObject
      */
     public function getFile($id)
     {
@@ -2576,7 +2576,7 @@ class DefaultApi
      *
      * @param int $id ID of file to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\FileResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\FileObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFileWithHttpInfo($id)
     {
@@ -2627,15 +2627,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\FileResponseSingle',
+                '\Squiggle\Model\FileObject',
                 '/files/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\FileObject', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\FileObject', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2655,7 +2655,7 @@ class DefaultApi
      *
      * @param int $id ID of global template to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\GlobalTemplateResponseSingle
+     * @return \Squiggle\Model\GlobalTemplate
      */
     public function getGlobalTemplate($id)
     {
@@ -2670,7 +2670,7 @@ class DefaultApi
      *
      * @param int $id ID of global template to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\GlobalTemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\GlobalTemplate, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGlobalTemplateWithHttpInfo($id)
     {
@@ -2721,15 +2721,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\GlobalTemplateResponseSingle',
+                '\Squiggle\Model\GlobalTemplate',
                 '/global-templates/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplateResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\GlobalTemplate', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplateResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplate', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2749,7 +2749,7 @@ class DefaultApi
      *
      * @param int $id ID of snippet to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\SnippetResponseSingle
+     * @return \Squiggle\Model\Snippet
      */
     public function getSnippet($id)
     {
@@ -2764,7 +2764,7 @@ class DefaultApi
      *
      * @param int $id ID of snippet to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\SnippetResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Snippet, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSnippetWithHttpInfo($id)
     {
@@ -2815,15 +2815,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\SnippetResponseSingle',
+                '\Squiggle\Model\Snippet',
                 '/snippets/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\SnippetResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Snippet', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\SnippetResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Snippet', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2843,7 +2843,7 @@ class DefaultApi
      *
      * @param int $id ID of template to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\TemplateResponseSingle
+     * @return \Squiggle\Model\Template
      */
     public function getTemplate($id)
     {
@@ -2858,7 +2858,7 @@ class DefaultApi
      *
      * @param int $id ID of template to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\TemplateResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\Template, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTemplateWithHttpInfo($id)
     {
@@ -2909,15 +2909,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\TemplateResponseSingle',
+                '\Squiggle\Model\Template',
                 '/templates/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\TemplateResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Template', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\TemplateResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Template', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -2937,7 +2937,7 @@ class DefaultApi
      *
      * @param int $id ID of user to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\UserResponseSingle
+     * @return \Squiggle\Model\User
      */
     public function getUser($id)
     {
@@ -2952,7 +2952,7 @@ class DefaultApi
      *
      * @param int $id ID of user to get (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\UserResponseSingle, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\User, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserWithHttpInfo($id)
     {
@@ -3003,15 +3003,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\UserResponseSingle',
+                '\Squiggle\Model\User',
                 '/users/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\UserResponseSingle', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\User', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UserResponseSingle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\User', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:

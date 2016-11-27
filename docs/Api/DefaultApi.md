@@ -39,7 +39,7 @@ Method | HTTP request | Description
 
 
 # **addAddress**
-> \Squiggle\Model\AddressResponseSingle addAddress($data)
+> \Squiggle\Model\Address addAddress($data)
 
 
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\AddressResponseSingle**](../Model/AddressResponseSingle.md)
+[**\Squiggle\Model\Address**](../Model/Address.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addFile**
-> \Squiggle\Model\FileResponseSingle addFile($file, $name)
+> \Squiggle\Model\FileObject addFile($file, $name)
 
 
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\FileResponseSingle**](../Model/FileResponseSingle.md)
+[**\Squiggle\Model\FileObject**](../Model/FileObject.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addGlobalTemplate**
-> \Squiggle\Model\GlobalTemplateResponseSingle addGlobalTemplate($data)
+> \Squiggle\Model\GlobalTemplate addGlobalTemplate($data)
 
 
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\GlobalTemplateResponseSingle**](../Model/GlobalTemplateResponseSingle.md)
+[**\Squiggle\Model\GlobalTemplate**](../Model/GlobalTemplate.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addSnippet**
-> \Squiggle\Model\SnippetResponseSingle addSnippet($data)
+> \Squiggle\Model\Snippet addSnippet($data)
 
 
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\SnippetResponseSingle**](../Model/SnippetResponseSingle.md)
+[**\Squiggle\Model\Snippet**](../Model/Snippet.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addTemplate**
-> \Squiggle\Model\TemplateResponseSingle addTemplate($data)
+> \Squiggle\Model\Template addTemplate($data)
 
 
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\TemplateResponseSingle**](../Model/TemplateResponseSingle.md)
+[**\Squiggle\Model\Template**](../Model/Template.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addUser**
-> \Squiggle\Model\UserResponseSingle addUser($data)
+> \Squiggle\Model\User addUser($data)
 
 
 
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\UserResponseSingle**](../Model/UserResponseSingle.md)
+[**\Squiggle\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -635,7 +635,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editAddress**
-> \Squiggle\Model\AddressResponseSingle editAddress($id, $data)
+> \Squiggle\Model\Address editAddress($id, $data)
 
 
 
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\AddressResponseSingle**](../Model/AddressResponseSingle.md)
+[**\Squiggle\Model\Address**](../Model/Address.md)
 
 ### Authorization
 
@@ -687,7 +687,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editFile**
-> \Squiggle\Model\FileResponseSingle editFile($id, $file, $name)
+> \Squiggle\Model\FileObject editFile($id, $file, $name)
 
 
 
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\FileResponseSingle**](../Model/FileResponseSingle.md)
+[**\Squiggle\Model\FileObject**](../Model/FileObject.md)
 
 ### Authorization
 
@@ -735,13 +735,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editGlobalTemplate**
-> \Squiggle\Model\GlobalTemplateResponseSingle editGlobalTemplate($id, $data)
+> \Squiggle\Model\GlobalTemplate editGlobalTemplate($id, $data)
 
 
 
@@ -779,7 +779,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\GlobalTemplateResponseSingle**](../Model/GlobalTemplateResponseSingle.md)
+[**\Squiggle\Model\GlobalTemplate**](../Model/GlobalTemplate.md)
 
 ### Authorization
 
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editSnippet**
-> \Squiggle\Model\SnippetResponseSingle editSnippet($id, $data)
+> \Squiggle\Model\Snippet editSnippet($id, $data)
 
 
 
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\SnippetResponseSingle**](../Model/SnippetResponseSingle.md)
+[**\Squiggle\Model\Snippet**](../Model/Snippet.md)
 
 ### Authorization
 
@@ -845,7 +845,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editTemplate**
-> \Squiggle\Model\TemplateResponseSingle editTemplate($id, $data)
+> \Squiggle\Model\Template editTemplate($id, $data)
 
 
 
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\TemplateResponseSingle**](../Model/TemplateResponseSingle.md)
+[**\Squiggle\Model\Template**](../Model/Template.md)
 
 ### Authorization
 
@@ -897,7 +897,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editUser**
-> \Squiggle\Model\UserResponseSingle editUser($id, $data)
+> \Squiggle\Model\User editUser($id, $data)
 
 
 
@@ -935,7 +935,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\UserResponseSingle**](../Model/UserResponseSingle.md)
+[**\Squiggle\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -949,7 +949,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findAddresses**
-> \Squiggle\Model\AddressResponseMultiple findAddresses($offset, $limit)
+> \Squiggle\Model\Address[] findAddresses($offset, $limit)
 
 
 
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\AddressResponseMultiple**](../Model/AddressResponseMultiple.md)
+[**\Squiggle\Model\Address[]**](../Model/Address.md)
 
 ### Authorization
 
@@ -1001,7 +1001,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findFiles**
-> \Squiggle\Model\FileResponseMultiple findFiles($offset, $limit)
+> \Squiggle\Model\FileObject[] findFiles($offset, $limit)
 
 
 
@@ -1039,7 +1039,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\FileResponseMultiple**](../Model/FileResponseMultiple.md)
+[**\Squiggle\Model\FileObject[]**](../Model/FileObject.md)
 
 ### Authorization
 
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findGlobalTemplates**
-> \Squiggle\Model\GlobalTemplateResponseMultiple findGlobalTemplates($offset, $limit)
+> \Squiggle\Model\GlobalTemplate[] findGlobalTemplates($offset, $limit)
 
 
 
@@ -1091,7 +1091,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\GlobalTemplateResponseMultiple**](../Model/GlobalTemplateResponseMultiple.md)
+[**\Squiggle\Model\GlobalTemplate[]**](../Model/GlobalTemplate.md)
 
 ### Authorization
 
@@ -1105,7 +1105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findSnippets**
-> \Squiggle\Model\SnippetResponseMultiple findSnippets($offset, $limit)
+> \Squiggle\Model\Snippet[] findSnippets($offset, $limit)
 
 
 
@@ -1143,7 +1143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\SnippetResponseMultiple**](../Model/SnippetResponseMultiple.md)
+[**\Squiggle\Model\Snippet[]**](../Model/Snippet.md)
 
 ### Authorization
 
@@ -1157,7 +1157,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findTemplates**
-> \Squiggle\Model\TemplateResponseMultiple findTemplates($offset, $limit)
+> \Squiggle\Model\Template[] findTemplates($offset, $limit)
 
 
 
@@ -1195,7 +1195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\TemplateResponseMultiple**](../Model/TemplateResponseMultiple.md)
+[**\Squiggle\Model\Template[]**](../Model/Template.md)
 
 ### Authorization
 
@@ -1209,7 +1209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findUsers**
-> \Squiggle\Model\UserResponseMultiple findUsers($offset, $limit)
+> \Squiggle\Model\User[] findUsers($offset, $limit)
 
 
 
@@ -1247,7 +1247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\UserResponseMultiple**](../Model/UserResponseMultiple.md)
+[**\Squiggle\Model\User[]**](../Model/User.md)
 
 ### Authorization
 
@@ -1261,7 +1261,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAddress**
-> \Squiggle\Model\AddressResponseSingle getAddress($id)
+> \Squiggle\Model\Address getAddress($id)
 
 
 
@@ -1297,7 +1297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\AddressResponseSingle**](../Model/AddressResponseSingle.md)
+[**\Squiggle\Model\Address**](../Model/Address.md)
 
 ### Authorization
 
@@ -1356,7 +1356,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFile**
-> \Squiggle\Model\FileResponseSingle getFile($id)
+> \Squiggle\Model\FileObject getFile($id)
 
 
 
@@ -1392,7 +1392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\FileResponseSingle**](../Model/FileResponseSingle.md)
+[**\Squiggle\Model\FileObject**](../Model/FileObject.md)
 
 ### Authorization
 
@@ -1406,7 +1406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGlobalTemplate**
-> \Squiggle\Model\GlobalTemplateResponseSingle getGlobalTemplate($id)
+> \Squiggle\Model\GlobalTemplate getGlobalTemplate($id)
 
 
 
@@ -1442,7 +1442,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\GlobalTemplateResponseSingle**](../Model/GlobalTemplateResponseSingle.md)
+[**\Squiggle\Model\GlobalTemplate**](../Model/GlobalTemplate.md)
 
 ### Authorization
 
@@ -1456,7 +1456,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSnippet**
-> \Squiggle\Model\SnippetResponseSingle getSnippet($id)
+> \Squiggle\Model\Snippet getSnippet($id)
 
 
 
@@ -1492,7 +1492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\SnippetResponseSingle**](../Model/SnippetResponseSingle.md)
+[**\Squiggle\Model\Snippet**](../Model/Snippet.md)
 
 ### Authorization
 
@@ -1506,7 +1506,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTemplate**
-> \Squiggle\Model\TemplateResponseSingle getTemplate($id)
+> \Squiggle\Model\Template getTemplate($id)
 
 
 
@@ -1542,7 +1542,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\TemplateResponseSingle**](../Model/TemplateResponseSingle.md)
+[**\Squiggle\Model\Template**](../Model/Template.md)
 
 ### Authorization
 
@@ -1556,7 +1556,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \Squiggle\Model\UserResponseSingle getUser($id)
+> \Squiggle\Model\User getUser($id)
 
 
 
@@ -1592,7 +1592,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\UserResponseSingle**](../Model/UserResponseSingle.md)
+[**\Squiggle\Model\User**](../Model/User.md)
 
 ### Authorization
 

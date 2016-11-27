@@ -1,6 +1,6 @@
 <?php
 /**
- * FileResponseMultipleTest
+ * JsonApiResponseTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Squiggle;
 
 /**
- * FileResponseMultipleTest Class Doc Comment
+ * JsonApiResponseTest Class Doc Comment
  *
  * @category    Class */
-// * @description FileResponseMultiple
+// * @description JsonApiResponse
 /**
  * @package     Squiggle
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class FileResponseMultipleTest extends \PHPUnit_Framework_TestCase
+class JsonApiResponseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -75,9 +75,9 @@ class FileResponseMultipleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "FileResponseMultiple"
+     * Test "JsonApiResponse"
      */
-    public function testFileResponseMultiple()
+    public function testJsonApiResponse()
     {
 
     }
@@ -86,14 +86,6 @@ class FileResponseMultipleTest extends \PHPUnit_Framework_TestCase
      * Test attribute "links"
      */
     public function testPropertyLinks()
-    {
-
-    }
-
-    /**
-     * Test attribute "data"
-     */
-    public function testPropertyData()
     {
 
     }

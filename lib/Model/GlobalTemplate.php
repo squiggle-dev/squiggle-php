@@ -56,7 +56,7 @@ class GlobalTemplate implements ArrayAccess
         'id' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'thumbnail' => 'int',
+        'thumbnail' => '\Squiggle\Model\FileObject',
         'content_html' => 'string',
         'content_plaintext' => 'string',
         'settings' => 'string',
@@ -249,7 +249,7 @@ class GlobalTemplate implements ArrayAccess
 
     /**
      * Gets thumbnail
-     * @return int
+     * @return \Squiggle\Model\FileObject
      */
     public function getThumbnail()
     {
@@ -258,7 +258,7 @@ class GlobalTemplate implements ArrayAccess
 
     /**
      * Sets thumbnail
-     * @param int $thumbnail
+     * @param \Squiggle\Model\FileObject $thumbnail
      * @return $this
      */
     public function setThumbnail($thumbnail)

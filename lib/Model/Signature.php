@@ -55,7 +55,7 @@ class Signature implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'label' => 'string',
-        'template' => 'int',
+        'template' => '\Squiggle\Model\Template',
         'plain' => 'string',
         'html' => 'string',
         'errors' => 'map[string,string]'
@@ -213,7 +213,7 @@ class Signature implements ArrayAccess
 
     /**
      * Gets template
-     * @return int
+     * @return \Squiggle\Model\Template
      */
     public function getTemplate()
     {
@@ -222,7 +222,7 @@ class Signature implements ArrayAccess
 
     /**
      * Sets template
-     * @param int $template
+     * @param \Squiggle\Model\Template $template
      * @return $this
      */
     public function setTemplate($template)
