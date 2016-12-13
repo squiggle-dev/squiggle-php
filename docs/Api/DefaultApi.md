@@ -1311,7 +1311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAddressToken**
-> \Squiggle\Model\JSONWebTokenResponse getAddressToken($data)
+> \Squiggle\Model\JSONWebToken getAddressToken($data)
 
 
 
@@ -1342,7 +1342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\JSONWebTokenResponse**](../Model/JSONWebTokenResponse.md)
+[**\Squiggle\Model\JSONWebToken**](../Model/JSONWebToken.md)
 
 ### Authorization
 
@@ -1606,7 +1606,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserToken**
-> \Squiggle\Model\JSONWebTokenResponse getUserToken($data)
+> \Squiggle\Model\JSONWebToken getUserToken($data)
 
 
 
@@ -1637,7 +1637,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Squiggle\Model\JSONWebTokenResponse**](../Model/JSONWebTokenResponse.md)
+[**\Squiggle\Model\JSONWebToken**](../Model/JSONWebToken.md)
 
 ### Authorization
 

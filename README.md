@@ -121,7 +121,6 @@ Class | Method | HTTP request | Description
  - [FileObject](docs/Model/FileObject.md)
  - [GlobalTemplate](docs/Model/GlobalTemplate.md)
  - [JSONWebToken](docs/Model/JSONWebToken.md)
- - [JSONWebTokenResponse](docs/Model/JSONWebTokenResponse.md)
  - [JsonApiResponse](docs/Model/JsonApiResponse.md)
  - [LoginDetails](docs/Model/LoginDetails.md)
  - [ResponseLinks](docs/Model/ResponseLinks.md)

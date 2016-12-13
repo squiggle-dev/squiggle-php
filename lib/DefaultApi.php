@@ -2475,7 +2475,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\LoginDetails $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\JSONWebTokenResponse
+     * @return \Squiggle\Model\JSONWebToken
      */
     public function getAddressToken($data)
     {
@@ -2490,7 +2490,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\LoginDetails $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\JSONWebTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\JSONWebToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAddressTokenWithHttpInfo($data)
     {
@@ -2533,15 +2533,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\JSONWebTokenResponse',
+                '\Squiggle\Model\JSONWebToken',
                 '/token/address'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\JSONWebTokenResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\JSONWebToken', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
@@ -3031,7 +3031,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\LoginDetails $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return \Squiggle\Model\JSONWebTokenResponse
+     * @return \Squiggle\Model\JSONWebToken
      */
     public function getUserToken($data)
     {
@@ -3046,7 +3046,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\LoginDetails $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of \Squiggle\Model\JSONWebTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Squiggle\Model\JSONWebToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserTokenWithHttpInfo($data)
     {
@@ -3089,15 +3089,15 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Squiggle\Model\JSONWebTokenResponse',
+                '\Squiggle\Model\JSONWebToken',
                 '/token/user'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\JSONWebTokenResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\JSONWebToken', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebTokenResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
