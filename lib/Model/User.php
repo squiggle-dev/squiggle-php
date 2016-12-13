@@ -74,6 +74,7 @@ class User implements ArrayAccess
         'googleplus' => 'string',
         'logo' => '\Squiggle\Model\FileObject',
         'snippet' => '\Squiggle\Model\Snippet',
+        'snippet_enabled' => 'bool',
         'secret_key' => 'string',
         'access_token' => 'string',
         'created_at' => '\DateTime',
@@ -111,6 +112,7 @@ class User implements ArrayAccess
         'googleplus' => 'googleplus',
         'logo' => 'logo',
         'snippet' => 'snippet',
+        'snippet_enabled' => 'snippet_enabled',
         'secret_key' => 'secret_key',
         'access_token' => 'access_token',
         'created_at' => 'created_at',
@@ -144,6 +146,7 @@ class User implements ArrayAccess
         'googleplus' => 'setGoogleplus',
         'logo' => 'setLogo',
         'snippet' => 'setSnippet',
+        'snippet_enabled' => 'setSnippetEnabled',
         'secret_key' => 'setSecretKey',
         'access_token' => 'setAccessToken',
         'created_at' => 'setCreatedAt',
@@ -177,6 +180,7 @@ class User implements ArrayAccess
         'googleplus' => 'getGoogleplus',
         'logo' => 'getLogo',
         'snippet' => 'getSnippet',
+        'snippet_enabled' => 'getSnippetEnabled',
         'secret_key' => 'getSecretKey',
         'access_token' => 'getAccessToken',
         'created_at' => 'getCreatedAt',
@@ -235,6 +239,7 @@ class User implements ArrayAccess
         $this->container['googleplus'] = isset($data['googleplus']) ? $data['googleplus'] : null;
         $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
         $this->container['snippet'] = isset($data['snippet']) ? $data['snippet'] : null;
+        $this->container['snippet_enabled'] = isset($data['snippet_enabled']) ? $data['snippet_enabled'] : null;
         $this->container['secret_key'] = isset($data['secret_key']) ? $data['secret_key'] : null;
         $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -701,6 +706,27 @@ class User implements ArrayAccess
     public function setSnippet($snippet)
     {
         $this->container['snippet'] = $snippet;
+
+        return $this;
+    }
+
+    /**
+     * Gets snippet_enabled
+     * @return bool
+     */
+    public function getSnippetEnabled()
+    {
+        return $this->container['snippet_enabled'];
+    }
+
+    /**
+     * Sets snippet_enabled
+     * @param bool $snippet_enabled
+     * @return $this
+     */
+    public function setSnippetEnabled($snippet_enabled)
+    {
+        $this->container['snippet_enabled'] = $snippet_enabled;
 
         return $this;
     }
