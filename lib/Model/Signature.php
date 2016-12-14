@@ -55,9 +55,10 @@ class Signature implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'label' => 'string',
-        'template' => '\Squiggle\Model\Template',
         'plain' => 'string',
         'html' => 'string',
+        'address' => 'int',
+        'template' => 'int',
         'errors' => 'map[string,string]'
     ];
 
@@ -73,9 +74,10 @@ class Signature implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'label' => 'label',
-        'template' => 'template',
         'plain' => 'plain',
         'html' => 'html',
+        'address' => 'address',
+        'template' => 'template',
         'errors' => 'errors'
     ];
 
@@ -87,9 +89,10 @@ class Signature implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'label' => 'setLabel',
-        'template' => 'setTemplate',
         'plain' => 'setPlain',
         'html' => 'setHtml',
+        'address' => 'setAddress',
+        'template' => 'setTemplate',
         'errors' => 'setErrors'
     ];
 
@@ -101,9 +104,10 @@ class Signature implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'label' => 'getLabel',
-        'template' => 'getTemplate',
         'plain' => 'getPlain',
         'html' => 'getHtml',
+        'address' => 'getAddress',
+        'template' => 'getTemplate',
         'errors' => 'getErrors'
     ];
 
@@ -140,9 +144,10 @@ class Signature implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['plain'] = isset($data['plain']) ? $data['plain'] : null;
         $this->container['html'] = isset($data['html']) ? $data['html'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
@@ -212,27 +217,6 @@ class Signature implements ArrayAccess
     }
 
     /**
-     * Gets template
-     * @return \Squiggle\Model\Template
-     */
-    public function getTemplate()
-    {
-        return $this->container['template'];
-    }
-
-    /**
-     * Sets template
-     * @param \Squiggle\Model\Template $template
-     * @return $this
-     */
-    public function setTemplate($template)
-    {
-        $this->container['template'] = $template;
-
-        return $this;
-    }
-
-    /**
      * Gets plain
      * @return string
      */
@@ -270,6 +254,48 @@ class Signature implements ArrayAccess
     public function setHtml($html)
     {
         $this->container['html'] = $html;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     * @return int
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     * @param int $address
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets template
+     * @return int
+     */
+    public function getTemplate()
+    {
+        return $this->container['template'];
+    }
+
+    /**
+     * Sets template
+     * @param int $template
+     * @return $this
+     */
+    public function setTemplate($template)
+    {
+        $this->container['template'] = $template;
 
         return $this;
     }
