@@ -74,6 +74,7 @@ class User implements ArrayAccess
         'googleplus' => 'string',
         'logo' => '\Squiggle\Model\FileObject',
         'snippet' => '\Squiggle\Model\Snippet',
+        'template' => 'int',
         'snippet_enabled' => 'bool',
         'secret_key' => 'string',
         'access_token' => 'string',
@@ -112,6 +113,7 @@ class User implements ArrayAccess
         'googleplus' => 'googleplus',
         'logo' => 'logo',
         'snippet' => 'snippet',
+        'template' => 'template',
         'snippet_enabled' => 'snippet_enabled',
         'secret_key' => 'secret_key',
         'access_token' => 'access_token',
@@ -146,6 +148,7 @@ class User implements ArrayAccess
         'googleplus' => 'setGoogleplus',
         'logo' => 'setLogo',
         'snippet' => 'setSnippet',
+        'template' => 'setTemplate',
         'snippet_enabled' => 'setSnippetEnabled',
         'secret_key' => 'setSecretKey',
         'access_token' => 'setAccessToken',
@@ -180,6 +183,7 @@ class User implements ArrayAccess
         'googleplus' => 'getGoogleplus',
         'logo' => 'getLogo',
         'snippet' => 'getSnippet',
+        'template' => 'getTemplate',
         'snippet_enabled' => 'getSnippetEnabled',
         'secret_key' => 'getSecretKey',
         'access_token' => 'getAccessToken',
@@ -239,6 +243,7 @@ class User implements ArrayAccess
         $this->container['googleplus'] = isset($data['googleplus']) ? $data['googleplus'] : null;
         $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
         $this->container['snippet'] = isset($data['snippet']) ? $data['snippet'] : null;
+        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['snippet_enabled'] = isset($data['snippet_enabled']) ? $data['snippet_enabled'] : null;
         $this->container['secret_key'] = isset($data['secret_key']) ? $data['secret_key'] : null;
         $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
@@ -706,6 +711,27 @@ class User implements ArrayAccess
     public function setSnippet($snippet)
     {
         $this->container['snippet'] = $snippet;
+
+        return $this;
+    }
+
+    /**
+     * Gets template
+     * @return int
+     */
+    public function getTemplate()
+    {
+        return $this->container['template'];
+    }
+
+    /**
+     * Sets template
+     * @param int $template
+     * @return $this
+     */
+    public function setTemplate($template)
+    {
+        $this->container['template'] = $template;
 
         return $this;
     }

@@ -66,6 +66,7 @@ class Address implements ArrayAccess
         'twitter' => 'string',
         'instagram' => 'string',
         'googleplus' => 'string',
+        'template' => 'int',
         'signatures' => '\Squiggle\Model\Signature[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -94,6 +95,7 @@ class Address implements ArrayAccess
         'twitter' => 'twitter',
         'instagram' => 'instagram',
         'googleplus' => 'googleplus',
+        'template' => 'template',
         'signatures' => 'signatures',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -118,6 +120,7 @@ class Address implements ArrayAccess
         'twitter' => 'setTwitter',
         'instagram' => 'setInstagram',
         'googleplus' => 'setGoogleplus',
+        'template' => 'setTemplate',
         'signatures' => 'setSignatures',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -142,6 +145,7 @@ class Address implements ArrayAccess
         'twitter' => 'getTwitter',
         'instagram' => 'getInstagram',
         'googleplus' => 'getGoogleplus',
+        'template' => 'getTemplate',
         'signatures' => 'getSignatures',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -191,6 +195,7 @@ class Address implements ArrayAccess
         $this->container['twitter'] = isset($data['twitter']) ? $data['twitter'] : null;
         $this->container['instagram'] = isset($data['instagram']) ? $data['instagram'] : null;
         $this->container['googleplus'] = isset($data['googleplus']) ? $data['googleplus'] : null;
+        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['signatures'] = isset($data['signatures']) ? $data['signatures'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -488,6 +493,27 @@ class Address implements ArrayAccess
     public function setGoogleplus($googleplus)
     {
         $this->container['googleplus'] = $googleplus;
+
+        return $this;
+    }
+
+    /**
+     * Gets template
+     * @return int
+     */
+    public function getTemplate()
+    {
+        return $this->container['template'];
+    }
+
+    /**
+     * Sets template
+     * @param int $template
+     * @return $this
+     */
+    public function setTemplate($template)
+    {
+        $this->container['template'] = $template;
 
         return $this;
     }

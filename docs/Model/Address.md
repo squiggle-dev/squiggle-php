@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **twitter** | **string** |  | [optional] 
 **instagram** | **string** |  | [optional] 
 **googleplus** | **string** |  | [optional] 
+**template** | **int** |  | [optional] 
 **signatures** | [**\Squiggle\Model\Signature[]**](Signature.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
