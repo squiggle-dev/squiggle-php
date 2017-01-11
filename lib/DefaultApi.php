@@ -651,12 +651,13 @@ class DefaultApi
      * 
      *
      * @param int $id ID of address to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return void
      */
-    public function deleteAddress($id)
+    public function deleteAddress($id, $force = null)
     {
-        list($response) = $this->deleteAddressWithHttpInfo($id);
+        list($response) = $this->deleteAddressWithHttpInfo($id, $force);
         return $response;
     }
 
@@ -666,10 +667,11 @@ class DefaultApi
      * 
      *
      * @param int $id ID of address to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAddressWithHttpInfo($id)
+    public function deleteAddressWithHttpInfo($id, $force = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -687,6 +689,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($force !== null) {
+            $queryParams['force'] = $this->apiClient->getSerializer()->toQueryValue($force);
+        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -831,12 +837,13 @@ class DefaultApi
      * 
      *
      * @param int $id ID of global template to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return void
      */
-    public function deleteGlobalTemplate($id)
+    public function deleteGlobalTemplate($id, $force = null)
     {
-        list($response) = $this->deleteGlobalTemplateWithHttpInfo($id);
+        list($response) = $this->deleteGlobalTemplateWithHttpInfo($id, $force);
         return $response;
     }
 
@@ -846,10 +853,11 @@ class DefaultApi
      * 
      *
      * @param int $id ID of global template to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteGlobalTemplateWithHttpInfo($id)
+    public function deleteGlobalTemplateWithHttpInfo($id, $force = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -867,6 +875,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($force !== null) {
+            $queryParams['force'] = $this->apiClient->getSerializer()->toQueryValue($force);
+        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -921,12 +933,13 @@ class DefaultApi
      * 
      *
      * @param int $id ID of snippet to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return void
      */
-    public function deleteSnippet($id)
+    public function deleteSnippet($id, $force = null)
     {
-        list($response) = $this->deleteSnippetWithHttpInfo($id);
+        list($response) = $this->deleteSnippetWithHttpInfo($id, $force);
         return $response;
     }
 
@@ -936,10 +949,11 @@ class DefaultApi
      * 
      *
      * @param int $id ID of snippet to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSnippetWithHttpInfo($id)
+    public function deleteSnippetWithHttpInfo($id, $force = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -957,6 +971,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($force !== null) {
+            $queryParams['force'] = $this->apiClient->getSerializer()->toQueryValue($force);
+        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1011,12 +1029,13 @@ class DefaultApi
      * 
      *
      * @param int $id ID of template to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return void
      */
-    public function deleteTemplate($id)
+    public function deleteTemplate($id, $force = null)
     {
-        list($response) = $this->deleteTemplateWithHttpInfo($id);
+        list($response) = $this->deleteTemplateWithHttpInfo($id, $force);
         return $response;
     }
 
@@ -1026,10 +1045,11 @@ class DefaultApi
      * 
      *
      * @param int $id ID of template to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTemplateWithHttpInfo($id)
+    public function deleteTemplateWithHttpInfo($id, $force = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1047,6 +1067,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($force !== null) {
+            $queryParams['force'] = $this->apiClient->getSerializer()->toQueryValue($force);
+        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1101,12 +1125,13 @@ class DefaultApi
      * 
      *
      * @param int $id ID of user to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return void
      */
-    public function deleteUser($id)
+    public function deleteUser($id, $force = null)
     {
-        list($response) = $this->deleteUserWithHttpInfo($id);
+        list($response) = $this->deleteUserWithHttpInfo($id, $force);
         return $response;
     }
 
@@ -1116,10 +1141,11 @@ class DefaultApi
      * 
      *
      * @param int $id ID of user to delete (required)
+     * @param bool $force Disables soft-delete when true, completely removing the row (use with caution!) (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserWithHttpInfo($id)
+    public function deleteUserWithHttpInfo($id, $force = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
@@ -1137,6 +1163,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($force !== null) {
+            $queryParams['force'] = $this->apiClient->getSerializer()->toQueryValue($force);
+        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(

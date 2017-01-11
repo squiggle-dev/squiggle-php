@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAddress**
-> deleteAddress($id)
+> deleteAddress($id, $force)
 
 
 
@@ -359,9 +359,10 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 
 $api_instance = new Squiggle\Api\DefaultApi();
 $id = 789; // int | ID of address to delete
+$force = true; // bool | Disables soft-delete when true, completely removing the row (use with caution!)
 
 try {
-    $api_instance->deleteAddress($id);
+    $api_instance->deleteAddress($id, $force);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->deleteAddress: ', $e->getMessage(), PHP_EOL;
 }
@@ -373,6 +374,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of address to delete |
+ **force** | **bool**| Disables soft-delete when true, completely removing the row (use with caution!) | [optional]
 
 ### Return type
 
@@ -439,7 +441,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteGlobalTemplate**
-> deleteGlobalTemplate($id)
+> deleteGlobalTemplate($id, $force)
 
 
 
@@ -457,9 +459,10 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 
 $api_instance = new Squiggle\Api\DefaultApi();
 $id = 789; // int | ID of global template to delete
+$force = true; // bool | Disables soft-delete when true, completely removing the row (use with caution!)
 
 try {
-    $api_instance->deleteGlobalTemplate($id);
+    $api_instance->deleteGlobalTemplate($id, $force);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->deleteGlobalTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -471,6 +474,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of global template to delete |
+ **force** | **bool**| Disables soft-delete when true, completely removing the row (use with caution!) | [optional]
 
 ### Return type
 
@@ -488,7 +492,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteSnippet**
-> deleteSnippet($id)
+> deleteSnippet($id, $force)
 
 
 
@@ -506,9 +510,10 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 
 $api_instance = new Squiggle\Api\DefaultApi();
 $id = 789; // int | ID of snippet to delete
+$force = true; // bool | Disables soft-delete when true, completely removing the row (use with caution!)
 
 try {
-    $api_instance->deleteSnippet($id);
+    $api_instance->deleteSnippet($id, $force);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->deleteSnippet: ', $e->getMessage(), PHP_EOL;
 }
@@ -520,6 +525,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of snippet to delete |
+ **force** | **bool**| Disables soft-delete when true, completely removing the row (use with caution!) | [optional]
 
 ### Return type
 
@@ -537,7 +543,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteTemplate**
-> deleteTemplate($id)
+> deleteTemplate($id, $force)
 
 
 
@@ -555,9 +561,10 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 
 $api_instance = new Squiggle\Api\DefaultApi();
 $id = 789; // int | ID of template to delete
+$force = true; // bool | Disables soft-delete when true, completely removing the row (use with caution!)
 
 try {
-    $api_instance->deleteTemplate($id);
+    $api_instance->deleteTemplate($id, $force);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->deleteTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -569,6 +576,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of template to delete |
+ **force** | **bool**| Disables soft-delete when true, completely removing the row (use with caution!) | [optional]
 
 ### Return type
 
@@ -586,7 +594,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteUser**
-> deleteUser($id)
+> deleteUser($id, $force)
 
 
 
@@ -604,9 +612,10 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 
 $api_instance = new Squiggle\Api\DefaultApi();
 $id = 789; // int | ID of user to delete
+$force = true; // bool | Disables soft-delete when true, completely removing the row (use with caution!)
 
 try {
-    $api_instance->deleteUser($id);
+    $api_instance->deleteUser($id, $force);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->deleteUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -618,6 +627,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of user to delete |
+ **force** | **bool**| Disables soft-delete when true, completely removing the row (use with caution!) | [optional]
 
 ### Return type
 
