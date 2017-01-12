@@ -959,7 +959,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findAddresses**
-> \Squiggle\Model\Address[] findAddresses($offset, $limit)
+> \Squiggle\Model\Address[] findAddresses($sort, $offset, $limit)
 
 
 
@@ -976,11 +976,12 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 // Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Squiggle\Api\DefaultApi();
+$sort = "sort_example"; // string | A comma-separated list of fields to sort by
 $offset = 56; // int | The start offset of the result set
 $limit = 56; // int | Max records to return
 
 try {
-    $result = $api_instance->findAddresses($offset, $limit);
+    $result = $api_instance->findAddresses($sort, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->findAddresses: ', $e->getMessage(), PHP_EOL;
@@ -992,6 +993,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **string**| A comma-separated list of fields to sort by | [optional]
  **offset** | **int**| The start offset of the result set | [optional]
  **limit** | **int**| Max records to return | [optional]
 
@@ -1011,7 +1013,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findFiles**
-> \Squiggle\Model\FileObject[] findFiles($offset, $limit)
+> \Squiggle\Model\FileObject[] findFiles($sort, $offset, $limit)
 
 
 
@@ -1028,11 +1030,12 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 // Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Squiggle\Api\DefaultApi();
+$sort = "sort_example"; // string | A comma-separated list of fields to sort by
 $offset = 56; // int | The start offset of the result set
 $limit = 56; // int | Max records to return
 
 try {
-    $result = $api_instance->findFiles($offset, $limit);
+    $result = $api_instance->findFiles($sort, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->findFiles: ', $e->getMessage(), PHP_EOL;
@@ -1044,6 +1047,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **string**| A comma-separated list of fields to sort by | [optional]
  **offset** | **int**| The start offset of the result set | [optional]
  **limit** | **int**| Max records to return | [optional]
 
@@ -1063,7 +1067,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findGlobalTemplates**
-> \Squiggle\Model\GlobalTemplate[] findGlobalTemplates($offset, $limit)
+> \Squiggle\Model\GlobalTemplate[] findGlobalTemplates($sort, $offset, $limit)
 
 
 
@@ -1080,11 +1084,12 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 // Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Squiggle\Api\DefaultApi();
+$sort = "sort_example"; // string | A comma-separated list of fields to sort by
 $offset = 56; // int | The start offset of the result set
 $limit = 56; // int | Max records to return
 
 try {
-    $result = $api_instance->findGlobalTemplates($offset, $limit);
+    $result = $api_instance->findGlobalTemplates($sort, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->findGlobalTemplates: ', $e->getMessage(), PHP_EOL;
@@ -1096,6 +1101,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **string**| A comma-separated list of fields to sort by | [optional]
  **offset** | **int**| The start offset of the result set | [optional]
  **limit** | **int**| Max records to return | [optional]
 
@@ -1115,7 +1121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findSnippets**
-> \Squiggle\Model\Snippet[] findSnippets($offset, $limit)
+> \Squiggle\Model\Snippet[] findSnippets($sort, $offset, $limit)
 
 
 
@@ -1132,11 +1138,12 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 // Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Squiggle\Api\DefaultApi();
+$sort = "sort_example"; // string | A comma-separated list of fields to sort by
 $offset = 56; // int | The start offset of the result set
 $limit = 56; // int | Max records to return
 
 try {
-    $result = $api_instance->findSnippets($offset, $limit);
+    $result = $api_instance->findSnippets($sort, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->findSnippets: ', $e->getMessage(), PHP_EOL;
@@ -1148,6 +1155,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **string**| A comma-separated list of fields to sort by | [optional]
  **offset** | **int**| The start offset of the result set | [optional]
  **limit** | **int**| Max records to return | [optional]
 
@@ -1167,7 +1175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findTemplates**
-> \Squiggle\Model\Template[] findTemplates($offset, $limit)
+> \Squiggle\Model\Template[] findTemplates($sort, $offset, $limit)
 
 
 
@@ -1184,11 +1192,12 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 // Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Squiggle\Api\DefaultApi();
+$sort = "sort_example"; // string | A comma-separated list of fields to sort by
 $offset = 56; // int | The start offset of the result set
 $limit = 56; // int | Max records to return
 
 try {
-    $result = $api_instance->findTemplates($offset, $limit);
+    $result = $api_instance->findTemplates($sort, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->findTemplates: ', $e->getMessage(), PHP_EOL;
@@ -1200,6 +1209,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **string**| A comma-separated list of fields to sort by | [optional]
  **offset** | **int**| The start offset of the result set | [optional]
  **limit** | **int**| Max records to return | [optional]
 
@@ -1219,7 +1229,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findUsers**
-> \Squiggle\Model\User[] findUsers($offset, $limit)
+> \Squiggle\Model\User[] findUsers($sort, $offset, $limit)
 
 
 
@@ -1236,11 +1246,12 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 // Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Squiggle\Api\DefaultApi();
+$sort = "sort_example"; // string | A comma-separated list of fields to sort by
 $offset = 56; // int | The start offset of the result set
 $limit = 56; // int | Max records to return
 
 try {
-    $result = $api_instance->findUsers($offset, $limit);
+    $result = $api_instance->findUsers($sort, $offset, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->findUsers: ', $e->getMessage(), PHP_EOL;
@@ -1252,6 +1263,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sort** | **string**| A comma-separated list of fields to sort by | [optional]
  **offset** | **int**| The start offset of the result set | [optional]
  **limit** | **int**| Max records to return | [optional]
 

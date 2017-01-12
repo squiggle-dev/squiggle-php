@@ -1857,14 +1857,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return \Squiggle\Model\Address[]
      */
-    public function findAddresses($offset = null, $limit = null)
+    public function findAddresses($sort = null, $offset = null, $limit = null)
     {
-        list($response) = $this->findAddressesWithHttpInfo($offset, $limit);
+        list($response) = $this->findAddressesWithHttpInfo($sort, $offset, $limit);
         return $response;
     }
 
@@ -1873,12 +1874,13 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of \Squiggle\Model\Address[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function findAddressesWithHttpInfo($offset = null, $limit = null)
+    public function findAddressesWithHttpInfo($sort = null, $offset = null, $limit = null)
     {
         // parse inputs
         $resourcePath = "/addresses";
@@ -1892,6 +1894,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
         // query params
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
@@ -1949,14 +1955,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return \Squiggle\Model\FileObject[]
      */
-    public function findFiles($offset = null, $limit = null)
+    public function findFiles($sort = null, $offset = null, $limit = null)
     {
-        list($response) = $this->findFilesWithHttpInfo($offset, $limit);
+        list($response) = $this->findFilesWithHttpInfo($sort, $offset, $limit);
         return $response;
     }
 
@@ -1965,12 +1972,13 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of \Squiggle\Model\FileObject[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function findFilesWithHttpInfo($offset = null, $limit = null)
+    public function findFilesWithHttpInfo($sort = null, $offset = null, $limit = null)
     {
         // parse inputs
         $resourcePath = "/files";
@@ -1984,6 +1992,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
         // query params
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
@@ -2041,14 +2053,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return \Squiggle\Model\GlobalTemplate[]
      */
-    public function findGlobalTemplates($offset = null, $limit = null)
+    public function findGlobalTemplates($sort = null, $offset = null, $limit = null)
     {
-        list($response) = $this->findGlobalTemplatesWithHttpInfo($offset, $limit);
+        list($response) = $this->findGlobalTemplatesWithHttpInfo($sort, $offset, $limit);
         return $response;
     }
 
@@ -2057,12 +2070,13 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of \Squiggle\Model\GlobalTemplate[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function findGlobalTemplatesWithHttpInfo($offset = null, $limit = null)
+    public function findGlobalTemplatesWithHttpInfo($sort = null, $offset = null, $limit = null)
     {
         // parse inputs
         $resourcePath = "/global-templates";
@@ -2076,6 +2090,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
         // query params
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
@@ -2133,14 +2151,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return \Squiggle\Model\Snippet[]
      */
-    public function findSnippets($offset = null, $limit = null)
+    public function findSnippets($sort = null, $offset = null, $limit = null)
     {
-        list($response) = $this->findSnippetsWithHttpInfo($offset, $limit);
+        list($response) = $this->findSnippetsWithHttpInfo($sort, $offset, $limit);
         return $response;
     }
 
@@ -2149,12 +2168,13 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of \Squiggle\Model\Snippet[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function findSnippetsWithHttpInfo($offset = null, $limit = null)
+    public function findSnippetsWithHttpInfo($sort = null, $offset = null, $limit = null)
     {
         // parse inputs
         $resourcePath = "/snippets";
@@ -2168,6 +2188,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
         // query params
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
@@ -2225,14 +2249,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return \Squiggle\Model\Template[]
      */
-    public function findTemplates($offset = null, $limit = null)
+    public function findTemplates($sort = null, $offset = null, $limit = null)
     {
-        list($response) = $this->findTemplatesWithHttpInfo($offset, $limit);
+        list($response) = $this->findTemplatesWithHttpInfo($sort, $offset, $limit);
         return $response;
     }
 
@@ -2241,12 +2266,13 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of \Squiggle\Model\Template[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function findTemplatesWithHttpInfo($offset = null, $limit = null)
+    public function findTemplatesWithHttpInfo($sort = null, $offset = null, $limit = null)
     {
         // parse inputs
         $resourcePath = "/templates";
@@ -2260,6 +2286,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
         // query params
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
@@ -2317,14 +2347,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return \Squiggle\Model\User[]
      */
-    public function findUsers($offset = null, $limit = null)
+    public function findUsers($sort = null, $offset = null, $limit = null)
     {
-        list($response) = $this->findUsersWithHttpInfo($offset, $limit);
+        list($response) = $this->findUsersWithHttpInfo($sort, $offset, $limit);
         return $response;
     }
 
@@ -2333,12 +2364,13 @@ class DefaultApi
      *
      * 
      *
+     * @param string $sort A comma-separated list of fields to sort by (optional)
      * @param int $offset The start offset of the result set (optional)
      * @param int $limit Max records to return (optional)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of \Squiggle\Model\User[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function findUsersWithHttpInfo($offset = null, $limit = null)
+    public function findUsersWithHttpInfo($sort = null, $offset = null, $limit = null)
     {
         // parse inputs
         $resourcePath = "/users";
@@ -2352,6 +2384,10 @@ class DefaultApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
         // query params
         if ($offset !== null) {
             $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
