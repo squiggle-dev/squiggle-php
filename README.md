@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**findAddresses**](docs/Api/DefaultApi.md#findaddresses) | **GET** /addresses | 
 *DefaultApi* | [**findFiles**](docs/Api/DefaultApi.md#findfiles) | **GET** /files | 
 *DefaultApi* | [**findGlobalTemplates**](docs/Api/DefaultApi.md#findglobaltemplates) | **GET** /global-templates | 
+*DefaultApi* | [**findSignatures**](docs/Api/DefaultApi.md#findsignatures) | **GET** /signatures | 
 *DefaultApi* | [**findSnippets**](docs/Api/DefaultApi.md#findsnippets) | **GET** /snippets | 
 *DefaultApi* | [**findTemplates**](docs/Api/DefaultApi.md#findtemplates) | **GET** /templates | 
 *DefaultApi* | [**findUsers**](docs/Api/DefaultApi.md#findusers) | **GET** /users | 
@@ -109,6 +110,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getAddressToken**](docs/Api/DefaultApi.md#getaddresstoken) | **POST** /token/address | 
 *DefaultApi* | [**getFile**](docs/Api/DefaultApi.md#getfile) | **GET** /files/{id} | 
 *DefaultApi* | [**getGlobalTemplate**](docs/Api/DefaultApi.md#getglobaltemplate) | **GET** /global-templates/{id} | 
+*DefaultApi* | [**getSignature**](docs/Api/DefaultApi.md#getsignature) | **GET** /signatures/{id} | 
 *DefaultApi* | [**getSnippet**](docs/Api/DefaultApi.md#getsnippet) | **GET** /snippets/{id} | 
 *DefaultApi* | [**getTemplate**](docs/Api/DefaultApi.md#gettemplate) | **GET** /templates/{id} | 
 *DefaultApi* | [**getUser**](docs/Api/DefaultApi.md#getuser) | **GET** /users/{id} | 

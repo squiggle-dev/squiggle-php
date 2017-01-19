@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**findAddresses**](DefaultApi.md#findAddresses) | **GET** /addresses | 
 [**findFiles**](DefaultApi.md#findFiles) | **GET** /files | 
 [**findGlobalTemplates**](DefaultApi.md#findGlobalTemplates) | **GET** /global-templates | 
+[**findSignatures**](DefaultApi.md#findSignatures) | **GET** /signatures | 
 [**findSnippets**](DefaultApi.md#findSnippets) | **GET** /snippets | 
 [**findTemplates**](DefaultApi.md#findTemplates) | **GET** /templates | 
 [**findUsers**](DefaultApi.md#findUsers) | **GET** /users | 
@@ -32,6 +33,7 @@ Method | HTTP request | Description
 [**getAddressToken**](DefaultApi.md#getAddressToken) | **POST** /token/address | 
 [**getFile**](DefaultApi.md#getFile) | **GET** /files/{id} | 
 [**getGlobalTemplate**](DefaultApi.md#getGlobalTemplate) | **GET** /global-templates/{id} | 
+[**getSignature**](DefaultApi.md#getSignature) | **GET** /signatures/{id} | 
 [**getSnippet**](DefaultApi.md#getSnippet) | **GET** /snippets/{id} | 
 [**getTemplate**](DefaultApi.md#getTemplate) | **GET** /templates/{id} | 
 [**getUser**](DefaultApi.md#getUser) | **GET** /users/{id} | 
@@ -1126,6 +1128,62 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **findSignatures**
+> \Squiggle\Model\Signature[] findSignatures($filter, $sort, $offset, $limit)
+
+
+
+Gets signatures
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$api_instance = new Squiggle\Api\DefaultApi();
+$filter = "filter_example"; // string | A list of fields and values to filter by, in query string format eg. 'type=order&status=1'
+$sort = "sort_example"; // string | A comma-separated list of fields to sort by
+$offset = 56; // int | The start offset of the result set
+$limit = 56; // int | Max records to return
+
+try {
+    $result = $api_instance->findSignatures($filter, $sort, $offset, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->findSignatures: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter** | **string**| A list of fields and values to filter by, in query string format eg. &#39;type&#x3D;order&amp;status&#x3D;1&#39; | [optional]
+ **sort** | **string**| A comma-separated list of fields to sort by | [optional]
+ **offset** | **int**| The start offset of the result set | [optional]
+ **limit** | **int**| Max records to return | [optional]
+
+### Return type
+
+[**\Squiggle\Model\Signature[]**](../Model/Signature.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **findSnippets**
 > \Squiggle\Model\Snippet[] findSnippets($filter, $sort, $offset, $limit)
 
@@ -1477,6 +1535,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Squiggle\Model\GlobalTemplate**](../Model/GlobalTemplate.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getSignature**
+> \Squiggle\Model\Signature getSignature($id)
+
+
+
+Gets a signature with the specified ID
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$api_instance = new Squiggle\Api\DefaultApi();
+$id = 789; // int | ID of signature to get
+
+try {
+    $result = $api_instance->getSignature($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getSignature: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| ID of signature to get |
+
+### Return type
+
+[**\Squiggle\Model\Signature**](../Model/Signature.md)
 
 ### Authorization
 

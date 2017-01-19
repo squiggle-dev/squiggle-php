@@ -2165,6 +2165,110 @@ class DefaultApi
     }
 
     /**
+     * Operation findSignatures
+     *
+     * 
+     *
+     * @param string $filter A list of fields and values to filter by, in query string format eg. &#39;type&#x3D;order&amp;status&#x3D;1&#39; (optional)
+     * @param string $sort A comma-separated list of fields to sort by (optional)
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return \Squiggle\Model\Signature[]
+     */
+    public function findSignatures($filter = null, $sort = null, $offset = null, $limit = null)
+    {
+        list($response) = $this->findSignaturesWithHttpInfo($filter, $sort, $offset, $limit);
+        return $response;
+    }
+
+    /**
+     * Operation findSignaturesWithHttpInfo
+     *
+     * 
+     *
+     * @param string $filter A list of fields and values to filter by, in query string format eg. &#39;type&#x3D;order&amp;status&#x3D;1&#39; (optional)
+     * @param string $sort A comma-separated list of fields to sort by (optional)
+     * @param int $offset The start offset of the result set (optional)
+     * @param int $limit Max records to return (optional)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return array of \Squiggle\Model\Signature[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function findSignaturesWithHttpInfo($filter = null, $sort = null, $offset = null, $limit = null)
+    {
+        // parse inputs
+        $resourcePath = "/signatures";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // query params
+        if ($filter !== null) {
+            $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($filter);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Squiggle\Model\Signature[]',
+                '/signatures'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Signature[]', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Signature[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation findSnippets
      *
      * 
@@ -2832,6 +2936,100 @@ class DefaultApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\GlobalTemplate', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSignature
+     *
+     * 
+     *
+     * @param int $id ID of signature to get (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return \Squiggle\Model\Signature
+     */
+    public function getSignature($id)
+    {
+        list($response) = $this->getSignatureWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation getSignatureWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of signature to get (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return array of \Squiggle\Model\Signature, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSignatureWithHttpInfo($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling getSignature');
+        }
+        // parse inputs
+        $resourcePath = "/signatures/{id}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Squiggle\Model\Signature',
+                '/signatures/{id}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\Signature', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\Signature', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default:
