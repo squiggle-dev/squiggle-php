@@ -251,6 +251,22 @@ class UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "template"
+     */
+    public function testPropertyTemplate()
+    {
+
+    }
+
+    /**
+     * Test attribute "snippet_enabled"
+     */
+    public function testPropertySnippetEnabled()
+    {
+
+    }
+
+    /**
      * Test attribute "secret_key"
      */
     public function testPropertySecretKey()

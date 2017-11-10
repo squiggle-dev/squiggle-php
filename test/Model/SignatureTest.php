@@ -99,14 +99,6 @@ class SignatureTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "template"
-     */
-    public function testPropertyTemplate()
-    {
-
-    }
-
-    /**
      * Test attribute "plain"
      */
     public function testPropertyPlain()
@@ -118,6 +110,22 @@ class SignatureTest extends \PHPUnit_Framework_TestCase
      * Test attribute "html"
      */
     public function testPropertyHtml()
+    {
+
+    }
+
+    /**
+     * Test attribute "address"
+     */
+    public function testPropertyAddress()
+    {
+
+    }
+
+    /**
+     * Test attribute "template"
+     */
+    public function testPropertyTemplate()
     {
 
     }

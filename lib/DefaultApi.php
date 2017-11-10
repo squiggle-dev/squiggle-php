@@ -2581,6 +2581,100 @@ class DefaultApi
     }
 
     /**
+     * Operation generateAddressAuthCode
+     *
+     * 
+     *
+     * @param int $id ID of address (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return \Squiggle\Model\AuthCode
+     */
+    public function generateAddressAuthCode($id)
+    {
+        list($response) = $this->generateAddressAuthCodeWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation generateAddressAuthCodeWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of address (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return array of \Squiggle\Model\AuthCode, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateAddressAuthCodeWithHttpInfo($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling generateAddressAuthCode');
+        }
+        // parse inputs
+        $resourcePath = "/addresses/{id}/generate-auth-code";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Squiggle\Model\AuthCode',
+                '/addresses/{id}/generate-auth-code'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\AuthCode', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\AuthCode', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getAddress
      *
      * 

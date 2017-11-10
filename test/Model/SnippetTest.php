@@ -91,14 +91,6 @@ class SnippetTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user"
-     */
-    public function testPropertyUser()
-    {
-
-    }
-
-    /**
      * Test attribute "content_html"
      */
     public function testPropertyContentHtml()

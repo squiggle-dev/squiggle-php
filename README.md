@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**findSnippets**](docs/Api/DefaultApi.md#findsnippets) | **GET** /snippets | 
 *DefaultApi* | [**findTemplates**](docs/Api/DefaultApi.md#findtemplates) | **GET** /templates | 
 *DefaultApi* | [**findUsers**](docs/Api/DefaultApi.md#findusers) | **GET** /users | 
+*DefaultApi* | [**generateAddressAuthCode**](docs/Api/DefaultApi.md#generateaddressauthcode) | **POST** /addresses/{id}/generate-auth-code | 
 *DefaultApi* | [**getAddress**](docs/Api/DefaultApi.md#getaddress) | **GET** /addresses/{id} | 
 *DefaultApi* | [**getAddressToken**](docs/Api/DefaultApi.md#getaddresstoken) | **POST** /token/address | 
 *DefaultApi* | [**getFile**](docs/Api/DefaultApi.md#getfile) | **GET** /files/{id} | 
@@ -120,6 +121,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Address](docs/Model/Address.md)
+ - [AuthCode](docs/Model/AuthCode.md)
  - [FileObject](docs/Model/FileObject.md)
  - [GlobalTemplate](docs/Model/GlobalTemplate.md)
  - [JSONWebToken](docs/Model/JSONWebToken.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * JSONWebTokenResponseTest
+ * AuthCodeTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Squiggle;
 
 /**
- * JSONWebTokenResponseTest Class Doc Comment
+ * AuthCodeTest Class Doc Comment
  *
  * @category    Class */
-// * @description JSONWebTokenResponse
+// * @description AuthCode
 /**
  * @package     Squiggle
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class JSONWebTokenResponseTest extends \PHPUnit_Framework_TestCase
+class AuthCodeTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -75,17 +75,25 @@ class JSONWebTokenResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "JSONWebTokenResponse"
+     * Test "AuthCode"
      */
-    public function testJSONWebTokenResponse()
+    public function testAuthCode()
     {
 
     }
 
     /**
-     * Test attribute "data"
+     * Test attribute "code"
      */
-    public function testPropertyData()
+    public function testPropertyCode()
+    {
+
+    }
+
+    /**
+     * Test attribute "code_expiry"
+     */
+    public function testPropertyCodeExpiry()
     {
 
     }

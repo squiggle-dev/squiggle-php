@@ -308,6 +308,17 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for findSignatures
+     *
+     * .
+     *
+     */
+    public function testFindSignatures()
+    {
+
+    }
+
+    /**
      * Test case for findSnippets
      *
      * .
@@ -336,6 +347,17 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testFindUsers()
+    {
+
+    }
+
+    /**
+     * Test case for generateAddressAuthCode
+     *
+     * .
+     *
+     */
+    public function testGenerateAddressAuthCode()
     {
 
     }
@@ -380,6 +402,17 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testGetGlobalTemplate()
+    {
+
+    }
+
+    /**
+     * Test case for getSignature
+     *
+     * .
+     *
+     */
+    public function testGetSignature()
     {
 
     }

@@ -187,17 +187,17 @@ class AddressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "signatures"
+     * Test attribute "template"
      */
-    public function testPropertySignatures()
+    public function testPropertyTemplate()
     {
 
     }
 
     /**
-     * Test attribute "user"
+     * Test attribute "signatures"
      */
-    public function testPropertyUser()
+    public function testPropertySignatures()
     {
 
     }

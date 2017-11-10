@@ -91,14 +91,6 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "user"
-     */
-    public function testPropertyUser()
-    {
-
-    }
-
-    /**
      * Test attribute "global_template"
      */
     public function testPropertyGlobalTemplate()
