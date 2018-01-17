@@ -91,6 +91,22 @@ class UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+
+    }
+
+    /**
+     * Test attribute "webhook_url"
+     */
+    public function testPropertyWebhookUrl()
+    {
+
+    }
+
+    /**
      * Test attribute "email"
      */
     public function testPropertyEmail()

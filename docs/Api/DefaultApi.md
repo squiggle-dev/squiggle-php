@@ -29,7 +29,8 @@ Method | HTTP request | Description
 [**findSnippets**](DefaultApi.md#findSnippets) | **GET** /snippets | 
 [**findTemplates**](DefaultApi.md#findTemplates) | **GET** /templates | 
 [**findUsers**](DefaultApi.md#findUsers) | **GET** /users | 
-[**generateAddressAuthCode**](DefaultApi.md#generateAddressAuthCode) | **POST** /addresses/{id}/generate-auth-code | 
+[**generateAddressAuthCode**](DefaultApi.md#generateAddressAuthCode) | **POST** /addresses/generate-auth-code | 
+[**generateAddressAuthCodeById**](DefaultApi.md#generateAddressAuthCodeById) | **POST** /addresses/generate-auth-code/{id} | 
 [**getAddress**](DefaultApi.md#getAddress) | **GET** /addresses/{id} | 
 [**getAddressToken**](DefaultApi.md#getAddressToken) | **POST** /token/address | 
 [**getFile**](DefaultApi.md#getFile) | **GET** /files/{id} | 
@@ -1354,7 +1355,51 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generateAddressAuthCode**
-> \Squiggle\Model\AuthCode generateAddressAuthCode($id)
+> generateAddressAuthCode($data)
+
+
+
+Generates a one-time auth code for an address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Squiggle\Api\DefaultApi();
+$data = new \Squiggle\Model\AuthCodeRequest(); // \Squiggle\Model\AuthCodeRequest | 
+
+try {
+    $api_instance->generateAddressAuthCode($data);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->generateAddressAuthCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**\Squiggle\Model\AuthCodeRequest**](../Model/\Squiggle\Model\AuthCodeRequest.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **generateAddressAuthCodeById**
+> \Squiggle\Model\AuthCode generateAddressAuthCodeById($id)
 
 
 
@@ -1374,10 +1419,10 @@ $api_instance = new Squiggle\Api\DefaultApi();
 $id = 789; // int | ID of address
 
 try {
-    $result = $api_instance->generateAddressAuthCode($id);
+    $result = $api_instance->generateAddressAuthCodeById($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->generateAddressAuthCode: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->generateAddressAuthCodeById: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

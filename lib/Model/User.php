@@ -54,6 +54,8 @@ class User implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
+        'status' => 'string',
+        'webhook_url' => 'string',
         'email' => 'string',
         'company_name' => 'string',
         'first_name' => 'string',
@@ -93,6 +95,8 @@ class User implements ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'status' => 'status',
+        'webhook_url' => 'webhook_url',
         'email' => 'email',
         'company_name' => 'company_name',
         'first_name' => 'first_name',
@@ -128,6 +132,8 @@ class User implements ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'status' => 'setStatus',
+        'webhook_url' => 'setWebhookUrl',
         'email' => 'setEmail',
         'company_name' => 'setCompanyName',
         'first_name' => 'setFirstName',
@@ -163,6 +169,8 @@ class User implements ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'status' => 'getStatus',
+        'webhook_url' => 'getWebhookUrl',
         'email' => 'getEmail',
         'company_name' => 'getCompanyName',
         'first_name' => 'getFirstName',
@@ -223,6 +231,8 @@ class User implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['webhook_url'] = isset($data['webhook_url']) ? $data['webhook_url'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
@@ -291,6 +301,48 @@ class User implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param string $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_url
+     * @return string
+     */
+    public function getWebhookUrl()
+    {
+        return $this->container['webhook_url'];
+    }
+
+    /**
+     * Sets webhook_url
+     * @param string $webhook_url
+     * @return $this
+     */
+    public function setWebhookUrl($webhook_url)
+    {
+        $this->container['webhook_url'] = $webhook_url;
 
         return $this;
     }

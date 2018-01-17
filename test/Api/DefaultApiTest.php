@@ -363,6 +363,17 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for generateAddressAuthCodeById
+     *
+     * .
+     *
+     */
+    public function testGenerateAddressAuthCodeById()
+    {
+
+    }
+
+    /**
      * Test case for getAddress
      *
      * .
