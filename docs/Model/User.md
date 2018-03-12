@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **logo** | [**\Squiggle\Model\FileObject**](FileObject.md) |  | [optional] 
 **snippet** | [**\Squiggle\Model\Snippet**](Snippet.md) |  | [optional] 
 **template** | **int** |  | [optional] 
+**address_count** | **int** |  | [optional] 
 **snippet_enabled** | **bool** |  | [optional] 
 **secret_key** | **string** |  | [optional] 
 **access_token** | **string** |  | [optional] 

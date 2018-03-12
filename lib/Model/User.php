@@ -77,6 +77,7 @@ class User implements ArrayAccess
         'logo' => '\Squiggle\Model\FileObject',
         'snippet' => '\Squiggle\Model\Snippet',
         'template' => 'int',
+        'address_count' => 'int',
         'snippet_enabled' => 'bool',
         'secret_key' => 'string',
         'access_token' => 'string',
@@ -118,6 +119,7 @@ class User implements ArrayAccess
         'logo' => 'logo',
         'snippet' => 'snippet',
         'template' => 'template',
+        'address_count' => 'address_count',
         'snippet_enabled' => 'snippet_enabled',
         'secret_key' => 'secret_key',
         'access_token' => 'access_token',
@@ -155,6 +157,7 @@ class User implements ArrayAccess
         'logo' => 'setLogo',
         'snippet' => 'setSnippet',
         'template' => 'setTemplate',
+        'address_count' => 'setAddressCount',
         'snippet_enabled' => 'setSnippetEnabled',
         'secret_key' => 'setSecretKey',
         'access_token' => 'setAccessToken',
@@ -192,6 +195,7 @@ class User implements ArrayAccess
         'logo' => 'getLogo',
         'snippet' => 'getSnippet',
         'template' => 'getTemplate',
+        'address_count' => 'getAddressCount',
         'snippet_enabled' => 'getSnippetEnabled',
         'secret_key' => 'getSecretKey',
         'access_token' => 'getAccessToken',
@@ -254,6 +258,7 @@ class User implements ArrayAccess
         $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
         $this->container['snippet'] = isset($data['snippet']) ? $data['snippet'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
+        $this->container['address_count'] = isset($data['address_count']) ? $data['address_count'] : null;
         $this->container['snippet_enabled'] = isset($data['snippet_enabled']) ? $data['snippet_enabled'] : null;
         $this->container['secret_key'] = isset($data['secret_key']) ? $data['secret_key'] : null;
         $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
@@ -784,6 +789,27 @@ class User implements ArrayAccess
     public function setTemplate($template)
     {
         $this->container['template'] = $template;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_count
+     * @return int
+     */
+    public function getAddressCount()
+    {
+        return $this->container['address_count'];
+    }
+
+    /**
+     * Sets address_count
+     * @param int $address_count
+     * @return $this
+     */
+    public function setAddressCount($address_count)
+    {
+        $this->container['address_count'] = $address_count;
 
         return $this;
     }
