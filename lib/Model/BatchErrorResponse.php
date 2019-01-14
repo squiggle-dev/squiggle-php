@@ -1,6 +1,6 @@
 <?php
 /**
- * UnexpectedErrorResponse
+ * BatchErrorResponse
  *
  * PHP version 5
  *
@@ -32,7 +32,7 @@ namespace Squiggle\Model;
 use \ArrayAccess;
 
 /**
- * UnexpectedErrorResponse Class Doc Comment
+ * BatchErrorResponse Class Doc Comment
  *
  * @category    Class */
 /**
@@ -40,13 +40,13 @@ use \ArrayAccess;
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class UnexpectedErrorResponse implements ArrayAccess
+class BatchErrorResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'UnexpectedErrorResponse';
+    protected static $swaggerModelName = 'BatchErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,7 +55,7 @@ class UnexpectedErrorResponse implements ArrayAccess
     protected static $swaggerTypes = [
         'code' => 'int',
         'message' => 'string',
-        'errors' => 'map[string,string]'
+        'errors' => 'map[string,\Squiggle\Model\UnexpectedErrorResponse]'
     ];
 
     public static function swaggerTypes()
@@ -210,7 +210,7 @@ class UnexpectedErrorResponse implements ArrayAccess
 
     /**
      * Gets errors
-     * @return map[string,string]
+     * @return map[string,\Squiggle\Model\UnexpectedErrorResponse]
      */
     public function getErrors()
     {
@@ -219,7 +219,7 @@ class UnexpectedErrorResponse implements ArrayAccess
 
     /**
      * Sets errors
-     * @param map[string,string] $errors
+     * @param map[string,\Squiggle\Model\UnexpectedErrorResponse] $errors
      * @return $this
      */
     public function setErrors($errors)

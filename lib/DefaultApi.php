@@ -180,6 +180,97 @@ class DefaultApi
     }
 
     /**
+     * Operation addAddressBatch
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return map[string,\Squiggle\Model\Address]
+     */
+    public function addAddressBatch($data)
+    {
+        list($response) = $this->addAddressBatchWithHttpInfo($data);
+        return $response;
+    }
+
+    /**
+     * Operation addAddressBatchWithHttpInfo
+     *
+     * 
+     *
+     * @param object $data  (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return array of map[string,\Squiggle\Model\Address], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addAddressBatchWithHttpInfo($data)
+    {
+        // verify the required parameter 'data' is set
+        if ($data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $data when calling addAddressBatch');
+        }
+        // parse inputs
+        $resourcePath = "/addresses/batch";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($data)) {
+            $_tempBody = $data;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                'map[string,\Squiggle\Model\Address]',
+                '/addresses/batch'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, 'map[string,\Squiggle\Model\Address]', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'map[string,\Squiggle\Model\Address]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\BatchErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation addFile
      *
      * 

@@ -5,6 +5,7 @@ All URIs are relative to *http://api.squigglesignatures.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addAddress**](DefaultApi.md#addAddress) | **POST** /addresses | 
+[**addAddressBatch**](DefaultApi.md#addAddressBatch) | **POST** /addresses/batch | 
 [**addFile**](DefaultApi.md#addFile) | **POST** /files | 
 [**addGlobalTemplate**](DefaultApi.md#addGlobalTemplate) | **POST** /global-templates | 
 [**addSnippet**](DefaultApi.md#addSnippet) | **POST** /snippets | 
@@ -80,6 +81,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Squiggle\Model\Address**](../Model/Address.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **addAddressBatch**
+> map[string,\Squiggle\Model\Address] addAddressBatch($data)
+
+
+
+Creates multiple new addresses
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$api_instance = new Squiggle\Api\DefaultApi();
+$data = NULL; // object | 
+
+try {
+    $result = $api_instance->addAddressBatch($data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->addAddressBatch: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | **object**|  |
+
+### Return type
+
+[**map[string,\Squiggle\Model\Address]**](../Model/Address.md)
 
 ### Authorization
 
