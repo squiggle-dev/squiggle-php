@@ -74,6 +74,7 @@ class User implements ArrayAccess
         'twitter' => 'string',
         'instagram' => 'string',
         'googleplus' => 'string',
+        'additional_text' => 'string',
         'logo' => '\Squiggle\Model\FileObject',
         'snippet' => '\Squiggle\Model\Snippet',
         'template' => 'int',
@@ -116,6 +117,7 @@ class User implements ArrayAccess
         'twitter' => 'twitter',
         'instagram' => 'instagram',
         'googleplus' => 'googleplus',
+        'additional_text' => 'additional_text',
         'logo' => 'logo',
         'snippet' => 'snippet',
         'template' => 'template',
@@ -154,6 +156,7 @@ class User implements ArrayAccess
         'twitter' => 'setTwitter',
         'instagram' => 'setInstagram',
         'googleplus' => 'setGoogleplus',
+        'additional_text' => 'setAdditionalText',
         'logo' => 'setLogo',
         'snippet' => 'setSnippet',
         'template' => 'setTemplate',
@@ -192,6 +195,7 @@ class User implements ArrayAccess
         'twitter' => 'getTwitter',
         'instagram' => 'getInstagram',
         'googleplus' => 'getGoogleplus',
+        'additional_text' => 'getAdditionalText',
         'logo' => 'getLogo',
         'snippet' => 'getSnippet',
         'template' => 'getTemplate',
@@ -255,6 +259,7 @@ class User implements ArrayAccess
         $this->container['twitter'] = isset($data['twitter']) ? $data['twitter'] : null;
         $this->container['instagram'] = isset($data['instagram']) ? $data['instagram'] : null;
         $this->container['googleplus'] = isset($data['googleplus']) ? $data['googleplus'] : null;
+        $this->container['additional_text'] = isset($data['additional_text']) ? $data['additional_text'] : null;
         $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
         $this->container['snippet'] = isset($data['snippet']) ? $data['snippet'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
@@ -726,6 +731,27 @@ class User implements ArrayAccess
     public function setGoogleplus($googleplus)
     {
         $this->container['googleplus'] = $googleplus;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_text
+     * @return string
+     */
+    public function getAdditionalText()
+    {
+        return $this->container['additional_text'];
+    }
+
+    /**
+     * Sets additional_text
+     * @param string $additional_text
+     * @return $this
+     */
+    public function setAdditionalText($additional_text)
+    {
+        $this->container['additional_text'] = $additional_text;
 
         return $this;
     }

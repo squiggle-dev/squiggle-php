@@ -59,7 +59,7 @@ class DefaultApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('http://api.squigglesignatures.com/v1');
+            $apiClient->getConfig()->setHost('http://localhost:8081/v1');
         }
 
         $this->apiClient = $apiClient;

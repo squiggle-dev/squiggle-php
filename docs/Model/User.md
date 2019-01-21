@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **twitter** | **string** |  | [optional] 
 **instagram** | **string** |  | [optional] 
 **googleplus** | **string** |  | [optional] 
+**additional_text** | **string** |  | [optional] 
 **logo** | [**\Squiggle\Model\FileObject**](FileObject.md) |  | [optional] 
 **snippet** | [**\Squiggle\Model\Snippet**](Snippet.md) |  | [optional] 
 **template** | **int** |  | [optional] 
