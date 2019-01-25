@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **src** | **string** |  | [optional] 
 **mime_type** | **string** |  | [optional] 
 **size** | **int** |  | [optional] 
+**metadata** | **object** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

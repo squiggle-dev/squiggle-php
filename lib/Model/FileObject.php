@@ -58,6 +58,7 @@ class FileObject implements ArrayAccess
         'src' => 'string',
         'mime_type' => 'string',
         'size' => 'int',
+        'metadata' => 'object',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -77,6 +78,7 @@ class FileObject implements ArrayAccess
         'src' => 'src',
         'mime_type' => 'mime_type',
         'size' => 'size',
+        'metadata' => 'metadata',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -92,6 +94,7 @@ class FileObject implements ArrayAccess
         'src' => 'setSrc',
         'mime_type' => 'setMimeType',
         'size' => 'setSize',
+        'metadata' => 'setMetadata',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -107,6 +110,7 @@ class FileObject implements ArrayAccess
         'src' => 'getSrc',
         'mime_type' => 'getMimeType',
         'size' => 'getSize',
+        'metadata' => 'getMetadata',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -147,6 +151,7 @@ class FileObject implements ArrayAccess
         $this->container['src'] = isset($data['src']) ? $data['src'] : null;
         $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -275,6 +280,27 @@ class FileObject implements ArrayAccess
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     * @return object
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     * @param object $metadata
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
