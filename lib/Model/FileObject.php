@@ -56,6 +56,7 @@ class FileObject implements ArrayAccess
         'id' => 'int',
         'name' => 'string',
         'src' => 'string',
+        'mime_type' => 'string',
         'size' => 'int',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -74,6 +75,7 @@ class FileObject implements ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'src' => 'src',
+        'mime_type' => 'mime_type',
         'size' => 'size',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -88,6 +90,7 @@ class FileObject implements ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'src' => 'setSrc',
+        'mime_type' => 'setMimeType',
         'size' => 'setSize',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -102,6 +105,7 @@ class FileObject implements ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'src' => 'getSrc',
+        'mime_type' => 'getMimeType',
         'size' => 'getSize',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -141,6 +145,7 @@ class FileObject implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['src'] = isset($data['src']) ? $data['src'] : null;
+        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -228,6 +233,27 @@ class FileObject implements ArrayAccess
     public function setSrc($src)
     {
         $this->container['src'] = $src;
+
+        return $this;
+    }
+
+    /**
+     * Gets mime_type
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->container['mime_type'];
+    }
+
+    /**
+     * Sets mime_type
+     * @param string $mime_type
+     * @return $this
+     */
+    public function setMimeType($mime_type)
+    {
+        $this->container['mime_type'] = $mime_type;
 
         return $this;
     }

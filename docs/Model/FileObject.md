@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **name** | **string** |  | [optional] 
 **src** | **string** |  | [optional] 
+**mime_type** | **string** |  | [optional] 
 **size** | **int** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
