@@ -1,6 +1,6 @@
 # Squiggle\DefaultApi
 
-All URIs are relative to *http://localhost:8081/v1*
+All URIs are relative to *http://api.squigglesignatures.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -111,7 +111,7 @@ Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'Y
 // Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Squiggle\Api\DefaultApi();
-$data = NULL; // object | 
+$data = array(new Address()); // \Squiggle\Model\Address[] | 
 
 try {
     $result = $api_instance->addAddressBatch($data);
@@ -126,7 +126,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | **object**|  |
+ **data** | [**\Squiggle\Model\Address[]**](../Model/Address.md)|  |
 
 ### Return type
 

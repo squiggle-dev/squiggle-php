@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **label** | **string** |  | [optional] 
+**preview** | **string** |  | [optional] 
 **plain** | **string** |  | [optional] 
 **html** | **string** |  | [optional] 
 **address** | **int** |  | [optional] 

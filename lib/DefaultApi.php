@@ -59,7 +59,7 @@ class DefaultApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('http://localhost:8081/v1');
+            $apiClient->getConfig()->setHost('http://api.squigglesignatures.com/v1');
         }
 
         $this->apiClient = $apiClient;
@@ -184,7 +184,7 @@ class DefaultApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Address[] $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return map[string,\Squiggle\Model\Address]
      */
@@ -199,7 +199,7 @@ class DefaultApi
      *
      * 
      *
-     * @param object $data  (required)
+     * @param \Squiggle\Model\Address[] $data  (required)
      * @throws \Squiggle\ApiException on non-2xx response
      * @return array of map[string,\Squiggle\Model\Address], HTTP status code, HTTP response headers (array of strings)
      */

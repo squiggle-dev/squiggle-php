@@ -55,6 +55,7 @@ class Signature implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'label' => 'string',
+        'preview' => 'string',
         'plain' => 'string',
         'html' => 'string',
         'address' => 'int',
@@ -74,6 +75,7 @@ class Signature implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'label' => 'label',
+        'preview' => 'preview',
         'plain' => 'plain',
         'html' => 'html',
         'address' => 'address',
@@ -89,6 +91,7 @@ class Signature implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'label' => 'setLabel',
+        'preview' => 'setPreview',
         'plain' => 'setPlain',
         'html' => 'setHtml',
         'address' => 'setAddress',
@@ -104,6 +107,7 @@ class Signature implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'label' => 'getLabel',
+        'preview' => 'getPreview',
         'plain' => 'getPlain',
         'html' => 'getHtml',
         'address' => 'getAddress',
@@ -144,6 +148,7 @@ class Signature implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['preview'] = isset($data['preview']) ? $data['preview'] : null;
         $this->container['plain'] = isset($data['plain']) ? $data['plain'] : null;
         $this->container['html'] = isset($data['html']) ? $data['html'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
@@ -212,6 +217,27 @@ class Signature implements ArrayAccess
     public function setLabel($label)
     {
         $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets preview
+     * @return string
+     */
+    public function getPreview()
+    {
+        return $this->container['preview'];
+    }
+
+    /**
+     * Sets preview
+     * @param string $preview
+     * @return $this
+     */
+    public function setPreview($preview)
+    {
+        $this->container['preview'] = $preview;
 
         return $this;
     }
