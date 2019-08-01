@@ -1,6 +1,6 @@
 <?php
 /**
- * Signature
+ * FileTemplate
  *
  * PHP version 5
  *
@@ -32,7 +32,7 @@ namespace Squiggle\Model;
 use \ArrayAccess;
 
 /**
- * Signature Class Doc Comment
+ * FileTemplate Class Doc Comment
  *
  * @category    Class */
 /**
@@ -40,13 +40,13 @@ use \ArrayAccess;
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Signature implements ArrayAccess
+class FileTemplate implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Signature';
+    protected static $swaggerModelName = 'FileTemplate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,15 +54,11 @@ class Signature implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
-        'label' => 'string',
-        'preview' => 'string',
-        'preview_width' => 'int',
-        'preview_height' => 'int',
-        'plain' => 'string',
-        'html' => 'string',
-        'address' => 'int',
-        'template' => 'int',
-        'errors' => 'map[string,string]'
+        'name' => 'string',
+        'src' => 'string',
+        'mime_type' => 'string',
+        'width' => 'int',
+        'height' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -75,16 +71,12 @@ class Signature implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'label' => 'label',
-        'preview' => 'preview',
-        'preview_width' => 'preview_width',
-        'preview_height' => 'preview_height',
-        'plain' => 'plain',
-        'html' => 'html',
-        'address' => 'address',
-        'template' => 'template',
-        'errors' => 'errors'
+        'id' => 'Id',
+        'name' => 'Name',
+        'src' => 'Src',
+        'mime_type' => 'MimeType',
+        'width' => 'Width',
+        'height' => 'Height'
     ];
 
 
@@ -94,15 +86,11 @@ class Signature implements ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'label' => 'setLabel',
-        'preview' => 'setPreview',
-        'preview_width' => 'setPreviewWidth',
-        'preview_height' => 'setPreviewHeight',
-        'plain' => 'setPlain',
-        'html' => 'setHtml',
-        'address' => 'setAddress',
-        'template' => 'setTemplate',
-        'errors' => 'setErrors'
+        'name' => 'setName',
+        'src' => 'setSrc',
+        'mime_type' => 'setMimeType',
+        'width' => 'setWidth',
+        'height' => 'setHeight'
     ];
 
 
@@ -112,15 +100,11 @@ class Signature implements ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'label' => 'getLabel',
-        'preview' => 'getPreview',
-        'preview_width' => 'getPreviewWidth',
-        'preview_height' => 'getPreviewHeight',
-        'plain' => 'getPlain',
-        'html' => 'getHtml',
-        'address' => 'getAddress',
-        'template' => 'getTemplate',
-        'errors' => 'getErrors'
+        'name' => 'getName',
+        'src' => 'getSrc',
+        'mime_type' => 'getMimeType',
+        'width' => 'getWidth',
+        'height' => 'getHeight'
     ];
 
     public static function attributeMap()
@@ -155,15 +139,11 @@ class Signature implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['preview'] = isset($data['preview']) ? $data['preview'] : null;
-        $this->container['preview_width'] = isset($data['preview_width']) ? $data['preview_width'] : null;
-        $this->container['preview_height'] = isset($data['preview_height']) ? $data['preview_height'] : null;
-        $this->container['plain'] = isset($data['plain']) ? $data['plain'] : null;
-        $this->container['html'] = isset($data['html']) ? $data['html'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['src'] = isset($data['src']) ? $data['src'] : null;
+        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
     }
 
     /**
@@ -211,190 +191,106 @@ class Signature implements ArrayAccess
     }
 
     /**
-     * Gets label
+     * Gets name
      * @return string
      */
-    public function getLabel()
+    public function getName()
     {
-        return $this->container['label'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets label
-     * @param string $label
+     * Sets name
+     * @param string $name
      * @return $this
      */
-    public function setLabel($label)
+    public function setName($name)
     {
-        $this->container['label'] = $label;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets preview
+     * Gets src
      * @return string
      */
-    public function getPreview()
+    public function getSrc()
     {
-        return $this->container['preview'];
+        return $this->container['src'];
     }
 
     /**
-     * Sets preview
-     * @param string $preview
+     * Sets src
+     * @param string $src
      * @return $this
      */
-    public function setPreview($preview)
+    public function setSrc($src)
     {
-        $this->container['preview'] = $preview;
+        $this->container['src'] = $src;
 
         return $this;
     }
 
     /**
-     * Gets preview_width
-     * @return int
-     */
-    public function getPreviewWidth()
-    {
-        return $this->container['preview_width'];
-    }
-
-    /**
-     * Sets preview_width
-     * @param int $preview_width
-     * @return $this
-     */
-    public function setPreviewWidth($preview_width)
-    {
-        $this->container['preview_width'] = $preview_width;
-
-        return $this;
-    }
-
-    /**
-     * Gets preview_height
-     * @return int
-     */
-    public function getPreviewHeight()
-    {
-        return $this->container['preview_height'];
-    }
-
-    /**
-     * Sets preview_height
-     * @param int $preview_height
-     * @return $this
-     */
-    public function setPreviewHeight($preview_height)
-    {
-        $this->container['preview_height'] = $preview_height;
-
-        return $this;
-    }
-
-    /**
-     * Gets plain
+     * Gets mime_type
      * @return string
      */
-    public function getPlain()
+    public function getMimeType()
     {
-        return $this->container['plain'];
+        return $this->container['mime_type'];
     }
 
     /**
-     * Sets plain
-     * @param string $plain
+     * Sets mime_type
+     * @param string $mime_type
      * @return $this
      */
-    public function setPlain($plain)
+    public function setMimeType($mime_type)
     {
-        $this->container['plain'] = $plain;
+        $this->container['mime_type'] = $mime_type;
 
         return $this;
     }
 
     /**
-     * Gets html
-     * @return string
-     */
-    public function getHtml()
-    {
-        return $this->container['html'];
-    }
-
-    /**
-     * Sets html
-     * @param string $html
-     * @return $this
-     */
-    public function setHtml($html)
-    {
-        $this->container['html'] = $html;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
+     * Gets width
      * @return int
      */
-    public function getAddress()
+    public function getWidth()
     {
-        return $this->container['address'];
+        return $this->container['width'];
     }
 
     /**
-     * Sets address
-     * @param int $address
+     * Sets width
+     * @param int $width
      * @return $this
      */
-    public function setAddress($address)
+    public function setWidth($width)
     {
-        $this->container['address'] = $address;
+        $this->container['width'] = $width;
 
         return $this;
     }
 
     /**
-     * Gets template
+     * Gets height
      * @return int
      */
-    public function getTemplate()
+    public function getHeight()
     {
-        return $this->container['template'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets template
-     * @param int $template
+     * Sets height
+     * @param int $height
      * @return $this
      */
-    public function setTemplate($template)
+    public function setHeight($height)
     {
-        $this->container['template'] = $template;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     * @return map[string,string]
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     * @param map[string,string] $errors
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
+        $this->container['height'] = $height;
 
         return $this;
     }

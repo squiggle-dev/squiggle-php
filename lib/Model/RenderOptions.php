@@ -1,6 +1,6 @@
 <?php
 /**
- * Signature
+ * RenderOptions
  *
  * PHP version 5
  *
@@ -32,7 +32,7 @@ namespace Squiggle\Model;
 use \ArrayAccess;
 
 /**
- * Signature Class Doc Comment
+ * RenderOptions Class Doc Comment
  *
  * @category    Class */
 /**
@@ -40,29 +40,24 @@ use \ArrayAccess;
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Signature implements ArrayAccess
+class RenderOptions implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Signature';
+    protected static $swaggerModelName = 'RenderOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'label' => 'string',
-        'preview' => 'string',
-        'preview_width' => 'int',
-        'preview_height' => 'int',
-        'plain' => 'string',
-        'html' => 'string',
-        'address' => 'int',
-        'template' => 'int',
-        'errors' => 'map[string,string]'
+        'address_id' => 'int',
+        'template_id' => 'int',
+        'global_template_id' => 'int',
+        'template' => 'string',
+        'context' => '\Squiggle\Model\AddressTemplate'
     ];
 
     public static function swaggerTypes()
@@ -75,16 +70,11 @@ class Signature implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'label' => 'label',
-        'preview' => 'preview',
-        'preview_width' => 'preview_width',
-        'preview_height' => 'preview_height',
-        'plain' => 'plain',
-        'html' => 'html',
-        'address' => 'address',
+        'address_id' => 'address_id',
+        'template_id' => 'template_id',
+        'global_template_id' => 'global_template_id',
         'template' => 'template',
-        'errors' => 'errors'
+        'context' => 'context'
     ];
 
 
@@ -93,16 +83,11 @@ class Signature implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'label' => 'setLabel',
-        'preview' => 'setPreview',
-        'preview_width' => 'setPreviewWidth',
-        'preview_height' => 'setPreviewHeight',
-        'plain' => 'setPlain',
-        'html' => 'setHtml',
-        'address' => 'setAddress',
+        'address_id' => 'setAddressId',
+        'template_id' => 'setTemplateId',
+        'global_template_id' => 'setGlobalTemplateId',
         'template' => 'setTemplate',
-        'errors' => 'setErrors'
+        'context' => 'setContext'
     ];
 
 
@@ -111,16 +96,11 @@ class Signature implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'label' => 'getLabel',
-        'preview' => 'getPreview',
-        'preview_width' => 'getPreviewWidth',
-        'preview_height' => 'getPreviewHeight',
-        'plain' => 'getPlain',
-        'html' => 'getHtml',
-        'address' => 'getAddress',
+        'address_id' => 'getAddressId',
+        'template_id' => 'getTemplateId',
+        'global_template_id' => 'getGlobalTemplateId',
         'template' => 'getTemplate',
-        'errors' => 'getErrors'
+        'context' => 'getContext'
     ];
 
     public static function attributeMap()
@@ -154,16 +134,11 @@ class Signature implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
-        $this->container['preview'] = isset($data['preview']) ? $data['preview'] : null;
-        $this->container['preview_width'] = isset($data['preview_width']) ? $data['preview_width'] : null;
-        $this->container['preview_height'] = isset($data['preview_height']) ? $data['preview_height'] : null;
-        $this->container['plain'] = isset($data['plain']) ? $data['plain'] : null;
-        $this->container['html'] = isset($data['html']) ? $data['html'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['address_id'] = isset($data['address_id']) ? $data['address_id'] : null;
+        $this->container['template_id'] = isset($data['template_id']) ? $data['template_id'] : null;
+        $this->container['global_template_id'] = isset($data['global_template_id']) ? $data['global_template_id'] : null;
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['context'] = isset($data['context']) ? $data['context'] : null;
     }
 
     /**
@@ -190,176 +165,71 @@ class Signature implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets address_id
      * @return int
      */
-    public function getId()
+    public function getAddressId()
     {
-        return $this->container['id'];
+        return $this->container['address_id'];
     }
 
     /**
-     * Sets id
-     * @param int $id
+     * Sets address_id
+     * @param int $address_id
      * @return $this
      */
-    public function setId($id)
+    public function setAddressId($address_id)
     {
-        $this->container['id'] = $id;
+        $this->container['address_id'] = $address_id;
 
         return $this;
     }
 
     /**
-     * Gets label
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     * @param string $label
-     * @return $this
-     */
-    public function setLabel($label)
-    {
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets preview
-     * @return string
-     */
-    public function getPreview()
-    {
-        return $this->container['preview'];
-    }
-
-    /**
-     * Sets preview
-     * @param string $preview
-     * @return $this
-     */
-    public function setPreview($preview)
-    {
-        $this->container['preview'] = $preview;
-
-        return $this;
-    }
-
-    /**
-     * Gets preview_width
+     * Gets template_id
      * @return int
      */
-    public function getPreviewWidth()
+    public function getTemplateId()
     {
-        return $this->container['preview_width'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets preview_width
-     * @param int $preview_width
+     * Sets template_id
+     * @param int $template_id
      * @return $this
      */
-    public function setPreviewWidth($preview_width)
+    public function setTemplateId($template_id)
     {
-        $this->container['preview_width'] = $preview_width;
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }
 
     /**
-     * Gets preview_height
+     * Gets global_template_id
      * @return int
      */
-    public function getPreviewHeight()
+    public function getGlobalTemplateId()
     {
-        return $this->container['preview_height'];
+        return $this->container['global_template_id'];
     }
 
     /**
-     * Sets preview_height
-     * @param int $preview_height
+     * Sets global_template_id
+     * @param int $global_template_id
      * @return $this
      */
-    public function setPreviewHeight($preview_height)
+    public function setGlobalTemplateId($global_template_id)
     {
-        $this->container['preview_height'] = $preview_height;
-
-        return $this;
-    }
-
-    /**
-     * Gets plain
-     * @return string
-     */
-    public function getPlain()
-    {
-        return $this->container['plain'];
-    }
-
-    /**
-     * Sets plain
-     * @param string $plain
-     * @return $this
-     */
-    public function setPlain($plain)
-    {
-        $this->container['plain'] = $plain;
-
-        return $this;
-    }
-
-    /**
-     * Gets html
-     * @return string
-     */
-    public function getHtml()
-    {
-        return $this->container['html'];
-    }
-
-    /**
-     * Sets html
-     * @param string $html
-     * @return $this
-     */
-    public function setHtml($html)
-    {
-        $this->container['html'] = $html;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     * @return int
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     * @param int $address
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
+        $this->container['global_template_id'] = $global_template_id;
 
         return $this;
     }
 
     /**
      * Gets template
-     * @return int
+     * @return string
      */
     public function getTemplate()
     {
@@ -368,7 +238,7 @@ class Signature implements ArrayAccess
 
     /**
      * Sets template
-     * @param int $template
+     * @param string $template
      * @return $this
      */
     public function setTemplate($template)
@@ -379,22 +249,22 @@ class Signature implements ArrayAccess
     }
 
     /**
-     * Gets errors
-     * @return map[string,string]
+     * Gets context
+     * @return \Squiggle\Model\AddressTemplate
      */
-    public function getErrors()
+    public function getContext()
     {
-        return $this->container['errors'];
+        return $this->container['context'];
     }
 
     /**
-     * Sets errors
-     * @param map[string,string] $errors
+     * Sets context
+     * @param \Squiggle\Model\AddressTemplate $context
      * @return $this
      */
-    public function setErrors($errors)
+    public function setContext($context)
     {
-        $this->container['errors'] = $errors;
+        $this->container['context'] = $context;
 
         return $this;
     }

@@ -36,11 +36,13 @@ Method | HTTP request | Description
 [**getAddressToken**](DefaultApi.md#getAddressToken) | **POST** /token/address | 
 [**getFile**](DefaultApi.md#getFile) | **GET** /files/{id} | 
 [**getGlobalTemplate**](DefaultApi.md#getGlobalTemplate) | **GET** /global-templates/{id} | 
+[**getImage**](DefaultApi.md#getImage) | **GET** /image/{id} | 
 [**getSignature**](DefaultApi.md#getSignature) | **GET** /signatures/{id} | 
 [**getSnippet**](DefaultApi.md#getSnippet) | **GET** /snippets/{id} | 
 [**getTemplate**](DefaultApi.md#getTemplate) | **GET** /templates/{id} | 
 [**getUser**](DefaultApi.md#getUser) | **GET** /users/{id} | 
 [**getUserToken**](DefaultApi.md#getUserToken) | **POST** /token/user | 
+[**render**](DefaultApi.md#render) | **POST** /render | 
 
 
 # **addAddress**
@@ -1694,6 +1696,62 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getImage**
+> \Squiggle\Model\ImageInfo getImage($id, $width, $height, $mode)
+
+
+
+Gets an image, resizes if necessary and returns the resulting url and dimensions
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$api_instance = new Squiggle\Api\DefaultApi();
+$id = 789; // int | ID of file to get
+$width = 56; // int | Image resize width
+$height = 56; // int | Image resize height
+$mode = "fit"; // string | Image resize mode ('fit', 'fill' or 'contain'). Default is 'fit'. Only relevant when width or height is specified
+
+try {
+    $result = $api_instance->getImage($id, $width, $height, $mode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getImage: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| ID of file to get |
+ **width** | **int**| Image resize width | [optional]
+ **height** | **int**| Image resize height | [optional]
+ **mode** | **string**| Image resize mode (&#39;fit&#39;, &#39;fill&#39; or &#39;contain&#39;). Default is &#39;fit&#39;. Only relevant when width or height is specified | [optional] [default to fit]
+
+### Return type
+
+[**\Squiggle\Model\ImageInfo**](../Model/ImageInfo.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getSignature**
 > \Squiggle\Model\Signature getSignature($id)
 
@@ -1936,6 +1994,55 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **render**
+> render($opts)
+
+
+
+Renders a template
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: jwt
+Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$api_instance = new Squiggle\Api\DefaultApi();
+$opts = new \Squiggle\Model\RenderOptions(); // \Squiggle\Model\RenderOptions | 
+
+try {
+    $api_instance->render($opts);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->render: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **opts** | [**\Squiggle\Model\RenderOptions**](../Model/\Squiggle\Model\RenderOptions.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/html, application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

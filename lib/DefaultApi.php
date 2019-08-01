@@ -3216,6 +3216,118 @@ class DefaultApi
     }
 
     /**
+     * Operation getImage
+     *
+     * 
+     *
+     * @param int $id ID of file to get (required)
+     * @param int $width Image resize width (optional)
+     * @param int $height Image resize height (optional)
+     * @param string $mode Image resize mode (&#39;fit&#39;, &#39;fill&#39; or &#39;contain&#39;). Default is &#39;fit&#39;. Only relevant when width or height is specified (optional, default to fit)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return \Squiggle\Model\ImageInfo
+     */
+    public function getImage($id, $width = null, $height = null, $mode = null)
+    {
+        list($response) = $this->getImageWithHttpInfo($id, $width, $height, $mode);
+        return $response;
+    }
+
+    /**
+     * Operation getImageWithHttpInfo
+     *
+     * 
+     *
+     * @param int $id ID of file to get (required)
+     * @param int $width Image resize width (optional)
+     * @param int $height Image resize height (optional)
+     * @param string $mode Image resize mode (&#39;fit&#39;, &#39;fill&#39; or &#39;contain&#39;). Default is &#39;fit&#39;. Only relevant when width or height is specified (optional, default to fit)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return array of \Squiggle\Model\ImageInfo, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getImageWithHttpInfo($id, $width = null, $height = null, $mode = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling getImage');
+        }
+        // parse inputs
+        $resourcePath = "/image/{id}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // query params
+        if ($width !== null) {
+            $queryParams['width'] = $this->apiClient->getSerializer()->toQueryValue($width);
+        }
+        // query params
+        if ($height !== null) {
+            $queryParams['height'] = $this->apiClient->getSerializer()->toQueryValue($height);
+        }
+        // query params
+        if ($mode !== null) {
+            $queryParams['mode'] = $this->apiClient->getSerializer()->toQueryValue($mode);
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Squiggle\Model\ImageInfo',
+                '/image/{id}'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Squiggle\Model\ImageInfo', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\ImageInfo', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getSignature
      *
      * 
@@ -3667,6 +3779,93 @@ class DefaultApi
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\JSONWebToken', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation render
+     *
+     * 
+     *
+     * @param \Squiggle\Model\RenderOptions $opts  (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return void
+     */
+    public function render($opts)
+    {
+        list($response) = $this->renderWithHttpInfo($opts);
+        return $response;
+    }
+
+    /**
+     * Operation renderWithHttpInfo
+     *
+     * 
+     *
+     * @param \Squiggle\Model\RenderOptions $opts  (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function renderWithHttpInfo($opts)
+    {
+        // verify the required parameter 'opts' is set
+        if ($opts === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $opts when calling render');
+        }
+        // parse inputs
+        $resourcePath = "/render";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['text/html', 'application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($opts)) {
+            $_tempBody = $opts;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('Authorization');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['Authorization'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/render'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
