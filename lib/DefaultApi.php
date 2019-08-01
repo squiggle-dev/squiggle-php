@@ -3796,7 +3796,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\RenderOptions $opts  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return void
+     * @return string
      */
     public function render($opts)
     {
@@ -3811,7 +3811,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\RenderOptions $opts  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function renderWithHttpInfo($opts)
     {
@@ -3859,13 +3859,17 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                null,
+                'string',
                 '/render'
             );
 
-            return [null, $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);

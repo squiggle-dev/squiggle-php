@@ -1998,7 +1998,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **render**
-> render($opts)
+> string render($opts)
 
 
 
@@ -2018,7 +2018,8 @@ $api_instance = new Squiggle\Api\DefaultApi();
 $opts = new \Squiggle\Model\RenderOptions(); // \Squiggle\Model\RenderOptions | 
 
 try {
-    $api_instance->render($opts);
+    $result = $api_instance->render($opts);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->render: ', $e->getMessage(), PHP_EOL;
 }
@@ -2033,7 +2034,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**string**
 
 ### Authorization
 
