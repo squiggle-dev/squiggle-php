@@ -59,7 +59,7 @@ class DefaultApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('http://api.squigglesignatures.com/v1');
+            $apiClient->getConfig()->setHost('http://localhost:8081/v1');
         }
 
         $this->apiClient = $apiClient;
@@ -262,6 +262,88 @@ class DefaultApi
                     break;
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\BatchErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addClient
+     *
+     * 
+     *
+     * @param \Squiggle\Model\Client $data  (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return void
+     */
+    public function addClient($data)
+    {
+        list($response) = $this->addClientWithHttpInfo($data);
+        return $response;
+    }
+
+    /**
+     * Operation addClientWithHttpInfo
+     *
+     * 
+     *
+     * @param \Squiggle\Model\Client $data  (required)
+     * @throws \Squiggle\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addClientWithHttpInfo($data)
+    {
+        // verify the required parameter 'data' is set
+        if ($data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $data when calling addClient');
+        }
+        // parse inputs
+        $resourcePath = "/clients";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($data)) {
+            $_tempBody = $data;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/clients'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -3796,7 +3878,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\RenderOptions $opts  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return string
+     * @return void
      */
     public function render($opts)
     {
@@ -3811,7 +3893,7 @@ class DefaultApi
      *
      * @param \Squiggle\Model\RenderOptions $opts  (required)
      * @throws \Squiggle\ApiException on non-2xx response
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function renderWithHttpInfo($opts)
     {
@@ -3859,17 +3941,13 @@ class DefaultApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                'string',
+                null,
                 '/render'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
+            return [null, $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
                 default:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Squiggle\Model\UnexpectedErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);

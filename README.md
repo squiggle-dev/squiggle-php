@@ -77,12 +77,13 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://api.squigglesignatures.com/v1*
+All URIs are relative to *http://localhost:8081/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**addAddress**](docs/Api/DefaultApi.md#addaddress) | **POST** /addresses | 
 *DefaultApi* | [**addAddressBatch**](docs/Api/DefaultApi.md#addaddressbatch) | **POST** /addresses/batch | 
+*DefaultApi* | [**addClient**](docs/Api/DefaultApi.md#addclient) | **POST** /clients | 
 *DefaultApi* | [**addFile**](docs/Api/DefaultApi.md#addfile) | **POST** /files | 
 *DefaultApi* | [**addGlobalTemplate**](docs/Api/DefaultApi.md#addglobaltemplate) | **POST** /global-templates | 
 *DefaultApi* | [**addSnippet**](docs/Api/DefaultApi.md#addsnippet) | **POST** /snippets | 
@@ -129,6 +130,7 @@ Class | Method | HTTP request | Description
  - [AuthCode](docs/Model/AuthCode.md)
  - [AuthCodeRequest](docs/Model/AuthCodeRequest.md)
  - [BatchErrorResponse](docs/Model/BatchErrorResponse.md)
+ - [Client](docs/Model/Client.md)
  - [FileObject](docs/Model/FileObject.md)
  - [FileTemplate](docs/Model/FileTemplate.md)
  - [GlobalTemplate](docs/Model/GlobalTemplate.md)

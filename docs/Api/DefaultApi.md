@@ -1,11 +1,12 @@
 # Squiggle\DefaultApi
 
-All URIs are relative to *http://api.squigglesignatures.com/v1*
+All URIs are relative to *http://localhost:8081/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addAddress**](DefaultApi.md#addAddress) | **POST** /addresses | 
 [**addAddressBatch**](DefaultApi.md#addAddressBatch) | **POST** /addresses/batch | 
+[**addClient**](DefaultApi.md#addClient) | **POST** /clients | 
 [**addFile**](DefaultApi.md#addFile) | **POST** /files | 
 [**addGlobalTemplate**](DefaultApi.md#addGlobalTemplate) | **POST** /global-templates | 
 [**addSnippet**](DefaultApi.md#addSnippet) | **POST** /snippets | 
@@ -137,6 +138,50 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **addClient**
+> addClient($data)
+
+
+
+Registers a client against an address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Squiggle\Api\DefaultApi();
+$data = new \Squiggle\Model\Client(); // \Squiggle\Model\Client | 
+
+try {
+    $api_instance->addClient($data);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->addClient: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**\Squiggle\Model\Client**](../Model/\Squiggle\Model\Client.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -1998,7 +2043,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **render**
-> string render($opts)
+> render($opts)
 
 
 
@@ -2018,8 +2063,7 @@ $api_instance = new Squiggle\Api\DefaultApi();
 $opts = new \Squiggle\Model\RenderOptions(); // \Squiggle\Model\RenderOptions | 
 
 try {
-    $result = $api_instance->render($opts);
-    print_r($result);
+    $api_instance->render($opts);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->render: ', $e->getMessage(), PHP_EOL;
 }
@@ -2034,7 +2078,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+void (empty response body)
 
 ### Authorization
 
