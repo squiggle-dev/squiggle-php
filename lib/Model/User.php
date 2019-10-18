@@ -55,6 +55,7 @@ class User implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'status' => 'string',
+        'show_branding' => 'bool',
         'webhook_url' => 'string',
         'email' => 'string',
         'company_name' => 'string',
@@ -98,6 +99,7 @@ class User implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'status' => 'status',
+        'show_branding' => 'show_branding',
         'webhook_url' => 'webhook_url',
         'email' => 'email',
         'company_name' => 'company_name',
@@ -137,6 +139,7 @@ class User implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'status' => 'setStatus',
+        'show_branding' => 'setShowBranding',
         'webhook_url' => 'setWebhookUrl',
         'email' => 'setEmail',
         'company_name' => 'setCompanyName',
@@ -176,6 +179,7 @@ class User implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'status' => 'getStatus',
+        'show_branding' => 'getShowBranding',
         'webhook_url' => 'getWebhookUrl',
         'email' => 'getEmail',
         'company_name' => 'getCompanyName',
@@ -240,6 +244,7 @@ class User implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['show_branding'] = isset($data['show_branding']) ? $data['show_branding'] : null;
         $this->container['webhook_url'] = isset($data['webhook_url']) ? $data['webhook_url'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
@@ -332,6 +337,27 @@ class User implements ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_branding
+     * @return bool
+     */
+    public function getShowBranding()
+    {
+        return $this->container['show_branding'];
+    }
+
+    /**
+     * Sets show_branding
+     * @param bool $show_branding
+     * @return $this
+     */
+    public function setShowBranding($show_branding)
+    {
+        $this->container['show_branding'] = $show_branding;
 
         return $this;
     }
