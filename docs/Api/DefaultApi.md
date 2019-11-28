@@ -158,6 +158,11 @@ Registers a client against an address
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure API key authorization: jwt
+Squiggle\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Squiggle\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 $api_instance = new Squiggle\Api\DefaultApi();
 $data = new \Squiggle\Model\Client(); // \Squiggle\Model\Client | 
 
@@ -181,7 +186,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[jwt](../../README.md#jwt)
 
 ### HTTP request headers
 
